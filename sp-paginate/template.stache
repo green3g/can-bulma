@@ -3,11 +3,11 @@
   <a class="pagination-previous" 
     aria-label="Goto previous" 
     on:click="gotoPrevious()"
-    {{#unless(hasPrevious}}disabled{{/unless}}>&laquo;</a>
+    {{#unless(hasPrevious}}disabled{{/unless}}><i class="fas fa-angle-double-left"></i></a>
   <a class="pagination-next" 
     aria-label="Goto next" 
     on:click="gotoNext()"
-    {{#unless(hasNext}}disabled{{/unless}}>&raquo;</a>
+    {{#unless(hasNext}}disabled{{/unless}}><i class="fas fa-angle-double-right"></i></a>
   {{else}}
   <ul class="pagination-list">
     <li>
