@@ -18,6 +18,12 @@ const ViewModel = DefineMap.extend('PaginateWidget', {
         default: 10
     },
     /**
+     * Render a compact style page switcher with just a forward and back button.
+     * @type {Boolean}
+     * @memberof sp-paginate.ViewModel.prototype
+     */
+    compact: 'boolean',
+    /**
      * The active page index
      * @type {Number}
      * @memberof sp-paginate.ViewModel.prototype
@@ -32,8 +38,48 @@ const ViewModel = DefineMap.extend('PaginateWidget', {
      * @memberof sp-paginate.ViewModel.prototype
      */
     activeOffset: {
-        default: 3,
+        default: 2,
         type: 'number'
+    },
+    /**
+     * The first page number.
+     * @type {Number}
+     * @memberof sp-paginate.ViewModel.prototype
+     */
+    firstPage: {
+        get () {
+            return this.pageArray[0];
+        }
+    },
+    /**
+     * The first page number.
+     * @type {Number}
+     * @memberof sp-paginate.ViewModel.prototype
+     */
+    lastPage: {
+        get () {
+            return this.pageArray[this.pageArray.length - 1];
+        }
+    },
+    /**
+     * 
+     * @type {Boolean}
+     * @memberof sp-paginate.ViewModel.prototype
+     */
+    hasFirstMore: {
+        get () {
+            return this.activePageIndex - this.activeOffset > 1;
+        }
+    },
+    /**
+     * 
+     * @type {Boolean}
+     * @memberof sp-paginate.ViewModel.prototype
+     */
+    hasLastMore: {
+        get () {
+            return this.activePageIndex + this.activeOffset < this.pages - 2;
+        }
     },
     /**
      * A virtual property used by the template to indicate whether or not there is a next page
@@ -62,12 +108,16 @@ const ViewModel = DefineMap.extend('PaginateWidget', {
      */
     visiblePages: {
         get () {
-            var pages = this.pages;
-            var active = this.activePageIndex + 1;
-            var arr = this.pageArray.filter((p) => {
-                return p <= active + 3 && p >= active - 3 && p > 0 && p <= pages;
-            });
-            return arr;
+            const active = this.activePageIndex;
+            let min = active - this.activeOffset;
+            let max = active + this.activeOffset + 1;
+            if (min < 1) {
+                min = 1;
+            }
+            if (max > this.pages - 1) {
+                max = this.pages - 1;
+            }
+            return this.pageArray.slice(min, max);
         }
     },
     /**
