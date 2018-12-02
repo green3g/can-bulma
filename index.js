@@ -19,10 +19,13 @@
  * @typedef {Object} DefineList
  */
 
+// !steal-remove-start
+import debug from 'can-debug';
+debug();
+// !steal-remove-end
 
-import 'spectre.css/dist/spectre.css';
-import 'animate.css';
-import 'font-awesome/css/font-awesome.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+import 'bulma/css/bulma.css';
 import './sp-form/sp-form';
 import './sp-form/fields/sp-text-field/sp-text-field';
 import './sp-form/fields/sp-select-field/sp-select-field';
