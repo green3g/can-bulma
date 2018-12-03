@@ -1,0 +1,10 @@
+
+<h1 class="title is-3">Property Table Demo</h1>
+<h2 class="title is-4">Simple: </h2>
+<sp-property-table object:from="myData" />
+
+<br />
+<div class="divider" />
+
+<h2 class="title is-4">Customized: </h2>
+<sp-property-table object:from="myData" fields:from="fields" />

@@ -7,6 +7,10 @@ export default {
         path: 'spectre-canjs/sp-list-table/demo/listTable',
         title: 'List Table'
     },
+    'sp-property-table': {
+        path: 'spectre-canjs/sp-property-table/demo/propertyTable',
+        title: 'Property Table'
+    },
     'sp-paginate': {
         path: 'spectre-canjs/sp-paginate/demo/paginate',
         title: 'Paginate'
