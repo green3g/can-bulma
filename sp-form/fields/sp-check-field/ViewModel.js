@@ -15,13 +15,8 @@ export default Field.extend('CheckboxField', {
      * @type {Boolean}
      * @memberof sp-check-field.ViewModel.prototype
      */
-    value: {
-        type: 'boolean',
-        set (val) {
-            if (val !== this.value) { 
-                this.dispatch('fieldchange', [this]); 
-            }
-            return val;
-        }
+    value: 'boolean',
+    dispatchChange () {
+        this.dispatch('fieldchange', [this]); 
     }
 });

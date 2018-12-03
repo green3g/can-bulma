@@ -1,0 +1,38 @@
+<style type="text/css">
+
+.manage-tools-cell {
+  width: 150px;
+}
+
+</style>
+
+<h1 class="title is-3">List Table Demo</h1>
+
+<h2 class="title is-4">Simple:</h2>
+<!-- id-prop is required for selection -->
+<sp-list-table vm:objects:from="objects" idProp:raw="name" />
+
+<br />
+
+<h2 class="title is-4">Advanced:</h2>
+<sp-list-table selectedObjects:to="selectedObjects" 
+    objects:from="objects" 
+    on:up="voteUp(scope.arguments)" 
+    on:down="voteDown(scope.arguments)" 
+    fields:from="fields"
+    sortable:raw="true"
+    selectable:raw="true"
+    idProp:raw="name" />
+
+
+<p>You chose: 
+{{#is(selectedObjects.length, objects.length)}}
+    Everyone
+{{else}}
+    {{#if(selectedObjects.length)}} 
+    {{#for(object of selectedObjects)}}{{object.name}}, {{/for}} 
+{{else}} 
+    No one 
+{{/if}}
+{{/is}}
+</p>

@@ -1,7 +1,19 @@
 export default {
+    tables: {
+        divider: true,
+        title: 'Table Components'
+    },
+    'sp-list-table': {
+        path: 'spectre-canjs/sp-list-table/demo/listTable',
+        title: 'List Table'
+    },
     'sp-paginate': {
         path: 'spectre-canjs/sp-paginate/demo/paginate',
-        title: 'Paginate demo'
+        title: 'Paginate'
+    },
+    forms: {
+        divider: true,
+        title: 'Forms'
     },
     'sp-form-basic': {
         path: 'spectre-canjs/sp-form/demo/basic/basic',
@@ -10,5 +22,6 @@ export default {
     'sp-form-full': {
         path: 'spectre-canjs/sp-form/demo/full/full',
         title: 'Form Advanced'
-    }
+    },
+
 };

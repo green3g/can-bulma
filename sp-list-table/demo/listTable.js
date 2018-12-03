@@ -3,7 +3,9 @@ import stache from 'can-stache';
 import DefineList from 'can-define/list/list';
 import actionTemplate from './templates/actionCell.stache';
 import voteTemplate from './templates/voteTemplate.stache';
-import 'can-debug';
+import view from './template.stache';
+import Component from 'can-component';
+
 
 stache.registerHelper('voteColor', function(val){
   if(val < 0){
@@ -43,25 +45,29 @@ var data = [{
   votes: 0
 }];
 
-document.body.appendChild(render({
-  fields: [{
-    name: 'actions',
-    sort: false,
-    displayComponent: actionTemplate
-  }, 'name', 'favorite_food', {
-    name: 'age',
-    classes: 'text-italic',
-    displayComponent: stache('{{../object.name}} is {{../object.age}} years old')
-  }, { name: 'votes', displayComponent: voteTemplate }],
-
-  // observable list enables sorting
-  objects: new DefineList(data),
-  voteUp(args) {
-    const [ev, obj] = args;
-    obj.votes++;
+export default Component.extend({
+  tag: 'demo-list-table',
+  viewModel: {
+    fields: [{
+      name: 'actions',
+      sort: false,
+      displayComponent: actionTemplate
+    }, 'name', 'favorite_food', {
+      name: 'age',
+      classes: 'text-italic',
+      displayComponent: stache('{{../object.name}} is {{../object.age}} years old')
+    }, { name: 'votes', displayComponent: voteTemplate }],
+  
+    // observable list enables sorting
+    objects: new DefineList(data),
+    voteUp(args) {
+      const [ev, obj] = args;
+      obj.votes++;
+    },
+    voteDown(args) {
+      const [ev, obj] = args;
+      obj.votes--;
+    }
   },
-  voteDown(args) {
-    const [ev, obj] = args;
-    obj.votes--;
-  }
-}));
+  view
+})

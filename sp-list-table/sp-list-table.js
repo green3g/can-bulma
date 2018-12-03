@@ -3,6 +3,7 @@ import './sp-list-table.less';
 import Component from 'can-component';
 import ViewModel from './ViewModel';
 import '../sp-dropdown/sp-dropdown';
+import '../sp-form/fields/sp-check-field/sp-check-field';
 import 'can-dom-data';
 
 

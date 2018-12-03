@@ -1,25 +1,20 @@
 <div class="query-table">
-  <table class="table table-striped table-condensed">
+  <table class="table is-striped">
     <thead>
       <tr>
         {{#if(selectable)}}
         <th class="checkbox-heading">
-          <div class="form-group">
-            <label class="form-checkbox">
-              <input type="checkbox" on:el:change="toggleSelectAll()" checked:from="_allSelected" />
-              <i class="form-icon"></i>
-            </label>
-          </div>
+          <sp-check-field value:from="allSelected" on:value="toggleSelectAll(scope.event)"  />
         </th>
         {{/if}} 
         {{#for(field of fields)}}
-        <th {{#is(field.name, currentSort.field)}} class="text-bold {{#if field.classes}}{{field.classes}}{{/if}}" {{/is}}
-          {{#if(sort)}} on:el:click="setSort(name)"{{/if}}>
+        <th {{#if(sortable)}}{{#is(field.name, currentSort.field)}}{{/if}} class="text-bold {{#if field.classes}}{{field.classes}}{{/if}}" {{/is}}
+          {{#if(sortable}}{{#if(sort)}} on:el:click="setSort(field.name)"{{/if}}{{/if}}>
           {{field.label}} 
-          {{#is(field.name, currentSort.field)}}
-          <i class="fa fa-sort-{{#is(currentSort.type, 'desc')}}desc{{else}}asc{{/is}}"></i>
-          <i class="fa fa-times float-right" on:el:click="setSort('', scope.event)" title="Clear Sort"></i>
-          {{/is}}
+          {{#if(sortable)}}{{#is(field.name, currentSort.field)}}
+          <i class="fas fa-sort-{{#is(currentSort.type, 'desc')}}down{{else}}up{{/is}}"></i>
+          <i class="fas fa-times float-right" on:el:click="setSort('', scope.event)" title="Clear Sort"></i>
+          {{/is}}{{/if}}
         </th>
         {{/for}}
       </tr>
@@ -30,12 +25,7 @@
       <tr {{domData('object', object)}} class="{{#if(isSelected(object))}}selected {{/if}}row-{{object[idProp]}}">
         {{#if(selectable)}}
         <td class="checkbox-cell">
-          <div class="form-group d-inline-block">
-            <label class="form-checkbox">
-              <input type="checkbox" on:change="toggleSelected(object)" checked:from="isSelected(object)" />
-              <i class="form-icon"></i>
-            </label>
-          </div>
+          <sp-check-field value:from="isSelected(object)" on:fieldchange="toggleSelected(object)" />
         </td>
         {{/if}} 
         {{#for(field of fields)}}

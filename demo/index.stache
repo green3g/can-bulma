@@ -28,9 +28,16 @@
 
         <div class="navbar-dropdown">
             {{#for(page of pageData)}}
-          <a class="navbar-item {{#if(routeCurrent(page=scope.key))}}is-active{{/if}}" href="{{routeUrl(page=scope.key}}">
-            {{page.title}}
-          </a>
+            {{#if(page.divider)}}
+              <hr class="navbar-divider">
+              <div class="navbar-item">
+                {{page.title}}
+              </div>
+            {{else}}
+              <a class="navbar-item {{#if(routeCurrent(page=scope.key))}}is-active{{/if}}" href="{{routeUrl(page=scope.key}}">
+                {{page.title}}
+              </a>
+            {{/if}}
           {{/for}}
           <hr class="navbar-divider">
           <a class="navbar-item">
