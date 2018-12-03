@@ -2,8 +2,6 @@ import FieldIteratorMap from '../util/field/base/FieldIteratorMap';
 import DefineMap from 'can-define/map/map';
 import DefineList from 'can-define/list/list';
 
-const SELECTED_SYMBOL = Symbol('sp-list-table.Selected');
-
 /**
  * A `<sp-list-table />` component's ViewModel.
  * 
