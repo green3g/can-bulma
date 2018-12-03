@@ -225,7 +225,6 @@ export default Component.extend({
             if (!obj) {
                 return; 
             }
-            debugger;
             return jsonMarkup(obj.serialize());
         }
     },
