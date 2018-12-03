@@ -3,9 +3,10 @@ import 'spectre-canjs/sp-form/fields/sp-text-field/';
 import 'spectre-canjs/sp-form/fields/sp-select-field/';
 import 'spectre-canjs/sp-form/fields/sp-subform-field/';
 import 'spectre-canjs/sp-form/fields/sp-check-field/';
+import Component from 'can-component';
 // TODO implement file field
 // import 'specre-canjs/sp-form/fields/sp-file-field/sp-file-field';
-import render from './full.stache';
+import view from './full.stache';
 import jsonMarkup from 'json-pretty-html';
 import './full.less';
 import flatpickr from 'flatpickr';
@@ -64,7 +65,7 @@ const DemoObject = DefineMap.extend('DemoObject', {
         type: 'string', 
         default: 'Default Value',
         name: 'field1',
-        alias: 'Please enter at least 50 characters',
+        label: 'Please enter at least 50 characters',
         validate (props) {
 
             // since this function is run whenever field1 changes, we can use 
@@ -82,7 +83,7 @@ const DemoObject = DefineMap.extend('DemoObject', {
     field2: {
         type: 'string',
         name: 'field2',
-        alias: 'A basic textarea field',
+        label: 'A basic textarea field',
         textarea: true,
         placeholder: 'Enter the text: hello',
         validate (props) {
@@ -96,7 +97,7 @@ const DemoObject = DefineMap.extend('DemoObject', {
         type: 'number',
         default: 1,
         name: 'field3',
-        alias: 'A select dropdown',
+        label: 'A select dropdown',
         editTag: 'sp-select-field',
         validate (props) {
             if (props.value != 1) {
@@ -113,11 +114,10 @@ const DemoObject = DefineMap.extend('DemoObject', {
     },
     field3inline: {
         type: 'number',
-        default: 1,
         name: 'field3inline',
-        alias: 'Inline dropdown',
+        label: null,
+        defaultLabel: 'Inline Dropdown',
         editTag: 'sp-select-field',
-        inline: true,
         validate (props) {
             if (props.value != 1) {
                 return 'This field must be 1';
@@ -143,29 +143,14 @@ const DemoObject = DefineMap.extend('DemoObject', {
                 picker.destroy();
             }
         },
-        alias: 'A date field',
+        label: 'A date field',
         ui: 'datepicker',
         placeholder: 'Enter a date...'
     },
-    // field5: {
-    //     name: 'field5',
-    //     alias: 'A file field',
-    //     editTag: 'sp-file-field',
-
-    //     // convert file list type back to list
-    //     serialize (val) {
-    //         if (!val) {
-    //             return '';
-    //         }
-    //         return val.map((file) => {
-    //             return file.id;
-    //         }).join(',');
-    //     }
-    // },
     field6: {
         Type: ChildObject,
         name: 'field6',
-        alias: 'A Subform Field',
+        label: 'A Subform Field',
         editTag: 'sp-subform-field',
         Default:  ChildObject,
         ObjectTemplate: ChildObject
@@ -174,14 +159,14 @@ const DemoObject = DefineMap.extend('DemoObject', {
     field7: {
         type: 'boolean',
         name: 'field7',
-        alias: 'A checkbox',
+        label: 'A checkbox',
         editTag: 'sp-check-field',
         default: false
     },
     cascade_1: {
         type: 'string',
         name: 'cascade_1',
-        alias: 'Car Make - (cascade dropdown 1)',
+        label: 'Car Make - (cascade dropdown 1)',
         defaultLabel: 'First choose a make...',
         options: [{value: 'Ford'}, {value: 'Chevy'}, {value: 'Toyota'}],
         editTag: 'sp-select-field'
@@ -189,7 +174,7 @@ const DemoObject = DefineMap.extend('DemoObject', {
     cascade_2: {
         type: 'string',
         name: 'cascade_2',
-        alias: 'Car Model - (cascade dropdown 2)',
+        label: 'Car Model - (cascade dropdown 2)',
         defaultLabel: 'Then choose a model...',
         getOptions(obj){
             const options = {
@@ -210,29 +195,28 @@ const DemoObject = DefineMap.extend('DemoObject', {
 });
 
 
-const vm = new DefineMap({
-    object: new DemoObject(), 
-    formSaving: false,
-    onSubmit () {
-        console.log(this.object);
-        console.log('submitted data: ', this.object.serialize());
-        alert('Form submitted! See the console for details');
-        setTimeout(() => {
-            this.formSaving = false;
-        }, 3000);
-    },
-    onCancel () {
-        console.log('Form canceled!');
-    },
-    stringify (obj) {
-        if (!obj) {
-            return; 
+export default Component.extend({
+    tag: 'demo-form-full',
+    viewModel: {
+        object: new DemoObject(), 
+        formSaving: false,
+        onSubmit () {
+            console.log(this.object);
+            console.log('submitted data: ', this.object.serialize());
+            alert('Form submitted! See the console for details');
+            setTimeout(() => {
+                this.formSaving = false;
+            }, 3000);
+        },
+        onCancel () {
+            console.log('Form canceled!');
+        },
+        stringify (obj) {
+            if (!obj) {
+                return; 
+            }
+            return jsonMarkup(obj.serialize());
         }
-        return jsonMarkup(obj.serialize());
-    }
-});
-
-export default function start () {
-    const frag = render(vm);
-    document.body.appendChild(frag);
-}
+    },
+    view
+})

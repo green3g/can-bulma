@@ -6,20 +6,20 @@ afterEach (() => {
     fields = null;
 });
 
-test('Field.alias', () => {
+test('Field.label', () => {
 
     fields = [{
         name: 'test',
         expected: 'Test'
     }, {
         name: 'other',
-        alias: 'Hey',
+        label: 'Hey',
         expected: 'Hey'
     }];
 
 
     fields.forEach((f) => {
         f = new Field(f);
-        expect(f.alias).toEqual(f.expected);
+        expect(f.label).toEqual(f.expected);
     });
 });

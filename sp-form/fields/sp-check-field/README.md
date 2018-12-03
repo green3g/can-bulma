@@ -11,7 +11,7 @@ A checkbox style field.
 ```
 {
   name: 'op',
-  alias: 'is',
+  label: 'is',
   fieldType: 'checkbox',
   style: 'switch' // the default is 'checkbox'
 },

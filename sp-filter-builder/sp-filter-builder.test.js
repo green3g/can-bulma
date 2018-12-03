@@ -15,7 +15,7 @@ test('nameField get()', () => {
     expect(vm.nameField.options).toBeFalsy();
     vm.fields = [{
         name: 'one',
-        alias: 'One'
+        label: 'One'
     }];
     expect(vm.nameField.options).toBeTruthy();
 });
@@ -34,7 +34,7 @@ test('fields get()', () => {
 test('fieldOptions get() with fields', () => {
     const fields = [{
         name: 'test',
-        alias: 'Other'
+        label: 'Other'
     }];
     vm.fields = fields;
     expect(vm.fieldOptions.length).toEqual(fields.length);

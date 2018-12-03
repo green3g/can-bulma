@@ -10,7 +10,7 @@ var viewModel = new DefineMap({
     fields: [{
         //fields can be specified using a detailed object
         name: 'name',
-        alias: 'User name',
+        label: 'User name',
 
         // custom templates can customize the look of the value
         displayComponent: nameTemplate
@@ -46,7 +46,7 @@ var viewModel = {
     fields: [{
         //fields can be specified using a detailed object
         name: 'prop_1',
-        alias: 'Property 1',
+        label: 'Property 1',
 
         // custom templates can customize the look of the value
         displayComponent: prop1Template

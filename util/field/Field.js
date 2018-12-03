@@ -3,6 +3,8 @@ import DefineMap from 'can-define/map/map';
 import DefineList from 'can-define/list/list';
 import {getEditComponent} from './fieldComponents';
 
+let id = 0;
+
 /**
  * @typedef ValidationObject
  * @name ValidationObject
@@ -23,6 +25,16 @@ export const Field = DefineMap.extend('Field', {
 }, {
     /** @lends Field.prototype */
     /**
+     * A unique field id. Useful for using id elements in templates
+     * @type {Number} 
+     * @memberof Field.prototype
+     */
+    id: {
+        default () {
+            return id ++;
+        }
+    },
+    /**
      * The name of the type on the object, this field's name
      * @type {String} 
      * @memberof Field.prototype
@@ -30,8 +42,8 @@ export const Field = DefineMap.extend('Field', {
     name: {
         type: 'string',
         set (name) {
-            if (!this.alias && name) {
-                this.alias = makeSentenceCase(name);
+            if (!this.label && name) {
+                this.label = makeSentenceCase(name);
             }
             if (!this.classes && name) {
                 this.classes = 'cell-' + name;
@@ -45,7 +57,7 @@ export const Field = DefineMap.extend('Field', {
      * @type {String}
      * @memberof Field.prototype
      */
-    alias: {
+    label: {
         type: 'string'
     },
     /**

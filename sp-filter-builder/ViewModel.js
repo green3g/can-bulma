@@ -45,14 +45,14 @@ const ViewModel = FieldIteratorMap.extend('FilterWidget', {
             return this.fieldOptions.length ? {
                 formatter: makeSentenceCase,
                 name: 'name',
-                alias: 'Add filter',
+                label: 'Add filter',
                 fieldType: 'select',
                 options: this.fieldOptions,
                 defaultLabel: 'Add a filter',
                 inline: true
             } : {
                 name: 'name',
-                alias: 'Field Name',
+                label: 'Field Name',
                 placeholder: 'Enter fieldname'
             };
         }
@@ -68,7 +68,7 @@ const ViewModel = FieldIteratorMap.extend('FilterWidget', {
                 return this.fields.map((f) => {
                     return {
                         value: f.name,
-                        label: f.alias
+                        label: f.label
                     };
                 });
             }

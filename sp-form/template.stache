@@ -1,6 +1,6 @@
 {{#if(object)}}
 
-  <form class="form{{#if(inline)}}-horizontal form-inline{{/if}}" on:submit="submitForm(scope.event)">
+  <form on:submit="submitForm(scope.event)">
       <can-slot this:bind="this" name="fields">
         {{#for(field of fields)}}
           {{>field.editComponent}}
@@ -13,11 +13,12 @@
         <div class="loading"></div>
       {{else}}
         <can-slot this:from="this" name="submit">
-          <div class="btn-group" role="group" aria-label="Form Buttons">
-              <button type="button" class="btn btn-primary" on:click="dispatchEvent('submit')">
-                <i class="fa fa-floppy-o"></i> Submit</button>            
-                <button type="button" class="btn btn-primary" on:el:click="dispatchEvent('cancel')">
-                <i class="fa fa-ban"></i> Cancel</button>
+          <div class="field is-grouped" role="group" aria-label="Form Buttons">
+              <button type="submit" 
+                class="button is-primary" >
+                Submit</button>            
+                <button type="button" class="button is-light" on:el:click="dispatchEvent('cancel')">
+                Cancel</button>
           </div>
         </can-slot>
       {{/if}}

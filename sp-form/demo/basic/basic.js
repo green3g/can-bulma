@@ -1,8 +1,11 @@
-import 'spectre-canjs/sp-form/sp-form';
-import 'spectre-canjs/sp-form/fields/sp-text-field/';
+
 import DefineMap from 'can-define/map/map';
 import DefineList from 'can-define/list/list';
-import render from './basic.stache';
+import view from './basic.stache';
+import Component from 'can-component';
+import 'spectre-canjs/sp-form/sp-form';
+import 'spectre-canjs/sp-form/fields/sp-text-field/';
+import 'spectre-canjs/sp-list-table/sp-list-table';
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 
@@ -28,7 +31,7 @@ const Task = DefineMap.extend('Task', {
         onInsert (element) {
             flatpickr(element);
         },
-        alias: 'Date Completed',
+        label: 'Date Completed',
         validate: required,
 
         // register $.datepicker on text element
@@ -50,26 +53,29 @@ const TaskList = DefineList.extend({
 });
 const currentTasks = new TaskList(localStorage.tasks ? JSON.parse(localStorage.tasks) : []);
 
-const app = new DefineMap({
-    current: new Task(),
-    tasks: currentTasks,
-    isSaving: false,
-    onSubmit (args) {
-        const [task] = args;
-        this.tasks.push(task);
-        this.current = new Task();
-        this.isSaving = false;
-    },
-    persist () {
-        localStorage.tasks = JSON.stringify(this.tasks.serialize());
-        alert('Tasks Saved!');
-    },
-    clear () {
-        this.tasks.replace([]);
-        this.persist();
-    }
-});
 
-export default function () {
-    document.body.appendChild(render(app));
-}
+export default Component.extend({
+    tag: 'demo-form-basic',
+    viewModel: {
+        current: new Task(),
+        tasks: currentTasks,
+        isSaving: false,
+        onSubmit (args) {
+            const [task] = args;
+            this.tasks.push(task);
+
+            // set form to use new task
+            this.set('current', new Task());
+            this.isSaving = false;
+        },
+        persist () {
+            localStorage.tasks = JSON.stringify(this.tasks.serialize());
+            alert('Tasks Saved!');
+        },
+        clear () {
+            this.tasks.replace([]);
+            this.persist();
+        }
+    },
+    view
+})

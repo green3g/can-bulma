@@ -22,7 +22,7 @@ export default {
                 name: 'search',
                 inline: true,
                 placeholder: 'Search',
-                alias: 'Search'
+                label: 'Search'
             };
         }
     },

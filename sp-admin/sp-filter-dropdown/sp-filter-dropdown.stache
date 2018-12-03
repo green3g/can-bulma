@@ -1,6 +1,6 @@
 <div class="dropdown inline dropdown-right">
   <a class="btn dropdown-toggle {{#if(params[field.name]))}}tooltip text-bold{{/if}}" data-tooltip="{{params[field.name])}}" tabindex="0">
-    {{field.alias}} <i class="fa fa-caret-down"></i>
+    {{field.label}} <i class="fa fa-caret-down"></i>
   </a>
   <!-- menu component -->
   <ul class="menu">

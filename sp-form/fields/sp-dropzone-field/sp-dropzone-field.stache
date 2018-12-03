@@ -1,5 +1,5 @@
 <can-import from="spectre-canjs/sp-file-list/" />
-<label class="form-label">{{alias}}</label>
+<label class="form-label">{{label}}</label>
 <form action="{{url}}"
     on:inserted="createDropzone(scope.element)"
     class="dropzone"></form>

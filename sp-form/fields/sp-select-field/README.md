@@ -13,7 +13,7 @@ A select dropdown with options. See `selectFieldProperty` and `selectOptionPrope
 ```
 {
 name: 'op',
-alias: 'is',
+label: 'is',
 placeholder: 'Choose a operator',
 fieldType: 'select',
 options: [{

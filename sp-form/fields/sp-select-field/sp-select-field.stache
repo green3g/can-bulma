@@ -1,27 +1,14 @@
-{{<select}}
-<select value:bind="value" class="form-select form-control" name="{{name}}"  {{attributes}}>
-    <option value="">{{defaultLabel}}</option>
-    {{#for(option of options)}}
-        <option value="{{option.value}}">{{option.label}}</option>
-    {{/for}}
-</select>
-{{/select}}
-
-
-<div class="form-group {{#if(error)}}has-error{{/if}} {{#if(optionsPromise.isPending)}}has-icon-right{{/if}}">
-    {{#if(inline)}}
-        {{#if(alias)}}
-        <div class="col-4 col-sm-12">
-            <label class="form-label" for="{{name}}">{{alias}}</label>
+<div class="field">
+    {{#if(label)}}<label class="label">{{label}}</label>{{/if}}
+    <div class="control">
+        <div class="select {{#if(optionsPromise.isPending)}}is-loading{{/if}}">
+            <select value:bind="value" class="form-select form-control" name="{{name}}"  {{attributes}}>
+                <option value="">{{defaultLabel}}</option>
+                {{#for(option of options)}}
+                    <option value="{{option.value}}">{{option.label}}</option>
+                {{/for}}
+            </select>
+            {{#if(error)}}<span class="help is-danger">{{error}}</span>{{/if}}
         </div>
-        {{/if}}
-        <div class="{{#if(alias)}}col-8{{else}}col-12{{/if}} col-sm-12">
-            {{>select}}
-        </div>
-    {{else}}
-        {{#if(alias)}}<label class="form-label" for="{{name}}">{{alias}}</label>{{/if}}
-        {{>select}}
-    {{/if}}
-    {{#if(optionsPromise.isPending)}}<i class="form-icon loading"></i>{{/if}} 
-    {{#if(error)}}<span class="form-input-hint">{{error}}</span>{{/if}}
+    </div>
 </div>

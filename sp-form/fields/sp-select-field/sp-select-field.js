@@ -1,6 +1,7 @@
 import Component from 'can-component';
 import template from './sp-select-field.stache';
 import ViewModel from './ViewModel';
+import './sp-select-field.less';
 
 /**
  * A select dropdown

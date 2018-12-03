@@ -48,13 +48,13 @@ test('valueField get() field is set', () => {
     expect(filter.valueField.editTag).toEqual('sp-date-field');
 });
 
-test('alias get()', () => {
-    expect(filter.alias).toEqual('Test');
+test('label get()', () => {
+    expect(filter.label).toEqual('Test');
     filter.field = {
-        alias: 'Test Alias'
+        label: 'Test label'
     };
 
-    expect(filter.alias).toEqual('Test Alias');
+    expect(filter.label).toEqual('Test label');
 });
 
 test('object get()', () => {

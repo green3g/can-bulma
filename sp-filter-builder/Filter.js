@@ -47,7 +47,7 @@ export const FilterOptions = [{
     types: ['date'],
     valueField: {
         name: 'value',
-        alias: 'Value',
+        label: 'Value',
         ui: 'datepicker',
         properties: {
             placeholder: 'Select a date'
@@ -59,7 +59,7 @@ export const FilterOptions = [{
     types: ['date'],
     valueField: {
         name: 'value',
-        alias: 'Value',
+        label: 'Value',
         ui: 'datepicker',
         properties: {
             placeholder: 'Select a date'
@@ -134,7 +134,7 @@ export const Filter = DefineMap.extend('Filter', {
             return new Field(Object.assign({
                 name: 'operator',
                 value: options[0].value,
-                alias: null,
+                label: null,
                 inline: true,
                 placeholder: 'Choose an operator',
                 editTag: 'sp-select-field',
@@ -168,16 +168,16 @@ export const Filter = DefineMap.extend('Filter', {
         serialize: false
     },
     /**
-     * A virtual property to provide the field alias. If the
-     * [sp-filter-builder.Filter.props.field `field`] property is set, this alias
-     * will match the `field.alias`
+     * A virtual property to provide the field label. If the
+     * [sp-filter-builder.Filter.props.field `field`] property is set, this label
+     * will match the `field.label`
      * @type {String}
      * @memberof sp-filter-builder.Filter.prototype
      *
      */
-    alias: {
+    label: {
         get () {
-            return this.field ? this.field.alias : makeSentenceCase(this.name);
+            return this.field ? this.field.label : makeSentenceCase(this.name);
         },
         serialize: false
     },
@@ -196,11 +196,11 @@ export const Filter = DefineMap.extend('Filter', {
                 ? Object.assign({editTag: 'sp-text-field'}, this.field.get(), {
                     inline: true, 
                     textarea: false,
-                    alias: null
+                    label: null
                 }) : {
                     inline: true,
                     name: this.name,
-                    alias: null,
+                    label: null,
                     editTag: 'sp-text-field',
                     placeholder: 'Enter a filter value'
                 };

@@ -15,7 +15,7 @@
         {{#for(field of fields)}}
         <th {{#is(field.name, currentSort.field)}} class="text-bold {{#if field.classes}}{{field.classes}}{{/if}}" {{/is}}
           {{#if(sort)}} on:el:click="setSort(name)"{{/if}}>
-          {{field.alias}} 
+          {{field.label}} 
           {{#is(field.name, currentSort.field)}}
           <i class="fa fa-sort-{{#is(currentSort.type, 'desc')}}desc{{else}}asc{{/is}}"></i>
           <i class="fa fa-times float-right" on:el:click="setSort('', scope.event)" title="Clear Sort"></i>

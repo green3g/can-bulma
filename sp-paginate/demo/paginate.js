@@ -1,24 +1,30 @@
 import 'spectre-canjs/sp-paginate/sp-paginate';
-import DefineMap from 'can-define/map/map';
-import stache from 'can-stache';
+import Component from 'can-component';
 
-var frag = stache(document.getElementById('demo-html').innerHTML)(new DefineMap({
-    page1: 0,
-    page2: 0
-}));
+const view =    `
+<h3 class="title is-3">Default Paginate</h3>
+<p>Index: {{page1}}
+<sp-paginate pages="300" vm:activePageIndex:to="page1" />
 
-document.body.appendChild(frag);
+<h3 class="title is-3">Compact Style</h3>
+<p>Index: {{page2}}</p>
+<div style="width: 90px;">
+<sp-paginate pages="300" compact:raw="true" activePageIndex:to="page2" />
+</div>
 
-window.DEMO_SOURCE = `
-import 'spectre-canjs/sp-paginate/sp-paginate';
-import DefineMap from 'can-define/map/map';
-import stache from 'can-stache';
+<h3 class="title is-3">Code:</h3>
 
-var frag = stache(document.getElementById('demo-html').innerHTML)(new DefineMap({
-    page1: 0,
-    page2: 0
-}));
+<pre>
+    {{code}}
+</pre>
+  `;
 
-document.body.appendChild(frag);
-
-`
+export default Component.extend({
+    tag: 'paginate-demo',
+    viewModel: {
+        page1: 0,
+        page2: 0,
+        code: view
+    },
+    view
+})
