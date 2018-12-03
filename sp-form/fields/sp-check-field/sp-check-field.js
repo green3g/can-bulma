@@ -1,6 +1,7 @@
 import Component from 'can-component';
 import view from './template.stache';
 import ViewModel from './ViewModel';
+import './styles.less';
 
 /**
  * A boolean field that can be used as a switch or a checkbox

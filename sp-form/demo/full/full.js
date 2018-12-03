@@ -3,6 +3,7 @@ import 'spectre-canjs/sp-form/fields/sp-text-field/';
 import 'spectre-canjs/sp-form/fields/sp-select-field/';
 import 'spectre-canjs/sp-form/fields/sp-subform-field/';
 import 'spectre-canjs/sp-form/fields/sp-check-field/';
+import 'spectre-canjs/sp-form/fields/sp-multi-check-field/';
 import Component from 'can-component';
 // TODO implement file field
 // import 'specre-canjs/sp-form/fields/sp-file-field/sp-file-field';
@@ -12,6 +13,7 @@ import './full.less';
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.css';
 import DefineMap from 'can-define/map/';
+import DefineList from 'can-define/list/';
 
 // mock a server
 import './fixtures.js';
@@ -157,10 +159,18 @@ const DemoObject = DefineMap.extend('DemoObject', {
     },
     field1Length: {edit: false, type: 'number'},
     field7: {
-        type: 'boolean',
+        Type: DefineList,
+        default(){
+            return []
+        },
+        options: [{
+            value: 'Option 1'
+        }, {
+            value: 'Option 2'
+        }],
         name: 'field7',
         label: 'A checkbox',
-        editTag: 'sp-check-field',
+        editTag: 'sp-multi-check-field',
         default: false
     },
     cascade_1: {
@@ -215,6 +225,7 @@ export default Component.extend({
             if (!obj) {
                 return; 
             }
+            debugger;
             return jsonMarkup(obj.serialize());
         }
     },
