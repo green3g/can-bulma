@@ -15,7 +15,7 @@
 <br />
 
 <h2 class="title is-4">Advanced:</h2>
-<sp-list-table selectedObjects:to="selectedObjects" 
+<sp-list-table selectedIds:to="selectedIds" 
     objects:from="objects" 
     on:up="voteUp(scope.arguments)" 
     on:down="voteDown(scope.arguments)" 
@@ -26,11 +26,11 @@
 
 
 <p>You chose: 
-{{#is(selectedObjects.length, objects.length)}}
+{{#is(selectedIds.length, objects.length)}}
     Everyone
 {{else}}
-    {{#if(selectedObjects.length)}} 
-    {{#for(object of selectedObjects)}}{{object.name}}, {{/for}} 
+    {{#if(selectedIds.length)}} 
+    {{#for(object of selectedIds)}}{{object}}, {{/for}} 
 {{else}} 
     No one 
 {{/if}}

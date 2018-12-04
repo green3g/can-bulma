@@ -55,7 +55,7 @@ export default Component.extend({
     }, 'name', 'favorite_food', {
       name: 'age',
       classes: 'text-italic',
-      displayComponent: stache('{{../object.name}} is {{../object.age}} years old')
+      displayComponent: stache('{{object.name}} is {{object.age}} years old')
     }, { name: 'votes', displayComponent: voteTemplate }],
   
     // observable list enables sorting
