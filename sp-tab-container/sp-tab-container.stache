@@ -1,10 +1,18 @@
-<ul class="tab">
-    {{#for(page of pages)}}
-      <li class="tab-item {{#is(page, activePage)}}active{{/is}}{{#if loading}} loading{{/if}} {{classes}}" on:click="makeActive(page)">
-          <a {{#if(page.href)}}href="{{page.href}}"{{/if}}>
-              {{page.label}}
-          </a>
-      </li>
-    {{/for}}
-</ul>
+
+<div class="tabs {{classes}}">
+    <ul>
+        {{#for(page of pages)}}
+        <li class="{{#is(page, activePage)}}is-active{{/is}}{{#if loading}}" on:click="makeActive(page)">
+            <a {{#if(page.href)href="{{page.href}}"}}>
+                {{#if (page.loading)}}
+                <span class="icon is-small">
+                    <i class="fas fa-circle-notch fa-spin"></i>
+                </span>
+                {{/if}}
+                {{page.label}}
+            </a>
+        </li>
+        {{/for}}
+    </ul>
+</div>
 <content />

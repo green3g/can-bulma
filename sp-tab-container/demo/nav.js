@@ -1,23 +1,24 @@
 import 'spectre-canjs/sp-tab-container/sp-tab-container';
 import 'spectre-canjs/sp-tab-page/sp-tab-page';
-import stache from 'can-stache';
-import DefineMap from 'can-define/map/map';
 import ajax from 'axios';
+import view from './demo.stache';
 
-var render = stache(document.getElementById('demo-html').innerHTML);
+import Component from 'can-component';
 
-var viewModel = new DefineMap({
-    people: ajax.get( 'http://jsonplaceholder.typicode.com/users').then(result => {
-            return result.data;
-    }),
-    pages: [{
-        label: 'List'
-    }, {
-        label: 'Create',
-        active: true
-    }, {
-        label: 'Other Options'
-    }]
+export default Component.extend({
+    view,
+    viewModel: {
+        people: ajax.get( 'http://jsonplaceholder.typicode.com/users').then(result => {
+                return result.data;
+        }),
+        pages: [{
+            label: 'List'
+        }, {
+            label: 'Create',
+            active: true
+        }, {
+            label: 'Other Options'
+        }]
+    },
+    tag: 'demo-sp-tab'
 });
-
-document.body.appendChild(render(viewModel));

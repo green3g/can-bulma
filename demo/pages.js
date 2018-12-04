@@ -23,5 +23,9 @@ export default {
         path: 'spectre-canjs/sp-paginate/demo/paginate',
         title: 'Paginate'
     },
+    'sp-tabs': {
+        path: 'spectre-canjs/sp-tab-container/demo/nav',
+        title: 'Tabs Containers'
+    }
 
 };

@@ -8,21 +8,25 @@ const PageList = DefineList.extend('NavPageList', {
 
 /**
  * A `<sp-tab-container />` component's ViewModel
- * @class ViewModel
- * @memberof sp-tab-container
+ * @module sp-tab-container/ViewModel
  */
 const ViewModel = DefineMap.extend('NavContainer', {
-    /** @lends sp-tab-container.ViewModel.prototype */
+    /** @lends sp-tab-container/ViewModel.prototype */
     /**
      * An array of pages currently displayed in this sp-tab-container
-     * @memberof sp-tab-container.ViewModel.prototype
+     * 
      * @type {Array<sp-tab-page.ViewModel>}
      */
     pages: {Default: PageList},
     /**
+     * Classes to add to the tab container. Example: `'is-boxed'`.  
+     * @type {String}
+     */
+    classes: 'string',
+    /**
      * The currently active page
      * @type {sp-tab-page.ViewModel}
-     * @memberof sp-tab-container.ViewModel.prototype
+     * 
      */
     activePage: {
         get () {
@@ -54,7 +58,7 @@ const ViewModel = DefineMap.extend('NavContainer', {
     /**
      * The id of the page that is currently active. This value should be
      * set to change the activePage
-     * @memberof sp-tab-container.ViewModel.prototype
+     * 
      * @type {String}
      */
     activeId: 'string',
