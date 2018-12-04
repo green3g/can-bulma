@@ -1,64 +1,41 @@
-import 'spectre-canjs/sp-modal/sp-modal';
+import Modal from 'spectre-canjs/sp-modal/sp-modal';
 import 'spectre-canjs/sp-confirm/sp-confirm';
+import Component from 'can-component';
+import view from './modal.stache';
 
-import stache from 'can-stache';
-import DefineMap from 'can-define/map/map';
-
-var render = stache(document.getElementById('demo-html').innerHTML);
-
-var viewModel = new DefineMap({
-    modal1: false,
-    modal2: false,
-    modal3: false,
-    modal4: false,
-    confirm1: false,
-    onAccept (args) {
-        console.log('----- Confirmation Accepted ------');
-        console.log(args);
-    },
-    onReject (args) {
-        console.log('----- Confirmation Rejected ------');
-        console.log(args);
-    },
-    showModal (name) {
-        this[name] = true;
-    },
-    hideModal (name) {
-        this[name] = false;
+export default Component.extend({
+    view,
+    tag: 'demo-modal',
+    viewModel: {
+        modal1: false,
+        modal2: false,
+        modal3: false,
+        modal4: false,
+        confirm1: false,
+        loginActions: [{
+            text: 'Login',
+            'class': 'primary',
+            icon: 'fas fa-sign-in-alt',
+            onclick(event, scope){
+                scope.active = false;
+            }
+        }],
+        actions: [{
+            'class': 'success',
+            text: 'Say Hello!',
+            onclick(){
+                const modal = new Modal({
+                    content: `<p>Another Modal!</p>`,
+                    viewModel: {
+                        title: 'Test',
+                        active: true,
+                    }
+                });
+                modal.viewModel.on('hide', () => {
+                    document.body.removeChild(modal.element);
+                });
+                document.body.appendChild(modal.element);
+            }
+        }],
     }
-});
-
-document.body.appendChild(render(viewModel));
-
-window.DEMO_SOURCE = `
-import 'spectre-canjs/sp-modal/sp-modal';
-import 'spectre-canjs/sp-modal/sp-confirm';
-
-import stache from 'can-stache';
-import DefineMap from 'can-define/map/map';
-
-var render = stache(document.getElementById('demo-html').innerHTML);
-
-var viewModel = new DefineMap({
-    modal1: false,
-    modal2: false,
-    modal3: false,
-    confirm1: false,
-    onAccept () {
-        console.log('----- Confirmation Accepted ------');
-        console.log(arguments);
-    },
-    onReject () {
-        console.log('----- Confirmation Rejected ------');
-        console.log(arguments);
-    },
-    showModal (name) {
-        this[name] = true;
-    },
-    hideModal (name) {
-        this[name] = false;
-    }
-});
-
-document.body.appendChild(render(viewModel));
-`
+})

@@ -1,25 +1,36 @@
-<div class="{{#if(backdrop)}}modal{{else}}sp-modal-no-backdrop{{/if}}{{#if(active)}} active{{/if}}{{#if(small)}} modal-sm{{/if}}">
+<div class="modal {{#if(active)}}is-active{{/if}}">
     {{#if(backdrop)}}
-        <div class="modal-overlay"></div>
+    <div class="modal-background"></div>
     {{/if}}
-    <div class="modal-container">
 
-        {{#if(custom)}}
-            <content />
-        {{else}}
-            <div class="modal-header">
-                <button on:el:click="hide()" class="btn btn-clear float-right"></button>
-                <div class="modal-title">{{title}}</div>
-            </div>
-            <div class="modal-body">
-                <div class="content">
-                    <content />
-                </div>
-            </div>
+  {{#if(custom)}}
+  <div class="modal-content">
+      <content />
+  </div>
 
-            <div class="modal-footer">
-                <button on:el:click="hide()" class="btn btn-link">Close</button>
-            </div>
-        {{/if}}
-    </div>
+  {{else}}
+  
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">{{title}}</p>
+      <button class="delete" aria-label="close" on:click="active = false"></button>
+    </header>
+    <section class="modal-card-body">
+        <content></content>
+    </section>
+    {{#if(actions)}}
+    <footer class="modal-card-foot">
+        {{#for(action of actions)}}
+            <button class="button is-{{action.class}} {{#if(action.icon)}}has-icon{{/if}}" on:click="action.onclick(scope.event, scope.vm)">
+                {{#if(action.icon)}}<span class="icon is-small"><i class="{{action.icon}}"></i></span>{{/if}}
+                <span>{{action.text}}</span>
+            </button>
+        {{/for}}
+    </footer>
+    {{/if}}
+  </div>
+
+  {{/if}}
+
+  <button class="modal-close is-large" aria-label="close" on:click="active = false"></button>
 </div>
