@@ -25,7 +25,7 @@ export default Component.extend({
         routeData: {
             default(){
                 return {
-                    page: 'test'
+                    page: 'home'
                 };
             }
         },

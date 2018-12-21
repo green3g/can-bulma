@@ -1,4 +1,8 @@
 export default {
+    'home' : {
+        path: 'spectre-canjs/demo/home-page/home-page',
+        title: 'Welcome!'
+    },
     'sp-form-basic': {
         path: 'spectre-canjs/sp-form/demo/basic/basic',
         title: 'Form Basic'

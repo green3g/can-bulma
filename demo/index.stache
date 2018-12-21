@@ -13,7 +13,7 @@
 
   <div id="navbarBasicExample" class="navbar-menu {{#if(showNav)}}is-active{{/if}}">
     <div class="navbar-start">
-      <a class="navbar-item">
+      <a class="navbar-item" href="{{routeUrl(page='home')}}">
         Home
       </a>
 

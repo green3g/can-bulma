@@ -4,7 +4,7 @@
       <tr>
         {{#if(selectable)}}
         <th class="checkbox-heading">
-          <sp-check-field value:from="allSelected" on:value="toggleSelectAll(scope.event)"  />
+          <sp-check-field value:from="allSelected" on:fieldchange="toggleSelectAll(scope.event)"  />
         </th>
         {{/if}} 
         {{#for(field of fields)}}

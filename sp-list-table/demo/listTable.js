@@ -5,6 +5,7 @@ import actionTemplate from './templates/actionCell.stache';
 import voteTemplate from './templates/voteTemplate.stache';
 import view from './template.stache';
 import Component from 'can-component';
+import reflect from 'can-reflect';
 
 
 stache.registerHelper('voteColor', function(val){
@@ -47,19 +48,29 @@ var data = [{
 
 export default Component.extend({
   tag: 'demo-list-table',
-  viewModel: {
-    fields: [{
-      name: 'actions',
-      sort: false,
-      displayComponent: actionTemplate
-    }, 'name', 'favorite_food', {
-      name: 'age',
-      classes: 'text-italic',
-      displayComponent: stache('{{object.name}} is {{object.age}} years old')
-    }, { name: 'votes', displayComponent: voteTemplate }],
+  ViewModel: {
+    fields: {
+      default(){
+        return [{
+          name: 'actions',
+          sort: false,
+          displayComponent: actionTemplate
+        }, 'name', 'favorite_food', {
+          name: 'age',
+          classes: 'text-italic',
+          displayComponent: stache('{{object.name}} is {{object.age}} years old')
+        }, { name: 'votes', displayComponent: voteTemplate }];
+      }
+    },
+
+    selectedIds: {},
   
     // observable list enables sorting
-    objects: new DefineList(data),
+    objects: {
+      default(){
+        return new DefineList(data);
+      }
+    },
     voteUp(args) {
       const [ev, obj] = args;
       obj.votes++;
@@ -67,6 +78,9 @@ export default Component.extend({
     voteDown(args) {
       const [ev, obj] = args;
       obj.votes--;
+    },
+    keys(selected){
+      return reflect.getOwnEnumerableKeys(selected).filter(key => selected[key]);
     }
   },
   view

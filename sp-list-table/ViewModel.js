@@ -165,9 +165,7 @@ export default FieldIteratorMap.extend('ListTable', {seal: false}, {
     toggleSelected (obj) {
         const id = obj[this.idProp];
         const isSelected = this.selectedIds[id];
-        this.selectedIds.assign({
-            [id]: !isSelected
-        });
+        this.selectedIds[id] = !isSelected;
     },
     /**
      * Selects or unselects all of the objects in the table

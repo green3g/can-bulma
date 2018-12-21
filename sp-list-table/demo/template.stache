@@ -26,13 +26,14 @@
 
 
 <p>You chose: 
-{{#is(selectedIds.length, objects.length)}}
-    Everyone
+{{let selected = keys(selectedIds)}}
+{{#is(selected.length, objects.length)}}
+    Everyone ({{selected.length}})
 {{else}}
-    {{#if(selectedIds.length)}} 
-    {{#for(object of selectedIds)}}{{object}}, {{/for}} 
-{{else}} 
-    No one 
-{{/if}}
+    {{#if(selected.length)}} 
+        {{#for(object of selected)}}{{object}}{{^is(scope.index, selected.length)}}, {{/is}}{{/for}} 
+    {{else}} 
+        No one 
+    {{/if}}
 {{/is}}
 </p>
