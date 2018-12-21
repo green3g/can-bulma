@@ -1,15 +1,15 @@
-import template from './sp-toast.stache';
-import './sp-toast.less';
+import template from './sp-alert.stache';
+import './sp-alert.less';
 import Component from 'can-component';
 import ViewModel from './ViewModel';
 
 /**
  * A hideable notification component
- * @see sp-toast-container
- * @module sp-toast
+ * @see sp-alert-container
+ * @module sp-alert
  */
 Component.extend({
-    tag: 'sp-toast',
+    tag: 'sp-alert',
     view: template,
     ViewModel: ViewModel
 });

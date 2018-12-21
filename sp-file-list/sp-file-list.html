@@ -15,8 +15,8 @@
       files:from="this.files"
       on:add="simulateUpload(scope.arguments)"
       on:remove="simulateDelete(scope.arguments)" />
-    <sp-toast-container addToast:to="alert" />
-    {{console.log(addToast)}}
+    <sp-alert-container addAlert:to="alert" />
+    {{console.log(addAlert)}}
   </div>
 </script>
 
@@ -37,7 +37,7 @@
           file.progress ++;
         } else {
           window.clearInterval(interval);
-          this.addToast({
+          this.addAlert({
             type: 'success',
             header: 'Success!',
             body: 'Upload succeeded!'
@@ -46,7 +46,7 @@
       });
     },
     simulateDelete([file]){
-        this.addToast({
+        this.addAlert({
           type: 'success',
           header: 'Success!',
           body: 'File was removed!'

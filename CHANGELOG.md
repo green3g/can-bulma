@@ -16,7 +16,7 @@
 ===================
 
   * 0.31.1
-  * FIX: toast imports and demo
+  * FIX: alert imports and demo
   * changelog
 
 0.31.0 / 2017-07-03

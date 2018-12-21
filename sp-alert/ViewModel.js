@@ -1,16 +1,16 @@
 import DefineMap from 'can-define/map/map';
 
 /**
- * A `<sp-toast />` component's ViewModel
+ * A `<sp-alert />` component's ViewModel
  * @class ViewModel
- * @memberof sp-toast
+ * @memberof sp-alert
  */
-export default DefineMap.extend('ToastItem', {
-    /** @lends sp-toast.ViewModel.prototype */
+export default DefineMap.extend('AlertItem', {
+    /** @lends sp-alert.ViewModel.prototype */
     /**
-   * whether or not to fade the sp-toast out using animate.css
+   * whether or not to fade the sp-alert out using animate.css
    * @type {Boolean}
-   * @memberof sp-toast.ViewModel.prototype
+   * @memberof sp-alert.ViewModel.prototype
    *
    */
     fade: {
@@ -19,9 +19,9 @@ export default DefineMap.extend('ToastItem', {
     },
     timer: {},
     /**
-     * the time to autohide this sp-toast. Set to 0 to disable auto hide
+     * the time to autohide this sp-alert. Set to 0 to disable auto hide
      * @type {Number}
-     * @memberof sp-toast.ViewModel.prototype
+     * @memberof sp-alert.ViewModel.prototype
      */
     autoHide: {
         type: 'number',
@@ -40,10 +40,10 @@ export default DefineMap.extend('ToastItem', {
     },
     /**
      * Whether or not to use the content tag, that will display whatever
-     * is inside the `<sp-toast></sp-toast>` tags. This overrides the
-     * body property of this sp-toast
+     * is inside the `<sp-alert></sp-alert>` tags. This overrides the
+     * body property of this sp-alert
      * @type {Boolean}
-     * @memberof sp-toast.ViewModel.prototype
+     * @memberof sp-alert.ViewModel.prototype
      */
     custom: {
         type: 'boolean',
@@ -51,15 +51,15 @@ export default DefineMap.extend('ToastItem', {
     },
     /**
      * @type {string}
-     * @memberof sp-toast.ViewModel.prototype
-     * @description The class that gives the sp-toast context. Must be either
+     * @memberof sp-alert.ViewModel.prototype
+     * @description The class that gives the sp-alert context. Must be either
      * info, success, warning, or danger.
      * @option {string} Defaults to `info`.
      */
     severity: {
         default: 'info',
         type: function (val) {
-            var allowed = ['primary', 'info', 'success', 'warning', 'error'],
+            var allowed = ['primary', 'info', 'success', 'warning', 'danger'],
                 isValid = allowed.indexOf(val) > -1;
 
             return isValid ? val : allowed[0];
@@ -68,30 +68,19 @@ export default DefineMap.extend('ToastItem', {
 
     /**
      * @type {boolean}
-     * @memberof sp-toast.ViewModel.prototype
-     * @description Marks the sp-toast as dismissable, which adds a "close" icon to the sp-toast.
+     * @memberof sp-alert.ViewModel.prototype
+     * @description Marks the sp-alert as dismissable, which adds a "close" icon to the sp-alert.
      * The default is true
      */
     dismissable: {
         default: true,
         type: 'boolean'
     },
-    /**
-     * @type {boolean}
-     * @memberof sp-toast.ViewModel.prototype
-     * @description Displays a helpful icon next to the toast text
-     * Set to `null` or empty string to exclude icon completely. The default is
-     * `icon icon-error_outline`
-     */
-    iconClass: {
-        type: 'string',
-        default: 'icon icon-error_outline'
-    },
 
     /**
      * @type {boolean}
-     * @memberof sp-toast.ViewModel.prototype
-     * @description Toggles visiblity of the sp-toast. The default is false.
+     * @memberof sp-alert.ViewModel.prototype
+     * @description Toggles visiblity of the sp-alert. The default is false.
      */
     visible: {
         default: true,
@@ -100,25 +89,16 @@ export default DefineMap.extend('ToastItem', {
 
     /**
      * @type {string}
-     * @memberof sp-toast.ViewModel.prototype
-     * @description The content displayed in the toast. The default is an empty string.
+     * @memberof sp-alert.ViewModel.prototype
+     * @description The content displayed in the alert. The default is an empty string.
      */
     body: {
         default: '',
         type: 'string'
     },
     /**
-     * @type {string}
-     * @memberof sp-toast.ViewModel.prototype
-     * @description Optional. The title of the sp-toast. The default is an empty string.
-     */
-    heading: {
-        default: '',
-        type: 'string'
-    },
-    /**
-     * Time in miliseconds to fade out this sp-toast
-     * @memberof sp-toast.ViewModel.prototype
+     * Time in miliseconds to fade out this sp-alert
+     * @memberof sp-alert.ViewModel.prototype
      * @type {Number}
      */
     fadeTime: {
@@ -127,7 +107,7 @@ export default DefineMap.extend('ToastItem', {
     },
     element: '*',
     /**
-     * Hide this sp-toast
+     * Hide this sp-alert
      */
     hide () {
         if (!this.visible) {

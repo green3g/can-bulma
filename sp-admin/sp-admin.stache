@@ -77,7 +77,7 @@
             {{#if(objectsPromise.isPending)}}
                 <div class="loading"></div>
             {{else}}
-                <sp-toast severity:from="'error'" body:from="'Error: {{objectsPromise.reason}}'"></sp-toast>
+                <sp-alert severity:from="'error'" body:from="'Error: {{objectsPromise.reason}}'"></sp-alert>
             {{/if}}
         {{/if}}
     {{/if}}
@@ -96,7 +96,7 @@
 
 
 <sp-modal title:from="'{{#if(editObject.isNew()}}Add New{{else}}Edit{{/if}} {{title}}'" active:bind="editActive">
-    {{#if(error)}}<sp-toast body:from="error" severity="error"></sp-toast>{{/if}}
+    {{#if(error)}}<sp-alert body:from="error" severity="error"></sp-alert>{{/if}}
     {{#if(editObject)}}
     <can-slot this:from="this" name="edit">
     <sp-form object:from="editObject" 

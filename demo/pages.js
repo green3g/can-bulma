@@ -3,6 +3,10 @@ export default {
         path: 'spectre-canjs/demo/home-page/home-page',
         title: 'Welcome!'
     },
+    'sp-alert': {
+        path: 'spectre-canjs/sp-alert-container/demo/alert',
+        title: 'Alerts'
+    },
     'sp-form-basic': {
         path: 'spectre-canjs/sp-form/demo/basic/basic',
         title: 'Form Basic'

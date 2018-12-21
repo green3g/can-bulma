@@ -1,0 +1,7 @@
+<div class="alerts">
+    {{#for(alert of alerts)}}
+        {{#with(alert)}}
+        {{>scope.vm.renderAlert}}
+        {{/with}}
+    {{/for}}
+</div>

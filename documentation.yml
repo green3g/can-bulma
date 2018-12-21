@@ -11,8 +11,8 @@ toc:
   - sp-paginate
   - sp-tab-page
   - sp-tab-container
-  - sp-toast
-  - sp-toast-container
+  - sp-alert
+  - sp-alert-container
 
   - Data
   - name: "Data components"

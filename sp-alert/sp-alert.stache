@@ -1,0 +1,9 @@
+
+<div class="notification is-{{severity}} {{#unless(visible)}}is-fading{{/unless}}">
+  {{#if(custom)}}
+    <content />
+  {{else}}
+    {{#if(dismissable)}}<button class="delete" on:click="hide()"></button>{{/if}}
+    <content>{{body}}</content>
+  {{/if}}
+</div>

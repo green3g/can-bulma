@@ -47,5 +47,5 @@ import './sp-paginate/sp-paginate';
 import './sp-property-table/sp-property-table';
 import './sp-tab-container/sp-tab-container';
 import './sp-tab-page/sp-tab-page';
-import './sp-toast/sp-toast';
-import './sp-toast-container/sp-toast-container';
+import './sp-alert/sp-alert';
+import './sp-alert-container/sp-alert-container';

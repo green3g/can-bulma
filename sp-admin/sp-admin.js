@@ -6,7 +6,7 @@ import '../sp-list-table/sp-list-table';
 import '../sp-property-table/sp-property-table';
 import '../sp-modal/sp-modal';
 import '../sp-form/sp-form';
-import '../sp-toast/sp-toast';
+import '../sp-alert/sp-alert';
 import '../sp-form/fields/sp-text-field/sp-text-field';
 import '../sp-filter-builder/sp-filter-builder';
 import './sp-paginate-footer/sp-paginate-footer';
