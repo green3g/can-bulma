@@ -85,11 +85,23 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
             if (!obj) {
                 return obj;
             }
-            const Constructor = obj.constructor ? obj.constructor : DefineMap;
-            this.dirtyObject = new Constructor(obj.get());
+            if(this.trackChanges){
+                const Constructor = obj.constructor ? obj.constructor : DefineMap;
+                this.dirtyObject = new Constructor(obj.get());
+            } else {
+                this.dirtyObject = obj;
+            }
             return obj;
         }
     },
+    /**
+     * Whether or not changes should be stored in a "dirty" object.
+     * The original object will only be modified if all fields validate
+     * and the form is submitted.
+     * If this is false, then `dirtyObject` will be equal to `object`.
+     * @type {Boolean}
+     */
+    trackChanges: 'boolean',
     /**
      * An object set with current form values
      * @type {DefineMap} 
@@ -201,7 +213,9 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
             this.isSaving = true;
         }
 
+        if(this.trackChanges){
         this.object.assign(this.dirtyObject);
+        }
         this.dispatch('submit', [this.object]);
         return false;
     },
