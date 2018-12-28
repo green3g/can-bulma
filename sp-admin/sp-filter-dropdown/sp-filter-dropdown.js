@@ -15,6 +15,7 @@ export const ViewModel = DefineMap.extend({
     },
     oldSearch: DefineMap,
     field: Field,
+    active: 'boolean',
     setFilter (value, event) {
         if (event) {
             event.preventDefault();

@@ -1,23 +1,30 @@
-<div class="columns container">
-    <div class="column col-6 col-sm-12">
-        <h4>{{title}} {{#if(detailsId)}}Details{{else}}List{{/if}}</h4>
-        <p class="text-gray">{{subTitle}}</p>
+<div class="columns">
+    <div class="column is-half">
+        <h4 class="title is-h4">{{title}} {{#if(detailsId)}}Details{{else}}List{{/if}}</h4>
+        <p class="has-text-light">{{subTitle}}</p>
     </div>
-    <div class="column col-6 col-sm-12 hidden-print">
-        <div class="text-right">
+    <div class="column is-half is-hidden-print">
+        <div class="is-pulled-right">
             {{#if(detailsId)}}
                 <can-slot this:from="this" name="detailsActions">
-                    <button class="btn btn-primary" on:click="clearDetails()"><i class="fa fa-caret-left"></i> Back to List</button>
-                    <button class="btn btn-primary" on:click="showEdit(detailsObject)"><i class="fa fa-pencil"></i> Edit</button>
-                    <button class="btn btn-error" on:click="deleteSingle(detailsObject)"><i class="fa fa-trash"></i> Delete</button>
+                    <button class="button is-primary" on:click="clearDetails()"><i class="fas fa-caret-left"></i> Back to List</button>
+                    <button class="button is-primary" on:click="showEdit(detailsObject)"><i class="fas fa-pencil"></i> Edit</button>
+                    <button class="button is-error" on:click="deleteSingle(detailsObject)"><i class="fas fa-trash"></i> Delete</button>
                 </can-slot>
             {{else}}
                 <can-slot this:from="this" name="listActions">
-                    <button class="btn btn-success" on:click="addNew()"><i class="fa fa-plus"></i> Add New</button>
+                    <button class="button is-success" on:click="addNew()">
+                        <span class="icon is-small"><i class="fas fa-plus"></i></span>
+                        <span>Add New</span>
+                    </button>
                     {{#if(selected.length)}}
-                        <button class="btn btn-error {{#if(isDeleting.isPending)}}loading{{/if}}" on:click="delete(selected)"><i class="fa fa-trash"></i> Delete</button>
+                        <button class="button is-danger has-icon {{#if(isDeleting.isPending)}}is-loading{{/if}}" 
+                            on:click="delete(selected)">
+                            <span class="icon is-small"><i class="fa fa-trash"></i></span>
+                            <span>Delete</span>
+                        </button>
                     {{/if}}
-                    <button class="btn btn-default" on:click="refresh()"><i class="fa fa-refresh"></i></button>
+                    <button class="button is-white" on:click="refresh()"><i class="fas fa-refresh"></i></button>
                 </can-slot>
                 {{#if(filterFields.length)}}
                 <can-slot this:from="this" name="filters">
@@ -53,6 +60,8 @@
     {{#if(objects.length)}}
     <can-slot this:from="this" name="list">
     <sp-list-table 
+        sortable:raw="true"
+        selectable:raw="true"
         objects:from="objects" 
         fields:from="listFields"
         on:edit="showEditFromEvent(scope.arguments)"
@@ -70,7 +79,7 @@
               <p class="empty-title h5">No objects were found</p>
               <p class="empty-subtitle">Try changing your search parameters or adding new data</p>
               <div class="empty-action">
-                <button class="btn btn-success" on:click="addNew()"><i class="fa fa-plus"></i> Add New</button>
+                <button class="button is-success" on:click="addNew()"><i class="fa fa-plus"></i> Add New</button>
               </div>
             </div>
         {{else}}

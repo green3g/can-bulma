@@ -84,12 +84,23 @@ export default FieldIteratorMap.extend('ListTable', {seal: false}, {
      */
     selectedIds: {
         get () {
+            const idProp = this.idProp;
             return new DefineMap(
                 this.objects.reduce((data, obj) => { 
-                    data[obj[this.idProp]] = false; 
+                    data[obj[idProp]] = false; 
                     return data;
                 }, {})
             );
+        }
+    },
+    /**
+     * A helper prop for getting selected objects
+     * @type {Object[]}
+     */
+    selectedObjects: {
+        get () {
+            const idProp = this.idProp;
+            return this.objects.filter((obj) => Boolean(this.selectedIds[obj[idProp]]));
         }
     },
     /**

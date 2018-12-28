@@ -4,7 +4,7 @@ import Component from 'can-component';
 import view from './demo.stache';
 import '../../sp-admin/sp-admin';
 
-Component.extend({
+export default Component.extend({
     tag: 'can-admin-app',
     viewModel: {
         props: {

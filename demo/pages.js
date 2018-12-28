@@ -3,6 +3,10 @@ export default {
         path: 'spectre-canjs/demo/home-page/home-page',
         title: 'Welcome!'
     },
+    'sp-admin': {
+        path: 'spectre-canjs/sp-admin/demo/demo',
+        title: 'Admin (CRUD)'
+    },
     'sp-alert': {
         path: 'spectre-canjs/sp-alert-container/demo/alert',
         title: 'Alerts'

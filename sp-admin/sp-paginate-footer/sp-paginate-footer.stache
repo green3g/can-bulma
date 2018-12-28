@@ -1,4 +1,4 @@
-<div class="hidden-print sp-paginate-footer">
+<div class="is-hidden-print sp-paginate-footer">
   <div class="columns">
     <div class="column">
       {{#if perPageOptions.length}}

@@ -13,8 +13,8 @@ export const TaskMap = DefineMap.extend('Task', {seal: false}, {
         edit: false,
         serialize: false, 
         displayComponent: `
-            <button class="btn btn-link" type="button" on:click="scope.root.dispatchEvent('edit', ../object)">
-            <i class="fa fa-pencil"></i></button>
+            <button class="button is-info" type="button" on:click="scope.root.dispatchEvent('edit', ../object)">
+            <i class="fas fa-pencil"></i></button>
         `
     }
 });

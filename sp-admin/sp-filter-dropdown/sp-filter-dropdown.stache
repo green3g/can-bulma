@@ -1,13 +1,21 @@
-<div class="dropdown inline dropdown-right">
-  <a class="btn dropdown-toggle {{#if(params[field.name]))}}tooltip text-bold{{/if}}" data-tooltip="{{params[field.name])}}" tabindex="0">
-    {{field.label}} <i class="fa fa-caret-down"></i>
-  </a>
-  <!-- menu component -->
-  <ul class="menu">
+<div class="dropdown {{#if(active)}}is-active{{/if}}">
+  <div class="dropdown-trigger">
+    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu" on:click="active = not(active)">
+      <span class="{{#if(params[field.name])}}has-text-weight-bold{{/if}}" title="{{params[field.name]}}">
+      {{field.label}} <i class="fas fa-caret-down"></i>
+      </span>
+      <span class="icon is-small">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+  </div>
+  <div class="dropdown-menu" id="dropdown-menu" role="menu">
+    <div class="dropdown-content">
       {{#for(option of field.options)}}
-        <li class="menu-item"><a href="#" on:click="setFilter(option.value, scope.event)">
-          {{#is(params[field.name], option.value)}}<i class="float-left fa fa-check"></i>{{/is}} 
-          {{#if(option.label)}}{{option.label}}{{else}}{{option.value}}{{/if}}</a></li>
-      {{/for}}
-  </ul>
+      <a class="dropdown-item" on:click="setFilter(option.value, scope.event)">
+        {{#is(params[field.name], option.value)}}<i class="float-left fas fa-check"></i>{{/is}} 
+        {{#if(option.label)}}{{option.label}}{{else}}{{option.value}}{{/if}}
+      </a>
+    </div>
+  </div>
 </div>
