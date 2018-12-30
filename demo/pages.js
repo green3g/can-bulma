@@ -11,6 +11,10 @@ export default {
         path: 'spectre-canjs/sp-alert-container/demo/alert',
         title: 'Alerts'
     },
+    'sp-file-list': {
+        path: 'spectre-canjs/sp-file-list/demo/files',
+        title: 'File Uploads'
+    },
     'sp-form-basic': {
         path: 'spectre-canjs/sp-form/demo/basic/basic',
         title: 'Form Basic'

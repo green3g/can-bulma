@@ -1,33 +1,31 @@
-<div class="is-hidden-print sp-paginate-footer">
-  <div class="columns">
+<div class="is-hidden-print columns">
     <div class="column">
-      {{#if perPageOptions.length}}
+        {{#if(perPageOptions.length)}}
         <div class="per-page-form">
-          <div class="form-group">
-            <label class="form-label perPageSelect"></label>
+            <div class="form-group">
+                <label class="form-label perPageSelect"></label>
 
-            <div class="input-group">
-                <span class="input-group-addon">Per page:</span>
-                <select el:value:bind="perPage" class="form-select">
-                    {{#for(option of perPageOptions)}}
-                        <option value="{{option}}">{{option}}</option>
-                    {{/for}}
-                </select>
-              </div>
-          </div>
+                <div class="field has-addons">
+                    <div class="control"><a class="button is-static">Per page:</a></div>
+                    <div class="select">
+                        <select value:bind="perPage">
+                            {{#for(option of perPageOptions)}}
+                            <option value="{{option}}">{{option}}</option>
+                            {{/for}}
+                        </select>
+                    </div>
+                </div>
+            </div>
         </div>
-      {{/if}}
-
-      {{#if showPaginate}}
+        {{/if}}
+        {{#if(showPaginate)}}
         <sp-paginate vm:activePageIndex:bind="pageIndex" vm:pages:from="totalPages"></sp-paginate>
-      {{/if}}
+        {{/if}}
+    </div>
 
-    </div>
-    <div class="divider-vert"></div>
     <div class="column">
-      {{#if total}}
-        <h5>{{itemFrom}} - {{itemTo}} of {{total}}</h5>
-      {{/if}}
+        {{#if(total)}}
+        <h5 class="title is-h5">{{itemFrom}} - {{itemTo}} of {{total}}</h5>
+        {{/if}}
     </div>
-  </div>
 </div>

@@ -72,10 +72,9 @@ export default {
     },
     setSort (args) {
         const sort = args[0];
+        const param = (sort.type === 'asc' ? '' : '-') + sort.field;
         this.params.assign({
-            $sort: {
-                [sort.field]: sort.type === 'asc' ? 1 : -1
-            }
+            sort: param
         });
     },
     noop () {}

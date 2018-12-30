@@ -7,9 +7,18 @@
         <div class="is-pulled-right">
             {{#if(detailsId)}}
                 <can-slot this:from="this" name="detailsActions">
-                    <button class="button is-primary" on:click="clearDetails()"><i class="fas fa-caret-left"></i> Back to List</button>
-                    <button class="button is-primary" on:click="showEdit(detailsObject)"><i class="fas fa-pencil"></i> Edit</button>
-                    <button class="button is-error" on:click="deleteSingle(detailsObject)"><i class="fas fa-trash"></i> Delete</button>
+                    <button class="button is-primary has-icon" 
+                        on:click="clearDetails()">
+                        <span class="icon is-small"><i class="fas fa-caret-left"></i></span>
+                        <span>Back to List</span></button>
+                    <button class="button is-primary has-icon" 
+                        on:click="showEdit(detailsObject)">
+                        <span class="icon is-small"><i class="fas fa-edit"></i></span>
+                        <span>Edit</span></button>
+                    <button class="button is-danger has-icon" 
+                        on:click="deleteSingle(detailsObject)">
+                        <span class="icon is-small"><i class="fas fa-trash"></i></span>
+                        <span>Delete</span></button>
                 </can-slot>
             {{else}}
                 <can-slot this:from="this" name="listActions">
@@ -24,12 +33,15 @@
                             <span>Delete</span>
                         </button>
                     {{/if}}
-                    <button class="button is-white" on:click="refresh()"><i class="fas fa-refresh"></i></button>
+                    <button class="button has-icon" on:click="refresh()">
+                        <span class="icon is-small"><i class="fas fa-sync"></i></span></button>
                 </can-slot>
                 {{#if(filterFields.length)}}
                 <can-slot this:from="this" name="filters">
                     {{#for(field of filterFields)}}
-                        <sp-filter-dropdown class="inline" params:from="params" field:from="field"></sp-filter-dropdown>
+                        <sp-filter-dropdown 
+                            params:from="params" 
+                            field:from="field"></sp-filter-dropdown>
                     {{/for}}
                 </can-slot>
                 {{/if}}
@@ -42,7 +54,6 @@
     </div>
 </div>
 
-<div class="divider" />
 {{#if(detailsId)}}
     {{#if(detailsObject)}}
         <can-slot this:from="this" name="details">
@@ -52,7 +63,7 @@
         </can-slot>
     {{else}}
         {{#if(detailsPromise.isPending)}}
-            <div class="loading" />
+            <progress class="progress is-small is-primary" max="100">15%</progress>
         {{/if}}
     {{/if}}
 {{else}}

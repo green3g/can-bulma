@@ -1,6 +1,7 @@
 import DefineMap from 'can-define/map/map';
 import DefineList from 'can-define/list/list';
 import realtimeRestModel from 'can-super-model';
+import editButton from './templates/editButton.stache';
 
 // import fake ajax services
 import './fixtures';
@@ -12,10 +13,7 @@ export const TaskMap = DefineMap.extend('Task', {seal: false}, {
     edit: {
         edit: false,
         serialize: false, 
-        displayComponent: `
-            <button class="button is-info" type="button" on:click="scope.root.dispatchEvent('edit', ../object)">
-            <i class="fas fa-pencil"></i></button>
-        `
+        displayComponent: editButton
     }
 });
 
