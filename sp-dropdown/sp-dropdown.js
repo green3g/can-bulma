@@ -15,5 +15,10 @@ import ViewModel from './ViewModel';
 export default Component.extend({
     tag: 'sp-dropdown',
     view,
-    ViewModel
+    ViewModel,
+    events: {
+        '{window} click': function () {
+            this.viewModel.hideAll();
+        }
+    }
 });

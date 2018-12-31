@@ -7,6 +7,7 @@ import view from './index.stache';
 import '@fortawesome/fontawesome-free/css/all.css';
 import 'bulma/css/bulma.css';
 import 'bulma-checkradio/dist/css/bulma-checkradio.min.css'
+import './index.less';
 
 //!steal-remove-start
 import debug from 'can-debug';

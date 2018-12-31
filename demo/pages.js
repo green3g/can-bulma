@@ -7,6 +7,10 @@ export default {
         path: 'can-bulma/sp-admin/demo/demo',
         title: 'Admin (CRUD)'
     },
+    'sp-dropdown': {
+        path: 'can-bulma/sp-dropdown/demo/dropdown',
+        title: 'Dropdowns'
+    },
     'sp-alert': {
         path: 'can-bulma/sp-alert-container/demo/alert',
         title: 'Alerts'

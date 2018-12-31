@@ -1,82 +1,106 @@
 <h1>Dropdown Demo</h1>
 
-    <sp-dropdown class="block float-left" text="'Card'" buttonClass:from="'btn btn-sm btn-primary'" primaryButtons:from="primary">
-        <div class="card" style="width:300px;">
-            <div class="card-header">
-                <h4 class="card-title">Google</h4>
-                <h6 class="card-meta">Software and hardware</h6>
-            </div>
-            <div class="card-body">
-                Organize the world’s information and make it universally accessible and useful.
-            </div>
+    <sp-dropdown class="is-pulled-left" label:raw="Card Dropdown" buttonClass:raw="button is-primary">
+        <div class="dropdown-item" style="width:500px;">
+        <div class="card">
             <div class="card-image">
-                <img class="img-responsive" src="demo/img/osx-yosemite-2.jpg">
+                <figure class="image is-4by3">
+                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                </figure>
             </div>
+            <div class="card-content">
+                <div class="media">
+                <div class="media-left">
+                    <figure class="image is-48x48">
+                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="media-content">
+                    <p class="title is-4">John Smith</p>
+                    <p class="subtitle is-6">@johnsmith</p>
+                </div>
+                </div>
+
+                <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                <a href="#">#css</a> <a href="#">#responsive</a>
+                <br>
+                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                </div>
+            </div>
+            </div>
+            </div>
+    </sp-dropdown>
+    <sp-dropdown class="is-pulled-left" label:raw="Menu" iconClass:raw="fas fa-home">
+        <ul class="menu">
+            <!-- menu header -->
+            <li class="menu-header">
+                <span class="menu-header-text">
+          Go to
+      </span>
+            </li>
+            <!-- menu item -->
+            <li class="menu-item">
+                <a href="#">
+                    <span class="icon icon-link"></span> Slack
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#">
+                    <span class="icon icon-link"></span> Hipchat
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#">
+                    <span class="icon icon-link"></span> Skype
+                </a>
+            </li>
+            <!-- menu divider -->
+            <li class="divider"></li>
+            <li class="menu-item">
+                <a href="#">
+                    <span class="icon icon-link"></span> Settings
+                </a>
+            </li>
+        </ul>
+    </sp-dropdown>
+    <sp-dropdown class="is-pulled-left" label:raw="Right aligned Menu" right:raw="true">
+        <div class="dropdown-item">
+            <ul class="menu">
+                <!-- menu header -->
+                <li class="menu-header">
+                    <span class="menu-header-text">
+            Go to
+        </span>
+                </li>
+                <!-- menu item -->
+                <li class="menu-item">
+                    <a href="#">
+                        <span class="icon icon-link"></span> Slack
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">
+                        <span class="icon icon-link"></span> Hipchat
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">
+                        <span class="icon icon-link"></span> Skype
+                    </a>
+                </li>
+                <!-- menu divider -->
+                <li class="divider"></li>
+                <li class="menu-item">
+                    <a href="#">
+                        <span class="icon icon-link"></span> Settings
+                    </a>
+                </li>
+            </ul>
         </div>
     </sp-dropdown>
-    <sp-dropdown class="block float-left" text:from="'Menu'" iconClass:from="'fa fa-fw fa-home'">
-        <ul class="menu">
-            <!-- menu header -->
-            <li class="menu-header">
-                <span class="menu-header-text">
-          Go to
-      </span>
-            </li>
-            <!-- menu item -->
-            <li class="menu-item">
-                <a href="#">
-                    <span class="icon icon-link"></span> Slack
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="#">
-                    <span class="icon icon-link"></span> Hipchat
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="#">
-                    <span class="icon icon-link"></span> Skype
-                </a>
-            </li>
-            <!-- menu divider -->
-            <li class="divider"></li>
-            <li class="menu-item">
-                <a href="#">
-                    <span class="icon icon-link"></span> Settings
-                </a>
-            </li>
-        </ul>
-    </sp-dropdown>
-    <sp-dropdown class="block float-left" text:from="'Right aligned Menu'" iconClass:from="'fa fa-fw fa-home'" right:from="true">
-        <ul class="menu">
-            <!-- menu header -->
-            <li class="menu-header">
-                <span class="menu-header-text">
-          Go to
-      </span>
-            </li>
-            <!-- menu item -->
-            <li class="menu-item">
-                <a href="#">
-                    <span class="icon icon-link"></span> Slack
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="#">
-                    <span class="icon icon-link"></span> Hipchat
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="#">
-                    <span class="icon icon-link"></span> Skype
-                </a>
-            </li>
-            <!-- menu divider -->
-            <li class="divider"></li>
-            <li class="menu-item">
-                <a href="#">
-                    <span class="icon icon-link"></span> Settings
-                </a>
-            </li>
-        </ul>
+
+    <sp-dropdown label:raw="Drop Up" iconClass:raw="fas fa-caret-up" up:raw="true">
+        <div class="dropdown-item">This content goes up!</div>
     </sp-dropdown>
