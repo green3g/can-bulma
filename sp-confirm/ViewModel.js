@@ -32,18 +32,18 @@ const ViewModel = ModalViewModel.extend('ConfirmDialog', {
     /**
      * Array of modal actions
      * @override
-     * @type {Array<sp-modal/ViewModel~Action}
+     * @type {util/actions/Action[]}
      */
     actions: {
         default () {
             return [{
-                onclick: this.accept,
-                text: this.acceptText,
-                class: 'success'
+                onlclick: this.accept,
+                label: this.acceptText,
+                buttonClass: 'button is-success'
             }, {
-                onclick: this.reject,
-                text: this.rejectText,
-                status: 'lite'
+                onlclick: this.reject,
+                label: this.rejectText,
+                buttonClass: 'button is-lite'
             }];
         }
     },

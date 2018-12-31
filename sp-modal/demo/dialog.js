@@ -13,17 +13,17 @@ export default Component.extend({
         modal4: false,
         confirm1: false,
         loginActions: [{
-            text: 'Login',
-            'class': 'primary',
-            icon: 'fas fa-sign-in-alt',
-            onclick(event, scope){
+            label: 'Login',
+            buttonClass: 'button is-primary',
+            iconClass: 'fas fa-sign-in-alt',
+            onlclick(event, scope){
                 scope.active = false;
             }
         }],
         actions: [{
-            'class': 'success',
-            text: 'Say Hello!',
-            onclick(){
+            buttonClass: 'button is-success',
+            label: 'Say Hello!',
+            onlclick(){
                 const modal = new Modal({
                     content: `<p>Another Modal!</p>`,
                     viewModel: {

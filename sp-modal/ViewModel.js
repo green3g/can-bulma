@@ -1,4 +1,5 @@
 import DefineMap from 'can-define/map/map';
+import {ActionList} from '../util/actions/Action';
 
 /**
  * @module sp-modal/ViewModel
@@ -44,5 +45,10 @@ export default DefineMap.extend('ModalDialog', {
      * @type {Boolean}
      * 
      */
-    backdrop: {default: true, type: 'boolean'}
+    backdrop: {default: true, type: 'boolean'},
+    /**
+     * Actions to display in this modal
+     * @type {sp-modal/ViewModel~Action[]}
+     */
+    actions: ActionList
 });
