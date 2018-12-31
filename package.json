@@ -22,7 +22,7 @@
     "pretest": "npm run lint",
     "test": "jest",
     "build": "steal-tools",
-    "live": "steal-tools live-reload --main can-bulma/docs-main",
+    "live": "steal-tools live-reload --main can-bulma/demo/index",
     "serve-docs": "documentation serve --config documentation.yml --watch",
     "docs": "documentation build --config documentation.yml -o docs -f html",
     "postdocs": "node docs-bundle",
