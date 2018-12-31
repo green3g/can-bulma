@@ -2,7 +2,7 @@
   "name": "can-bulma",
   "version": "0.1.0",
   "homepage": "https://github.com/roemhildtg/can-bulma",
-  "description": "A js component library built on the Spectre.css framework enabled with CanJS",
+  "description": "A CanJS UI lib forked from spectre-canjs to work with Bulma.css",
   "repository": {
     "type": "git",
     "url": "https://github.com/roemhildtg/can-bulma.git"

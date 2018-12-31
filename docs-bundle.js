@@ -22,5 +22,5 @@ stealTools.build({
     bundleSteal: false,
     bundleAssets: true,
     sourceMaps: true,
-    dest: 'docs/spectre'
+    dest: 'docs/can-bulma'
 });

@@ -1,4 +1,3 @@
-<script type="text/stache" id="demo-html">
 <sp-accordion>
 <sp-accordion-page label="1 Paragraph">
 <p> lots of content</p>
@@ -35,12 +34,3 @@
 </sp-accordion-page>
 
 </sp-accordion>
-</script>
-
-<script src="../docs/spectre/steal/steal.js" main="docs-main">
-import stache from 'can-stache';
-import 'spectre.css';
-import 'animate.css';
-import 'can-bulma/sp-accordion/sp-accordion';
-document.body.appendChild(stache.from('demo-html')());
-</script>
