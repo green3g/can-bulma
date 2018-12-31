@@ -1,50 +1,50 @@
 export default {
     'home' : {
-        path: 'spectre-canjs/demo/home-page/home-page',
+        path: 'can-bulma/demo/home-page/home-page',
         title: 'Welcome!'
     },
     'sp-admin': {
-        path: 'spectre-canjs/sp-admin/demo/demo',
+        path: 'can-bulma/sp-admin/demo/demo',
         title: 'Admin (CRUD)'
     },
     'sp-alert': {
-        path: 'spectre-canjs/sp-alert-container/demo/alert',
+        path: 'can-bulma/sp-alert-container/demo/alert',
         title: 'Alerts'
     },
     'sp-file-list': {
-        path: 'spectre-canjs/sp-file-list/demo/files',
+        path: 'can-bulma/sp-file-list/demo/files',
         title: 'File Uploads'
     },
     'sp-form-basic': {
-        path: 'spectre-canjs/sp-form/demo/basic/basic',
+        path: 'can-bulma/sp-form/demo/basic/basic',
         title: 'Form Basic'
     },
     'sp-form-full': {
-        path: 'spectre-canjs/sp-form/demo/full/full',
+        path: 'can-bulma/sp-form/demo/full/full',
         title: 'Form Advanced'
     },
     'sp-filter-builder': {
-        path: 'spectre-canjs/sp-filter-builder/demo/filter',
+        path: 'can-bulma/sp-filter-builder/demo/filter',
         title: 'Filter Builder'
     },
     'sp-list-table': {
-        path: 'spectre-canjs/sp-list-table/demo/listTable',
+        path: 'can-bulma/sp-list-table/demo/listTable',
         title: 'List Table'
     },
     'sp-modal': {
-        path: 'spectre-canjs/sp-modal/demo/dialog',
+        path: 'can-bulma/sp-modal/demo/dialog',
         title: 'Modal dialog',
     },
     'sp-property-table': {
-        path: 'spectre-canjs/sp-property-table/demo/propertyTable',
+        path: 'can-bulma/sp-property-table/demo/propertyTable',
         title: 'Property Table'
     },
     'sp-paginate': {
-        path: 'spectre-canjs/sp-paginate/demo/paginate',
+        path: 'can-bulma/sp-paginate/demo/paginate',
         title: 'Paginate'
     },
     'sp-tabs': {
-        path: 'spectre-canjs/sp-tab-container/demo/nav',
+        path: 'can-bulma/sp-tab-container/demo/nav',
         title: 'Tabs Containers'
     }
 

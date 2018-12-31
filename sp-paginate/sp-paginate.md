@@ -1,7 +1,7 @@
 <!--
 
 @module {can.Component} sp-paginate <sp-paginate />
-@memberof spectre-canjs.components
+@memberof can-bulma.components
 
 -->
 

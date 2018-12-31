@@ -1,9 +1,9 @@
-import 'spectre-canjs/sp-form/sp-form';
-import 'spectre-canjs/sp-form/fields/sp-text-field/';
-import 'spectre-canjs/sp-form/fields/sp-select-field/';
-import 'spectre-canjs/sp-form/fields/sp-subform-field/';
-import 'spectre-canjs/sp-form/fields/sp-check-field/';
-import 'spectre-canjs/sp-form/fields/sp-multi-check-field/';
+import 'can-bulma/sp-form/sp-form';
+import 'can-bulma/sp-form/fields/sp-text-field/';
+import 'can-bulma/sp-form/fields/sp-select-field/';
+import 'can-bulma/sp-form/fields/sp-subform-field/';
+import 'can-bulma/sp-form/fields/sp-check-field/';
+import 'can-bulma/sp-form/fields/sp-multi-check-field/';
 import Component from 'can-component';
 // TODO implement file field
 // import 'specre-canjs/sp-form/fields/sp-file-field/sp-file-field';

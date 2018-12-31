@@ -10,7 +10,7 @@ export const img = new RegExp(/.*\.(?:jpg|jpeg|gif|png)/, 'i');
  * @class FileMap
  * @memberof sp-file-list
  * @type {DefineMap}
- * @example `import {FileMap} from 'spectre-canjs/sp-file-list/ViewModel';
+ * @example `import {FileMap} from 'can-bulma/sp-file-list/ViewModel';
  */
 export const FileMap = DefineMap.extend('FileMap', {seal: false}, {
     /** @lends sp-file-list.FileMap.prototype */
@@ -66,7 +66,7 @@ export const FileMap = DefineMap.extend('FileMap', {seal: false}, {
  * @class FileList
  * @memberof sp-file-list
  * @type {DefineList}
- * @example `import {FileList} from 'spectre-canjs/sp-file-list/ViewModel';
+ * @example `import {FileList} from 'can-bulma/sp-file-list/ViewModel';
  */
 export const FileList = DefineList.extend('FileList', {
     '#': FileMap

@@ -1,7 +1,7 @@
 <!--
 
 @module {can.Component} sp-property-table <sp-property-table />
-@memberof spectre-canjs.components
+@memberof can-bulma.components
 -->
 
 ## Description

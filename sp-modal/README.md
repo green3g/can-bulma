@@ -1,6 +1,6 @@
 <!--
 @module {can.Component} sp-modal <sp-modal />
-@memberof spectre-canjs.components
+@memberof can-bulma.components
 -->
 
 ## Description

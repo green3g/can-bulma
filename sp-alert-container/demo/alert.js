@@ -1,7 +1,7 @@
-import 'spectre-canjs/sp-alert-container/sp-alert-container';
-import 'spectre-canjs/sp-alert/sp-alert';
-import 'spectre-canjs/sp-form/fields/sp-text-field/sp-text-field';
-import 'spectre-canjs/sp-form/fields/sp-select-field/sp-select-field';
+import 'can-bulma/sp-alert-container/sp-alert-container';
+import 'can-bulma/sp-alert/sp-alert';
+import 'can-bulma/sp-form/fields/sp-text-field/sp-text-field';
+import 'can-bulma/sp-form/fields/sp-select-field/sp-select-field';
 import DefineMap from 'can-define/map/map';
 import view from './alert.stache';
 import Component from 'can-component';

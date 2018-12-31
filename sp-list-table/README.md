@@ -1,6 +1,6 @@
 <!--
 @module {can.Component} sp-list-table <sp-list-table />
-@memberof spectre-canjs.components
+@memberof can-bulma.components
 -->
 
 ## Description

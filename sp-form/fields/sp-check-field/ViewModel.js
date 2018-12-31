@@ -1,5 +1,5 @@
 
-import Field from 'spectre-canjs/util/field/Field';
+import Field from 'can-bulma/util/field/Field';
 
 /**
  * A `<sp-check-field />` component's ViewModel

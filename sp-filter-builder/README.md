@@ -1,6 +1,6 @@
 <!--
 @module {can.Component} sp-filter-builder <sp-filter-builder />
-@memberof spectre-canjs.components
+@memberof can-bulma.components
 @group sp-filter-builder.types Types
 -->
 

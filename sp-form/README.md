@@ -1,6 +1,6 @@
 <!--
 @module {can.Component} sp-form <sp-form />
-@memberof spectre-canjs.components
+@memberof can-bulma.components
 @group sp-form.fields Field Types
 @group sp-form.types Types
 -->

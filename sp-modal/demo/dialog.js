@@ -1,5 +1,5 @@
-import Modal from 'spectre-canjs/sp-modal/sp-modal';
-import 'spectre-canjs/sp-confirm/sp-confirm';
+import Modal from 'can-bulma/sp-modal/sp-modal';
+import 'can-bulma/sp-confirm/sp-confirm';
 import Component from 'can-component';
 import view from './modal.stache';
 

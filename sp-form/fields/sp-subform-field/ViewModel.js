@@ -1,7 +1,7 @@
 import DefineMap from 'can-define/map/map';
-import Base from 'spectre-canjs/util/field/Field';
-import parseFieldArray from 'spectre-canjs/util/field/parseFieldArray/parseFieldArray';
-import mapToFields from 'spectre-canjs/util/field/mapToFields/mapToFields';
+import Base from 'can-bulma/util/field/Field';
+import parseFieldArray from 'can-bulma/util/field/parseFieldArray/parseFieldArray';
+import mapToFields from 'can-bulma/util/field/mapToFields/mapToFields';
 
 /** 
  * A <sp-subform-field /> component's ViewModel

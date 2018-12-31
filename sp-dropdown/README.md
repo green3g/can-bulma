@@ -1,6 +1,6 @@
 <!--
 @module {can.Component} sp-dropdown <sp-dropdown />
-@memberof spectre-canjs.components
+@memberof can-bulma.components
 @group sp-dropdown.types Types
 @outline 3
 -->

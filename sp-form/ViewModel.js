@@ -1,5 +1,5 @@
 import DefineMap from 'can-define/map/map';
-import FieldIteratorMap from 'spectre-canjs/util/field/base/FieldIteratorMap';
+import FieldIteratorMap from 'can-bulma/util/field/base/FieldIteratorMap';
 
 /**
  * Form View Model
@@ -76,7 +76,7 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
      * An object representing the current state of the values passed to the form.
      * If the fields have changed, this object will be updated when the submit
      * button is pressed and the validations have passed. To capture current
-     * state of the form, use [sp-form.ViewModel.dirtyObject].
+     * state of the form, use [sp-form/ViewModel.dirtyObject].
      * @type {DefineMap} 
      */
     object: {
@@ -85,7 +85,7 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
             if (!obj) {
                 return obj;
             }
-            if(this.trackChanges){
+            if (this.trackChanges) {
                 const Constructor = obj.constructor ? obj.constructor : DefineMap;
                 this.dirtyObject = new Constructor(obj.get());
             } else {
@@ -213,8 +213,8 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
             this.isSaving = true;
         }
 
-        if(this.trackChanges){
-        this.object.assign(this.dirtyObject);
+        if (this.trackChanges) {
+            this.object.assign(this.dirtyObject);
         }
         this.dispatch('submit', [this.object]);
         return false;

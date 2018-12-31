@@ -1,7 +1,7 @@
 import DefineMap from 'can-define/map/map';
 import DefineList from 'can-define/list/list';
 import Alert from '../sp-alert/ViewModel';
-import renderAlert from 'spectre-canjs/sp-alert/sp-alert.stache';
+import renderAlert from 'can-bulma/sp-alert/sp-alert.stache';
 
 /**
  * A `<sp-alert-container />` component's ViewModel

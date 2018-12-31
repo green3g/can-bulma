@@ -1,4 +1,4 @@
-import 'spectre-canjs/sp-form/fields/sp-check-field/sp-check-field';
+import 'can-bulma/sp-form/fields/sp-check-field/sp-check-field';
 import 'can-stache-converters';
 import Component from 'can-component';
 import ViewModel from './ViewModel';

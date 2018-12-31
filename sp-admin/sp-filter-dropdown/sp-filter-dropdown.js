@@ -2,7 +2,7 @@ import Component from 'can-component';
 import DefineMap from 'can-define/map/';
 import './sp-filter-dropdown.less';
 import view from './sp-filter-dropdown.stache';
-import Field from 'spectre-canjs/sp-form/fields/sp-select-field/ViewModel';
+import Field from 'can-bulma/sp-form/fields/sp-select-field/ViewModel';
 
 export const ViewModel = DefineMap.extend({
     params: {

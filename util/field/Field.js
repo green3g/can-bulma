@@ -15,7 +15,7 @@ let id = 0;
 
 /**
  * @class Field
- * @description Constructs a new field. Used throughout spectre-canjs to 
+ * @description Constructs a new field. Used throughout can-bulma to 
  * define displays of properties, aka fields. 
  */
 export const Field = DefineMap.extend('Field', {

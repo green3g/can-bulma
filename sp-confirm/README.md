@@ -1,7 +1,7 @@
 
 <!--
 @module {can.Component} sp-confirm <sp-confirm />
-@memberof spectre-canjs.components
+@memberof can-bulma.components
 -->
 
 ## Description

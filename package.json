@@ -1,11 +1,11 @@
 {
-  "name": "spectre-canjs",
-  "version": "3.6.3",
-  "homepage": "https://github.com/roemhildtg/spectre-canjs",
+  "name": "can-bulma",
+  "version": "0.1.0",
+  "homepage": "https://github.com/roemhildtg/can-bulma",
   "description": "A js component library built on the Spectre.css framework enabled with CanJS",
   "repository": {
     "type": "git",
-    "url": "https://github.com/roemhildtg/spectre-canjs.git"
+    "url": "https://github.com/roemhildtg/can-bulma.git"
   },
   "main": "index.js",
   "watch": {
@@ -22,7 +22,7 @@
     "pretest": "npm run lint",
     "test": "jest",
     "build": "steal-tools",
-    "live": "steal-tools live-reload --main spectre-canjs/docs-main",
+    "live": "steal-tools live-reload --main can-bulma/docs-main",
     "serve-docs": "documentation serve --config documentation.yml --watch",
     "docs": "documentation build --config documentation.yml -o docs -f html",
     "postdocs": "node docs-bundle",
@@ -32,9 +32,7 @@
     "lint": "eslint . --fix",
     "preversion": "npm run test",
     "postpublish": "git push && git push --tags",
-    "dist": "npm publish && git push origin master && git push --tags",
-    "dist-beta": "npm publish --tag beta && git push origin master && git push --tags",
-    "changelog": "changelog spectre-canjs all > CHANGELOG.md && git add . && git commit . -m changelog && git push origin master"
+    "dist": "npm publish && git push origin master && git push --tags"
   },
   "author": "roemhildtg",
   "license": "MIT",

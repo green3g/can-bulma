@@ -1,7 +1,7 @@
-import 'spectre-canjs/sp-filter-builder/sp-filter-builder';
+import 'can-bulma/sp-filter-builder/sp-filter-builder';
 import jsonMarkup from 'json-pretty-html';
 import '../../sp-form/demo/full/full.less';
-import 'spectre-canjs/sp-form/fields/sp-check-field/sp-check-field';
+import 'can-bulma/sp-form/fields/sp-check-field/sp-check-field';
 import view from './filter.stache';
 import Component from 'can-component';
 import './filter.less';

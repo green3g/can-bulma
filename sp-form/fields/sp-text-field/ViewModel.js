@@ -1,4 +1,4 @@
-import Field from 'spectre-canjs/util/field/Field';
+import Field from 'can-bulma/util/field/Field';
 
 /**
  * A `<sp-text-field />` component's ViewModel

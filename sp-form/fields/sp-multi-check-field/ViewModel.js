@@ -1,4 +1,4 @@
-import SelectField from 'spectre-canjs/sp-form/fields/sp-select-field/ViewModel';
+import SelectField from 'can-bulma/sp-form/fields/sp-select-field/ViewModel';
 import DefineList from 'can-define/list/list';
 
 

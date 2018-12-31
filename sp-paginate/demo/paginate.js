@@ -1,4 +1,4 @@
-import 'spectre-canjs/sp-paginate/sp-paginate';
+import 'can-bulma/sp-paginate/sp-paginate';
 import Component from 'can-component';
 
 const view =    `

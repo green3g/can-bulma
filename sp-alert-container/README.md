@@ -1,7 +1,7 @@
 <!--
 
 @module {can.Component} sp-alert-container <sp-alert-container />
-@memberof spectre-canjs.components
+@memberof can-bulma.components
 @outline 3
 
 -->

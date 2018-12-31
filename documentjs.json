@@ -1,6 +1,6 @@
 {
     "siteDefaults": {
-        "source": "https://github.com/roemhildtg/spectre-canjs",
+        "source": "https://github.com/roemhildtg/can-bulma",
         "templates": "docs-site/templates",
         "static": "docs-site/static"
     },

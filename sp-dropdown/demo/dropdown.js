@@ -1,4 +1,4 @@
-import 'spectre-canjs/sp-dropdown/sp-dropdown';
+import 'can-bulma/sp-dropdown/sp-dropdown';
 import stache from 'can-stache';
 import DefineMap from 'can-define/map/map';
 
