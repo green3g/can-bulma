@@ -1,20 +1,27 @@
-<div class="clearfix pt-10">
-  <form class="form form-horizontal" on:submit="noOp(scope.event)">
+<form class="" on:submit="noOp(scope.event)">
+  <div class="columns is-variable is-1">
     {{#if(filter.pinned)}}
-    <div class="ml-1 col-3 col-sm-12">
+    <div class="column">
       <label class="form-label">{{filter.label}} {{filter.operatorField.label}}</label>
     </div>
-    <div class="ml-1 col-9 col-sm-12">
+    <div class="column">
       {{>filter.valueComponent}}
     </div>
 
     {{else}}
-    <button type="button" class="btn block float-left tooltip tooltip-right ml-1 mt-1" data-tooltip="Remove Filter" on:click="dispatchEvent('remove')">
-      <i class="fa fa-trash"></i> {{filter.label}}</button>
-    <sp-select-field class="float-left ml-1 mt-1" properties:from="filter.operatorField" value:bind="filter.operator" inline:raw="true" /> 
-    <div class="d-inline-block ml-1 mt-1">
+    <div class="column">
+      <button type="button" class="button is-fullwidth has-icon" data-tooltip="Remove Filter" on:click="dispatchEvent('remove')">
+        <span class="icon is-small"><i class="fa fa-trash"></i></span>
+        <span>{{filter.label}}</span></button>
+    </div>
+    <div class="column">
+      <sp-select-field class="float-left ml-1 mt-1" properties:from="filter.operatorField" value:bind="filter.operator"
+        inline:raw="true" />
+    </div>
+    <div class="column">
       {{>filter.valueComponent}}
     </div>
     {{/if}}
-  </form>
-</div>
+
+  </div>
+</form>

@@ -23,6 +23,10 @@ export default {
         path: 'spectre-canjs/sp-form/demo/full/full',
         title: 'Form Advanced'
     },
+    'sp-filter-builder': {
+        path: 'spectre-canjs/sp-filter-builder/demo/filter',
+        title: 'Filter Builder'
+    },
     'sp-list-table': {
         path: 'spectre-canjs/sp-list-table/demo/listTable',
         title: 'List Table'
