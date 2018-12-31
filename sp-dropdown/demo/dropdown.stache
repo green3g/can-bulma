@@ -1,5 +1,4 @@
-<script type="text/stache" id="demo-html">
-    <h1>Dropdown Demo</h1>
+<h1>Dropdown Demo</h1>
 
     <sp-dropdown class="block float-left" text="'Card'" buttonClass:from="'btn btn-sm btn-primary'" primaryButtons:from="primary">
         <div class="card" style="width:300px;">
@@ -81,11 +80,3 @@
             </li>
         </ul>
     </sp-dropdown>
-
-
-</script>
-
-<!-- <script src="../../node_modules/steal/steal.js" main="can-bulma/index"> -->
-<script src="../../docs/spectre/steal.production.js" main="can-bulma/index">
-  steal.import('can-bulma/sp-dropdown/demo/dropdown');
-</script>
