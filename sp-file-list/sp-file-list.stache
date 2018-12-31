@@ -53,7 +53,7 @@
         
     <div class="file">
         <label class="file-label">
-            <input class="file-input" type="file" name="resume" on:change="addFiles(scope.event.target.files, scope.event)">
+            <input class="file-input" type="file" name="resume" value:bind="inputValue" on:change="addFiles(scope.event.target.files, scope.event)">
             <span class="file-cta {{#if(isDragOver)}}has-background-info has-text-white{{/if}}">
                 <span class="file-icon">
                     <i class="fas fa-upload"></i>

@@ -5,7 +5,7 @@ import '../sp-file-list';
 export default Component.extend({
     tag: 'sp-file-demo',
     viewModel: {
-        simulateUpload(file){
+        simulateUpload([file]){
             file.progress = 0;
             const interval = Math.round(Math.random() * 10) || 1;
             const timer = window.setInterval(() => {

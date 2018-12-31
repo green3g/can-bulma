@@ -1,1 +1,1 @@
-<sp-file-list on:add="simulateUpload(scope.event)" />
+<sp-file-list on:add="simulateUpload(scope.arguments)" />

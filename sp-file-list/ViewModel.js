@@ -92,6 +92,10 @@ export default DefineMap.extend('SPFileList', {
      */
     files: {Default: FileList, Type: FileList},
     /**
+     * The current input value
+     */
+    inputValue: {},
+    /**
      * Is currently dragging files over
      * @memberof sp-file-list.ViewModel.prototype
      * @type {Boolean}
@@ -153,6 +157,7 @@ export default DefineMap.extend('SPFileList', {
             this.files.push(file);
             this.dispatch('add', [file]);
         });
+        this.inputValue = null;
     },
     /**
      * Sets the `isDragOver` value to something else
