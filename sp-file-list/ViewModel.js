@@ -81,11 +81,16 @@ export const FileList = DefineList.extend('FileList', {
 export default DefineMap.extend('SPFileList', {
     /** @lends sp-file-list.ViewModel.prototype */
     /**
+     * The heading text to display
+     * @type {String}
+     */
+    title: {default: 'Files', type: 'string'},
+    /**
      * A list of file objects
      * @memberof sp-file-list.ViewModel.prototype
      * @type {FileList}
      */
-    files: FileList,
+    files: {Default: FileList, Type: FileList},
     /**
      * Is currently dragging files over
      * @memberof sp-file-list.ViewModel.prototype
@@ -166,14 +171,6 @@ export default DefineMap.extend('SPFileList', {
     mouseover (ev, isMouseOver) {
         ev.preventDefault();
         this.isMouseOver = isMouseOver;
-    },
-    /**
-     * Triggers a click event on the hidden input element
-     * @param {DomEvent} ev Event to prevent default on
-     */
-    uploadClick (ev) {
-        ev.preventDefault();
-        this.el.click();
     },
     /**
      * Determines whether or not the progress value bar should be shown

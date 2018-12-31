@@ -1,57 +1,68 @@
-<div class="drop-container container {{#if(isDragOver)}}drag-over{{/if}}"
-    on:drop="addFiles(scope.event.dataTransfer.files, scope.event)"
-    on:dragover="dragover(scope.event, true)"
-    on:dragleave="dragover(scope.event, false)"
-    on:mouseover="mouseover(scope.event, true)"
+<nav class="panel"
+    on:drop="addFiles(scope.event.dataTransfer.files, scope.event)" on:dragover="dragover(scope.event, true)"
+    on:dragleave="dragover(scope.event, false)" on:mouseover="mouseover(scope.event, true)" 
     on:mouseleave="mouseover(scope.event, false)">
-
-    {{#if(files.length)}}
-        {{#for(row of files)}}
-        <div class="tile">
-            <div class="tile-icon">
-            {{#if(row.isImage())}}
-            <figure class="avatar avatar-lg">
-                <img src="{{row.uri}}" alt="Upload">
-            </figure>
-            {{else}}
-                <i class="fa fa-3x fa-file"></i>
-            {{/if}}
-            </div>
-            <div class="tile-content">
-            <p class="tile-subtitle text-gray text-ellipsis">{{row.id}}</p>
-            {{#if(row.error)}}
-            <p class="text-error">{{row.error}}</p>
-            {{else}}
-                {{#if(showProgress(row.progress))}}
-                <div class="bar bar-sm">
-                    <div class="bar-item" 
-                        role="progressbar" 
-                        style="width:{{row.progress}}%;"
-                        aria-valuenow="{{row.progress}}"
-                        aria-valuemin="0" aria-valuemax="{{maxProgressValue}}"></div>
-                </div>
+    <p class="panel-heading">{{title}}</p>
+    {{#for(file of files)}}
+    <div class="panel-block">
+        <article class="media">
+            <figure class="media-left">
+                {{#if(file.isImage())}}
+                <p class="image is-64x64">
+                    <img src="{{file.uri}}" alt="{{file.id}}" />
+                </p>
+                {{else}}
+                <p class="icon is-large">
+                    <i class="fas fa-3x fa-file"></i>
+                </p>
                 {{/if}}
-            {{/if}}
+            </figure>
+            <div class="media-content">
+                <div class="content">
+                    <p>
+                        <strong>{{file.id}}</strong>
+                        <br />
+                        {{#if(file.error)}}
+                        <small class="has-text-danger is-size-7">{{file.error}}</small>
+                        {{else}}
+                            {{#if(showProgress(file.progress))}}
+                            <progress class="progress is-primary" value="{{file.progress}}" max="{{maxProgressValue}}">{{file.progress}}%</progress>
+                            {{/if}}
+                        {{/if}}
+                    </p>
+                </div>
+                {{#if(actions.length)}}<!-- TODO: implement actions -->
+                <nav class="level is-mobile">
+                    <div class="level-left">
+                        {{#for(action of actions)}}
+                        <a class="level-item">
+                            <span class="icon is-small"><i class="{{action.icon}}"></i></span>
+                        </a>
+                        {{/for}}
+                    </div>
+                </nav>
+                {{/if}}
             </div>
-            <div class="tile-action">
-                <can-slot name="actions" row:bind="row">
-                    <button class="btn btn-primary" type="button" on:click="scope.top.remove(row)">
-                        <i class="fa fa-trash"></i>
-                    </button>
-                </can-slot>
+            <div class="media-right">
+                <button class="delete" on:click="scope.vm.remove(file)"></button>
             </div>
-        </div>
-        <div class="divider"></div>
-        {{/for}}
-
-    {{else}}
-        <p>Drag and drop files here...</p>
-    {{/if}}
-
-    {{#if(isMouseOver)}}
-        <div class="mouseover-tooltip" on:click="uploadClick(scope.event)">
-            <i class="fa fa-upload"></i> Drag files or click to Browse...
-        </div>
-    {{/if}}
-    <input type="file" class="d-none" on:change="addFiles(scope.event.target.files, scope.event)" />
-</div>
+        </article>
+    </div>
+    {{/for}}
+    <div class="panel-block">
+        
+    <div class="file">
+        <label class="file-label">
+            <input class="file-input" type="file" name="resume" on:change="addFiles(scope.event.target.files, scope.event)">
+            <span class="file-cta {{#if(isDragOver)}}has-background-info has-text-white{{/if}}">
+                <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                    Drag files or click to Browse...
+                </span>
+            </span>
+        </label>
+    </div>
+    </div>
+</nav>
