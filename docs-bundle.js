@@ -15,7 +15,7 @@ stealTools.build({
         'can-bulma/sp-tab-container/demo/nav',
         'can-bulma/sp-paginate/demo/paginate',
         'can-bulma/sp-property-table/demo/propertyTable',
-        'can-bulma/sp-toast-container/demo/toast'
+        'can-bulma/sp-alert-container/demo/alert'
     ]
 }, {
     removeDevelopmentCode: false,

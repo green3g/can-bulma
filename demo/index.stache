@@ -27,14 +27,14 @@
         </a>
 
         <div class="navbar-dropdown">
-            {{#for(page of pageData)}}
+            {{#for(page of demos)}}
             {{#if(page.divider)}}
               <hr class="navbar-divider">
               <div class="navbar-item">
                 {{page.title}}
               </div>
             {{else}}
-              <a class="navbar-item {{#if(routeCurrent(page=scope.key))}}is-active{{/if}}" href="{{routeUrl(page=scope.key}}">
+              <a class="navbar-item {{#if(routeCurrent(page=page.route))}}is-active{{/if}}" href="{{routeUrl(page=page.route}}">
                 {{page.title}}
               </a>
             {{/if}}

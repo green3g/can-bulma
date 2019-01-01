@@ -35,12 +35,17 @@ export default Component.extend({
                 return pages;
             }
         },
+        demos: {
+            get(){
+                return this.pageData.filter(p => p.demo);
+            }
+        },
         pagePromise: {
             get(){
-                if(!this.pageData[this.routeData.page]){
+                const pageData = this.pageData.filter(p => p.route === this.routeData.page)[0];
+                if(!pageData){
                     return Promise.reject('This page could not be found.');
                 }
-                const pageData = this.pageData[this.routeData.page];
                 return steal.import(pageData.path).then(module => {
                     document.title = pageData.title || 'Demo';
                     return new module.default();

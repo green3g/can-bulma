@@ -32,7 +32,6 @@ import './sp-form/fields/sp-select-field/sp-select-field';
 import './sp-form/fields/sp-check-field/sp-check-field';
 import './sp-form/fields/sp-multi-check-field/sp-multi-check-field';
 import './sp-form/fields/sp-subform-field/sp-subform-field';
-import './sp-form/fields/sp-dropzone-field/sp-dropzone-field';
 import './sp-form/fields/sp-multi-check-field/sp-multi-check-field';
 import './util/field/Field'; 
 import './sp-accordion/sp-accordion';
