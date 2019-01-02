@@ -4,16 +4,15 @@ import Field from 'can-bulma/util/field/Field';
 /**
  * A `<sp-check-field />` component's ViewModel
  * 
- * @class ViewModel
- * @extends Field
+ * @module sp-form/fields/sp-check-field/ViewModel
+ * @extends util/field/Field
  * @memberof sp-check-field
  */
 export default Field.extend('CheckboxField', {
-    /** @lends ViewModel.prototype */
+    /** @lends sp-form/fields/sp-check-field.ViewModel.prototype */
     /**
      * The current value of the checkbox field
      * @type {Boolean}
-     * @memberof sp-check-field.ViewModel.prototype
      */
     value: 'boolean',
     dispatchChange () {

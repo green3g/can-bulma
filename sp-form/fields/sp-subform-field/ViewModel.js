@@ -5,18 +5,17 @@ import mapToFields from 'can-bulma/util/field/mapToFields/mapToFields';
 
 /** 
  * A <sp-subform-field /> component's ViewModel
- * @class ViewModel
- * @extends Field
+ * @class sp-form/fields/sp-subform-field/ViewModel
+ * @extends util/field/Field
  * @memberof sp-subform-field
  *
  */
 export default Base.extend('SubformField', {
-    /** @lends sp-subform-field.ViewModel.prototype */
+    /** @lends sp-form/fields/sp-subform-field/ViewModel.prototype */
     /**
      * The current value of the field. This is a json serialized value
      * paths.
      * @type {String}
-     * @memberof sp-subform-field.ViewModel.prototype
      */
     value: {
         Default: DefineMap,
@@ -36,7 +35,6 @@ export default Base.extend('SubformField', {
      * to use a different type, than the Type defined in define map,
      * you can provide a `subType` instead. This will override the Type.
      * @type {Constructor} 
-     * @memberof sp-subform-field.ViewModel.prototype
      */
     Type: '*',
     /**
@@ -44,7 +42,6 @@ export default Base.extend('SubformField', {
      * subType is provided to allow for customizability between the field and
      * the map
      * @type {Constructor} 
-     * @memberof sp-subform-field.ViewModel.prototype
      */
     subType: '*',
     /**
@@ -52,7 +49,6 @@ export default Base.extend('SubformField', {
      * set up automatically from the `fields` property or the `subobject`
      * if `fields` is not provided.
      * @type {Array<Field>}
-     * @memberof sp-subform-field.ViewModel.prototype
      */
     formFields: {
         get () {

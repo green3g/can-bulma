@@ -7,7 +7,7 @@ import './sp-multi-check-field.less';
 
 /**
  * A field for handling multiple checkboxes
- * @module sp-multi-check-field
+ * @module sp-form/fields/sp-check-field
  * @example 
  * <sp-multi-check-field /> 
  */

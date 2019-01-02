@@ -2,18 +2,17 @@ import Field from 'can-bulma/util/field/Field';
 
 /**
  * A `<sp-text-field />` component's ViewModel
- * @class ViewModel
- * @extends Field
+ * @module sp-form/fields/sp-text-field/ViewModel
+ * @extends util/field/Field
  * @memberof sp-text-field
  */
 export default Field.extend('TextField', {
-    /** @lends sp-text-field.ViewModel.prototype */
+    /** @lends sp-form/fields/sp-text-field/ViewModel.prototype */
     /**
      * The type of input to create.
      * The default is 'text'
      * @example
      * textType="number"
-     * @memberof sp-text-field.ViewModel.prototype
      * @type {String}
      */
     textType: {default: 'text', type: 'string'},
@@ -21,7 +20,6 @@ export default Field.extend('TextField', {
      * Show or hide the clear input addon button 
      * @example
      * showClear="true"
-     * @memberof sp-text-field.ViewModel.prototype
      * @type {Boolean}
      */
     showClear: {default: false, type: 'boolean'},

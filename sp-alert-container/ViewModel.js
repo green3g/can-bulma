@@ -5,15 +5,13 @@ import renderAlert from 'can-bulma/sp-alert/sp-alert.stache';
 
 /**
  * A `<sp-alert-container />` component's ViewModel
- * @class sp-alert-container.ViewModel ViewModel
- * @memberof sp-alert-container
+ * @module sp-alert-container/ViewModel
  */
 export default DefineMap.extend('AlertContainer', {
-    /** @lends sp-alert-container.ViewModel.prototype */
+    /** @lends sp-alert-container/ViewModel.prototype */
     /**
-     * An array of alert alerts
-     * @type {Array<sp-alert.ViewModel>}
-     * @memberof sp-alert-container.ViewModel.prototype
+     * An array of alerts
+     * @type {sp-alert/ViewModel[]}
      */
     alerts: {
         Default: DefineList.extend('AlertList', {

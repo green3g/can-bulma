@@ -8,10 +8,8 @@ import ViewModel from './ViewModel';
  * @see sp-alert-container
  * @module sp-alert
  */
-Component.extend({
+export default Component.extend({
     tag: 'sp-alert',
     view: template,
     ViewModel: ViewModel
 });
-
-export default ViewModel;

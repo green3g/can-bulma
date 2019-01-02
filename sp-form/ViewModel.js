@@ -3,12 +3,10 @@ import FieldIteratorMap from 'can-bulma/util/field/base/FieldIteratorMap';
 
 /**
  * Form View Model
- * 
- * @class ViewModel
- * @memberof sp-form
+ * @module sp-form/ViewModel
  */
 const ViewModel = FieldIteratorMap.extend('FormWidget', {
-    /** @lends sp-form.ViewModel.prototype */
+    /** @lends sp-form/ViewModel.prototype */
     /**
     * A string referencing a field type that will exclude that field
     * from this classes fields. The default is `'edit'`.

@@ -1,8 +1,11 @@
 {{<descriptionView}}
     {{#for(child of this)}}
         {{#if(child.value)}}
-        <p>{{child.value}}</p>
-        {{^is(scope.index, this.length)}}<hr />{{/is}}
+            {{#is(child.type, 'inlineCode')}}
+            <code>{{child.value}}</code>
+            {{else}}
+            {{child.value}}
+            {{/is}}
         {{/if}}
         {{#if(child.children)}}
         {{descriptionView(child.children)}}
@@ -10,7 +13,7 @@
     {{/for}}
 {{/descriptionView}}
 
-{{<membersVies}}
+{{<tableView}}
     <table class="table is-fullwidth">
       <thead>
         <tr>
@@ -29,7 +32,7 @@
         {{/for}}
       </tbody>
     </table>
-{{/membersView}}
+{{/tableView}}
 
 <section class="hero is-light">
     <div class="hero-body">
@@ -110,7 +113,7 @@
 
         {{#if(active.members.instance.length)}}
         <h4 class="title is-h4">Instance members:</h4>
-        {{membersView(active.members.instance)}}
+        {{tableView(active.members.instance)}}
         {{/if}}
     </div>
 </div>

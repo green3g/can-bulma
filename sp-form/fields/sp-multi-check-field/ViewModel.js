@@ -4,16 +4,15 @@ import DefineList from 'can-define/list/list';
 
 /**
  * The `<sp-multi-check-field />` component viewmodel 
- * @class ViewModel
- * @extends Field
+ * @module sp-form/fields/sp-multi-check-field/ViewModel
+ * @extends util/field/Field
  * @memberof sp-multi-check-field
  */
 export default SelectField.extend('CheckboxMulti', {
-    /** @lends sp-multi-check-field.ViewModel.prototype */
+    /** @lends sp-form/fields/sp-multi-check-field/ViewModel.prototype */
     
     /**
      * @type {Any}
-     * @memberof sp-multi-check-field.ViewModel.prototype
      * @description The current value of this field. Can be a list. 
      */
     value: {
@@ -22,13 +21,11 @@ export default SelectField.extend('CheckboxMulti', {
     },
     /**
      * @type {Array<Any>}
-     * @memberof sp-multi-check-field.ViewModel.prototype
      * @description Type of value. Set this to string to coerce the list to a comma separated list. 
      */
     valueType: 'string',
     /**
      * @type {String}
-     * @memberof sp-multi-check-field.ViewModel.prototype
      * @description Separator for the value string. List will be joined using this separator. Default is `,`. 
      */
     valueSeparator: {

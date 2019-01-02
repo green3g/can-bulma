@@ -2,15 +2,13 @@ import DefineMap from 'can-define/map/map';
 
 /**
  * A `<sp-alert />` component's ViewModel
- * @class ViewModel
- * @memberof sp-alert
+ * @module sp-alert/ViewModel
  */
 export default DefineMap.extend('AlertItem', {
-    /** @lends sp-alert.ViewModel.prototype */
+    /** @lends sp-alert/ViewModel.prototype */
     /**
    * whether or not to fade the sp-alert out using animate.css
    * @type {Boolean}
-   * @memberof sp-alert.ViewModel.prototype
    *
    */
     fade: {
@@ -21,7 +19,6 @@ export default DefineMap.extend('AlertItem', {
     /**
      * the time to autohide this sp-alert. Set to 0 to disable auto hide
      * @type {Number}
-     * @memberof sp-alert.ViewModel.prototype
      */
     autoHide: {
         type: 'number',
@@ -43,7 +40,6 @@ export default DefineMap.extend('AlertItem', {
      * is inside the `<sp-alert></sp-alert>` tags. This overrides the
      * body property of this sp-alert
      * @type {Boolean}
-     * @memberof sp-alert.ViewModel.prototype
      */
     custom: {
         type: 'boolean',
@@ -51,7 +47,6 @@ export default DefineMap.extend('AlertItem', {
     },
     /**
      * @type {string}
-     * @memberof sp-alert.ViewModel.prototype
      * @description The class that gives the sp-alert context. Must be either
      * info, success, warning, or danger.
      * @option {string} Defaults to `info`.
@@ -68,7 +63,6 @@ export default DefineMap.extend('AlertItem', {
 
     /**
      * @type {boolean}
-     * @memberof sp-alert.ViewModel.prototype
      * @description Marks the sp-alert as dismissable, which adds a "close" icon to the sp-alert.
      * The default is true
      */
@@ -79,7 +73,6 @@ export default DefineMap.extend('AlertItem', {
 
     /**
      * @type {boolean}
-     * @memberof sp-alert.ViewModel.prototype
      * @description Toggles visiblity of the sp-alert. The default is false.
      */
     visible: {
@@ -89,7 +82,6 @@ export default DefineMap.extend('AlertItem', {
 
     /**
      * @type {string}
-     * @memberof sp-alert.ViewModel.prototype
      * @description The content displayed in the alert. The default is an empty string.
      */
     body: {
@@ -98,7 +90,6 @@ export default DefineMap.extend('AlertItem', {
     },
     /**
      * Time in miliseconds to fade out this sp-alert
-     * @memberof sp-alert.ViewModel.prototype
      * @type {Number}
      */
     fadeTime: {

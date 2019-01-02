@@ -5,21 +5,18 @@ import DefineList from 'can-define/list/list';
 
 /**
  * the select option type - used to display <option> tags values/labels
- * @class SelectOption
- * @memberof sp-select-field
+ * @module sp-form/fields/sp-select-field/ViewModel~SelectOption
  */
 export const SelectOption = DefineMap.extend('SelectOption', {
-    /** @lends sp-select-field.SelectOption.prototype */
+    /** @lends sp-form/fields/sp-select-field/ViewModel~SelectOption.prototype */
     /**
      * The value to set when option is selected
      * @type {Any} 
-     * @memberof sp-select-field.SelectOption.prototype
      */
     value: 'string',
     /**
      * The label to display to the user. If not provided, `value` is used
      * @type {String} 
-     * @memberof sp-select-field.SelectOption.prototype
      */
     label: {
         type: 'string',
@@ -39,21 +36,18 @@ export const SelectOptionList = DefineList.extend('SelectOptionList', {
 
 /**
  * A `<sp-select-field />` component's ViewModel
- * @class ViewModel
- * @memberof sp-select-field
+ * @module sp-form/fields/sp-select-field/ViewModel
  */
 export default Field.extend('SelectField', {
-    /** @lends sp-select-field.ViewModel.prototype */
+    /** @lends sp-form/fields/sp-select-field/ViewModel.prototype */
     /**
      * The default label when no items are selected
      * @type {String}
-     * @memberof sp-select-field.ViewModel.prototype
      */
     defaultLabel: {type: 'string', default: 'Choose a value...'},
     /**
      * The array of options to display in the dropdown
      * @type {Array<sp-select-field.SelectOption>}
-     * @memberof sp-select-field.ViewModel.prototype
      */
     options: {        
         Type: SelectOptionList,
@@ -75,7 +69,6 @@ export default Field.extend('SelectField', {
     /**
      * A promise that resolves to the array of options
      * @type {Promise<Array>}
-     * @memberof sp-select-field.ViewModel.prototype
      */
     optionsPromise: {
         set (promise) {

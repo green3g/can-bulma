@@ -6,8 +6,7 @@ import ViewModel from './ViewModel';
 /**
  * Inserts a dropdown toggle button into the page. Consider using spectre.css css-only dropdowns instead
  * <iframe src="../sp-dropdown/demo/index.html" style="border: 1px solid #ccc; width:100%; height:300px;"></iframe>
- * @class sp-dropdown
- * @deprecated 
+ * @module sp-dropdown
  * @example 
  * <sp-dropdown />
  * 
