@@ -1,23 +1,3 @@
-/**
- * By providing the required attribute to a component, this 
- * value will evaluate to true.
- * See {@link https://canjs.com/doc/can-define.types.html}
- * @example <element active />
- * @typedef {Boolean} HTMLBoolean
- */
-
-/**
- * An observable maplike constructor object
- * See {@link https://canjs.com/doc/can-define/map/map.html}
- * @typedef {Object} DefineMap
- */
-
- 
-/**
- * An observable array like list
- * See {@link https://canjs.com/doc/can-define/list/list.html}
- * @typedef {Object} DefineList
- */
 
 // !steal-remove-start
 import debug from 'can-debug';

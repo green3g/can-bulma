@@ -3,6 +3,10 @@ export default [{
     path: 'can-bulma/demo/home-page/home-page',
     title: 'Welcome!',
 }, {
+    route: 'docs',
+    path: 'can-bulma/demo/docs-page/docs-page',
+    title: 'Docs',
+}, {
     route: 'sp-admin',
     path: 'can-bulma/sp-admin/demo/demo',
     title: 'Admin (CRUD)',

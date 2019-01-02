@@ -1,0 +1,116 @@
+{{<descriptionView}}
+    {{#for(child of this)}}
+        {{#if(child.value)}}
+        <p>{{child.value}}</p>
+        {{^is(scope.index, this.length)}}<hr />{{/is}}
+        {{/if}}
+        {{#if(child.children)}}
+        {{descriptionView(child.children)}}
+        {{/if}}
+    {{/for}}
+{{/descriptionView}}
+
+{{<membersVies}}
+    <table class="table is-fullwidth">
+      <thead>
+        <tr>
+          <th>property</th>
+          <th>type</th>
+          <th>description</th>
+        </tr>
+      </thead>
+      <tbody>
+          {{#for(prop of this)}}
+        <tr>
+          <td><code>{{prop.name}}</code></td>
+          <td><code>{{prop.type.name}}</code></td>
+          <td>{{descriptionView(prop.description.children)}}</td>
+        </tr>
+        {{/for}}
+      </tbody>
+    </table>
+{{/membersView}}
+
+<section class="hero is-light">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                {{info.name}}
+            </h1>
+            <h2 class="subtitle">
+                <code>{{info.version}}</code>
+            </h2>
+        </div>
+    </div>
+</section>
+
+<div class="columns">
+    <div class="column is-one-third">
+        <nav class="panel">
+        <p class="panel-heading">
+            modules
+        </p>
+        <div class="panel-block">
+            <p class="control has-icons-left">
+            <input class="input is-small" type="text" placeholder="search" on:keyup:value:bind="searchText">
+            <span class="icon is-small is-left">
+                <i class="fas fa-search" aria-hidden="true"></i>
+            </span>
+            </p>
+        </div>
+        {{#if(searchText)}}
+        <div class="panel-block">
+            <p>Search not implemented yet...</p>
+        </div>
+        {{/if}}
+        <div class="panel-block">
+        <aside class="menu">
+            <ul class="menu-list">
+            {{#for(item of docs)}}
+            {{#if(item.children.length)}}
+            <p class="menu-label">
+                {{item.name}}
+            </p>
+            <ul class="menu-list">
+                {{#for(child of item.children)}}
+                <li><a on:click="active = findChild(child)">{{child}}</a></li>
+                {{/for}}
+            </ul>
+            {{else}}
+                <li><a on:click="active = item">{{item.name}}</a></li>
+            {{/if}}
+            {{/for}}
+            </ul>
+        </aside>
+        </div>
+        </nav>
+    </div>
+
+    <div class="column is-two-thirds">
+        {{^if(active)}}
+        <p>Select a module to see documentation.</p>
+        {{/if}}
+        <h3 class="title is-h3">{{active.name}}</h3>
+
+        <h4 class="title is-h4">Description: </h4>
+        {{descriptionView(active.description.children)}}
+
+        {{#if(active.examples.length)}}
+        <h4 class="title is-h4">Examples:</h4>
+        {{#for(example of active.examples)}}
+        <section class="hero is-light">
+            <div class="hero-body">
+                <div class="container">
+                    <code>{{example.description}}</code>
+                </div>
+            </div>
+        </section>
+        {{/for}}
+        {{/if}}
+
+        {{#if(active.members.instance.length)}}
+        <h4 class="title is-h4">Instance members:</h4>
+        {{membersView(active.members.instance)}}
+        {{/if}}
+    </div>
+</div>

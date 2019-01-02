@@ -6,8 +6,7 @@ import './sp-accordion.less';
 
 /**
  * An accordion page
- * <iframe src="https://google.com" style="border: 1px solid #ccc; width:100%;resize:both;"></iframe>
- * @module sp-accordion-page 
+ * @module sp-accordion
  * @extends sp-tab-page
  * @example 
  * <sp-accordion-page /> 
@@ -19,7 +18,6 @@ export const AccordionPageComponent = NavPageComponent.extend({
 
 /**
  * A virtical navigation accordion component
- * <iframe src="https://google.com" style="border: 1px solid #ccc; width:100%;resize:both;"></iframe>
  * @module sp-accordion
  * @extends sp-tab-container
  * @example 
