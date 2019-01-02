@@ -5,16 +5,15 @@ import DefineList from 'can-define/list/list';
 /**
  * A `<sp-list-table />` component's ViewModel.
  * 
- * @class ViewModel
- * @memberof sp-list-table
+ * @module sp-list-table/ViewModel
+ * @extends util/field/base/FieldIteratorMap
  */
 export default FieldIteratorMap.extend('ListTable', {seal: false}, {
-    /** @lends sp-list-table.ViewModel.prototype */
+    /** @lends sp-list-table/ViewModel.prototype */
     /**
      * A string referencing a field type that will exclude that field
      * from this classes fields. The default is 'list'.
      * @type {String} 
-     * @memberof sp-list-table.ViewModel
      */
     excludeFieldKey: {
         default: 'list'
@@ -22,7 +21,6 @@ export default FieldIteratorMap.extend('ListTable', {seal: false}, {
     /**
      * Optional promise or deferred object that will resolve to an object. Once
      * the promise resolves, the objects list will be replaced with the promise result
-     * @memberof sp-list-table.ViewModel
      * @type {Promise} 
      */
     promise: {
@@ -36,7 +34,6 @@ export default FieldIteratorMap.extend('ListTable', {seal: false}, {
     /**
      * A list of objects to display. These objects should generally be can.Model
      * objects but may be an javascript object.
-     * @memberof sp-list-table.ViewModel
      * @type {Array<DefineMap>} 
      */
     objects: {
@@ -45,7 +42,6 @@ export default FieldIteratorMap.extend('ListTable', {seal: false}, {
     },
     /**
      * A virtual type that retrieves this table's first object
-     * @memberof sp-list-table.ViewModel
      * @type {Array<Object>} 
      *
      */
@@ -63,7 +59,6 @@ export default FieldIteratorMap.extend('ListTable', {seal: false}, {
      * is used to determine whether objects are selected or not. For a built in
      * unique ID, `_cid` may be used. _cid is automatically generatted by `can-define`
      * and should be guaranteed to be unique accross all DefineMaps
-     * @memberof sp-list-table.ViewModel
      * @type {String} 
      */
     idProp: {
@@ -71,7 +66,6 @@ export default FieldIteratorMap.extend('ListTable', {seal: false}, {
     },
     /**
      * Whether rows can be selectable using a checkbox
-     * @memberof sp-list-table.ViewModel
      * @type {Boolean} 
      */
     selectable: 'boolean',
@@ -79,7 +73,6 @@ export default FieldIteratorMap.extend('ListTable', {seal: false}, {
     /**
      * An array of ids for the selected objects. This is a virtual type
      * and cannot be set.
-     * @memberof sp-list-table.ViewModel
      * @type {Array<Number>} 
      */
     selectedIds: {
@@ -105,7 +98,6 @@ export default FieldIteratorMap.extend('ListTable', {seal: false}, {
     },
     /**
      * A virtual type that helps the template determine whether all objects are selected
-     * @memberof sp-list-table.ViewModel
      * @type {Boolean} 
      */
     allSelected: {
@@ -122,7 +114,6 @@ export default FieldIteratorMap.extend('ListTable', {seal: false}, {
     },
     /**
      * The current sort field
-     * @memberof sp-list-table.ViewModel
      * @type {can.List} 
      */
     currentSort: {
@@ -137,7 +128,6 @@ export default FieldIteratorMap.extend('ListTable', {seal: false}, {
     /**
      * Dispatches an event with the name of the passed argument. Any additional
      * arguments will be passed to the event handler
-     * @memberof sp-list-table.ViewModel
      * @param  {String} event The name of the event to dispatch
      */
     dispatchEvent (event) {
@@ -145,7 +135,6 @@ export default FieldIteratorMap.extend('ListTable', {seal: false}, {
     },
     /**
      * Helps the template the currentSort value
-     * @memberof sp-list-table.ViewModel
      * @param  {String} field the field to set the sort on
      * @param {Event} event the event to cancel
      */
@@ -170,7 +159,6 @@ export default FieldIteratorMap.extend('ListTable', {seal: false}, {
     },
     /**
      * Toggles a row as selected or not selected
-     * @memberof sp-list-table.ViewModel
      * @param  {Object} obj The row to toggle
      */
     toggleSelected (obj) {
@@ -197,7 +185,6 @@ export default FieldIteratorMap.extend('ListTable', {seal: false}, {
     /**
      * Determines whether or not the provided object is selected by comparing
      * it to the list of currently selected objects
-     * @memberof sp-list-table.ViewModel
      * @param  {Object} obj The object to check if is selected
      * @return {Boolean}     Whether or not it is selected
      */
@@ -207,7 +194,6 @@ export default FieldIteratorMap.extend('ListTable', {seal: false}, {
     /**
      * A function that sorts the list. It is called with the scope of the
      * view model.
-     * @memberof sp-list-table.ViewModel
      * @param  {Object} sortInfo The sorting object which contains `field` and `type`
      */
     sort (sortInfo) {

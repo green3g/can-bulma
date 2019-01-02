@@ -2,7 +2,7 @@ import DefineMap from 'can-define/map/map';
 import DefineList from 'can-define/list/list';
 
 /**
- * @module util/actions/Action
+ * @module sp-modal/ViewModel~Action
  */
 export const Action = DefineMap.extend('Action', {
     /** @lends sp-modal/ViewModel~Action.prototype */

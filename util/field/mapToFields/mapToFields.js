@@ -9,6 +9,7 @@ const RESERVED = [
 /**
  * Converts a DefineMap to an array of Field objects using the property definitions
  * property or the keys
+ * @module util/field/mapToFields
  * @param  {Constructor | DefineMap} defineMap The extended map/constructor to parse
  * @return {Array<util/field/Field>} The array of fields
  */

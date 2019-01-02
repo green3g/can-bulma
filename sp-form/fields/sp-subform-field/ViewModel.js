@@ -5,9 +5,8 @@ import mapToFields from 'can-bulma/util/field/mapToFields/mapToFields';
 
 /** 
  * A <sp-subform-field /> component's ViewModel
- * @class sp-form/fields/sp-subform-field/ViewModel
+ * @module sp-form/fields/sp-subform-field/ViewModel
  * @extends util/field/Field
- * @memberof sp-subform-field
  *
  */
 export default Base.extend('SubformField', {

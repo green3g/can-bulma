@@ -6,7 +6,6 @@ import DefineList from 'can-define/list/list';
  * The `<sp-multi-check-field />` component viewmodel 
  * @module sp-form/fields/sp-multi-check-field/ViewModel
  * @extends util/field/Field
- * @memberof sp-multi-check-field
  */
 export default SelectField.extend('CheckboxMulti', {
     /** @lends sp-form/fields/sp-multi-check-field/ViewModel.prototype */

@@ -8,7 +8,6 @@ import 'can-dom-data';
 
 /**
  * A table to hold an array of objects - one object per row
- * <iframe src="../sp-list-table/demo/index.html" style="border: 1px solid #ccc; width:100%; height:300px;"></iframe>
  * @module sp-list-table
  * @example 
  * 

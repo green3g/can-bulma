@@ -4,7 +4,6 @@ import Field from 'can-bulma/util/field/Field';
  * A `<sp-text-field />` component's ViewModel
  * @module sp-form/fields/sp-text-field/ViewModel
  * @extends util/field/Field
- * @memberof sp-text-field
  */
 export default Field.extend('TextField', {
     /** @lends sp-form/fields/sp-text-field/ViewModel.prototype */

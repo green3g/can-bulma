@@ -5,7 +5,6 @@ import ViewModel from './ViewModel';
 
 /**
  * A paginate ui component
- * <iframe src="../sp-paginate/demo/index.html" style="border: 1px solid #ccc; width:100%; height:300px;"></iframe>
  * @module sp-paginate
  * @example 
  * <sp-paginate /> 

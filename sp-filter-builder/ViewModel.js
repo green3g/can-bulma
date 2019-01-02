@@ -5,7 +5,7 @@ import {Filter, FilterList} from './Filter';
 /**
  * A `<sp-filter-builder />` component's ViewModel.
  * 
- * @class sp-filter-builder/ViewModel
+ * @module sp-filter-builder/ViewModel
  */
 const ViewModel = FieldIteratorMap.extend('FilterWidget', {
     /** @lends sp-filter-builder/ViewModel.prototype */
@@ -18,7 +18,6 @@ const ViewModel = FieldIteratorMap.extend('FilterWidget', {
        * A string referencing a field type that will exclude that field
        * from this classes fields. The default is 'list'.
        * @type {String} 
-       * @memberof sp-filter-builder.ViewModel.prototype
        */
     excludeFieldKey: {
         default: 'filter'

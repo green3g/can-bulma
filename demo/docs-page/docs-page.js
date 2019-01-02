@@ -9,7 +9,9 @@ console.log(docs);
 export default Component.extend({
     tag: 'docs-page',
     ViewModel: {
-        docs: {default: docs},
+        docs: {default: docs.sort((a, b) => {
+            return a.name > b.name ? 1 : a.name < b.name ? -1 : 0;
+        })},
         info: {default: info},
         roots: {
             get(){
@@ -18,7 +20,7 @@ export default Component.extend({
         },
         active: {
             set(active){
-                console.log(active.get());
+                window.scrollTo(0, 0)
                 return active;
             }
         },
