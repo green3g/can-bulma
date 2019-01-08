@@ -6,6 +6,7 @@ import ViewModel from './ViewModel';
 /**
  * A modal dialog
  * @module sp-modal
+ * @see [sp-modal/ViewModel](sp-modal/ViewModel)
  * @example 
  * <sp-modal /> 
  */

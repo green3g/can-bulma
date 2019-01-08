@@ -2,10 +2,10 @@ import DefineMap from 'can-define/map/map';
 import DefineList from 'can-define/list/list';
 
 /**
- * @module sp-modal/ViewModel~Action
+ * @module util/actions/Action
  */
 export const Action = DefineMap.extend('Action', {
-    /** @lends sp-modal/ViewModel~Action.prototype */
+    /** @lends util/actions/Action.prototype */
     /**
      * Classes to apply to icon in button.
      * @type {String}

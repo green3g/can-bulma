@@ -6,16 +6,15 @@ import {getEditComponent} from './fieldComponents';
 let id = 0;
 
 /**
- * @typedef ValidationObject
- * @name ValidationObject
+ * @typedef util/field/Field~ValidationObject
  * @property {Object} object the form object that was set on the form
  * @property {Object} dirty the updated object currently set by the user in the form
  * @property {*} value the current field's value (dirty). Same as `dirty[field.name]` but provided for easy access
  */
 
 /**
- * @class Field
- * @description Constructs a new field. Used throughout can-bulma to 
+ * @module util/field/Field~Field
+ * Constructs a new field. Used throughout can-bulma to 
  * define displays of properties, aka fields. 
  */
 export const Field = DefineMap.extend('Field', {
@@ -23,7 +22,7 @@ export const Field = DefineMap.extend('Field', {
     // allow extra properties on this type
     seal: false
 }, {
-    /** @lends Field.prototype */
+    /** @lends util/field/Field~Field.prototype */
     /**
      * A unique field id. Useful for using id elements in templates
      * @type {Number} 

@@ -4,6 +4,9 @@ import debug from 'can-debug';
 debug();
 // !steal-remove-end
 
+/**
+ * @module can-bulma
+ */
 import '@fortawesome/fontawesome-free/css/all.css';
 import 'bulma/css/bulma.css';
 import './sp-form/sp-form';

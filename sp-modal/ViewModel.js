@@ -48,7 +48,7 @@ export default DefineMap.extend('ModalDialog', {
     backdrop: {default: true, type: 'boolean'},
     /**
      * Actions to display in this modal
-     * @type {sp-modal/ViewModel~Action[]}
+     * @type {util/actions/Action[]}
      */
     actions: ActionList
 });
