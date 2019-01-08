@@ -17,15 +17,15 @@ import DefineList from 'can-define/list/list';
 export default DefineMap.extend({
     /** @lends util/field/base/FieldIteratorMap.prototype */
     /**
-   * A string referencing a field property that will exclude that field
-   * from this classes fields.
-   * @type {String}
-   */
+     * A string referencing a field property that will exclude that field
+     * from this classes fields.
+     * @type {String}
+     */
     excludeFieldKey: 'string',
     /**
-   * A getter for an array of fields
-   * @type {Array<Field>}
-   */
+     * A getter for an array of fields
+     * @type {Array<Field>}
+     */
     fields: {
         Default: DefineList,
         Type: DefineList,
