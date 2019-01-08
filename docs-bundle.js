@@ -5,6 +5,7 @@ stealTools.build({
     main: 'can-bulma/demo/index',
     config: path.join(__dirname, 'package.json!npm'),
     bundle: [
+        'can-bulma/sp-admin/demo/demo',
         'can-bulma/sp-accordion/sp-accordion',
         'can-bulma/sp-dropdown/demo/dropdown',
         'can-bulma/sp-filter-builder/demo/filter',
