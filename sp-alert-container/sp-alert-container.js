@@ -1,6 +1,16 @@
 import Component from 'can-component';
 import ViewModel from './ViewModel';
 import template from './sp-alert-container.stache';
+import renderAlert from '../sp-alert/sp-alert.stache';
+
+// keep stache templates in component file
+const TemplatedViewModel = ViewModel.extend({
+    renderAlert: {
+        default () {
+            return renderAlert; 
+        }
+    }
+});
 
 /**
  * A controller that adds and removes alerts from the dom
@@ -11,6 +21,6 @@ import template from './sp-alert-container.stache';
  */
 export default Component.extend({
     tag: 'sp-alert-container',
-    ViewModel: ViewModel,
+    ViewModel: TemplatedViewModel,
     view: template
 });

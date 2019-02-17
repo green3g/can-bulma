@@ -1,7 +1,6 @@
 import DefineMap from 'can-define/map/map';
 import DefineList from 'can-define/list/list';
 import Alert from '../sp-alert/ViewModel';
-import renderAlert from '../sp-alert/sp-alert.stache';
 
 /**
  * A `<sp-alert-container />` component's ViewModel
@@ -17,12 +16,6 @@ export default DefineMap.extend('AlertContainer', {
         Default: DefineList.extend('AlertList', {
             '#': Alert
         })
-    },
-    
-    renderAlert: {
-        default () {
-            return renderAlert; 
-        }
     },
     /**
    * adds a new alert
