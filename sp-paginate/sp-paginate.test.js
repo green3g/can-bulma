@@ -25,14 +25,14 @@ test('hasPrevious get()', () => {
     expect(vm.hasPrevious).toEqual(true);
 });
 
-test('visiblePages get()', () => {
+test('innerPages get()', () => {
     vm.update({
         pages: 10,
         activeOffset: 3
     });
     const tests = [{
         index: 0,
-        expected: [1, 2, 3, 4]
+        expected: [2, 3]
     }, {
         index: 5,
         expected: [3, 4, 5, 6, 7, 8, 9]
@@ -43,7 +43,7 @@ test('visiblePages get()', () => {
 
     tests.forEach((test) => {
         vm.activePageIndex = test.index;
-        expect(vm.visiblePages).toEqual(test.expected);
+        expect(vm.innerPages).toEqual(test.expected);
     });
 });
 

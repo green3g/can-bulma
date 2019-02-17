@@ -94,7 +94,7 @@ const ViewModel = DefineMap.extend('PaginateWidget', {
      * The array of currently shown pages in the widget
      * @type {Array<Number>}
      */
-    visiblePages: {
+    innerPages: {
         get () {
             const active = this.activePageIndex;
             let min = active - this.activeOffset;
@@ -109,7 +109,7 @@ const ViewModel = DefineMap.extend('PaginateWidget', {
         }
     },
     /**
-     * The array of numbers 0 through number of pages. This is a helper for the visiblePages getter
+     * The array of numbers 0 through number of pages. This is a helper for the innerPages getter
      * @type {Array<Number>}
      */
     pageArray: {
