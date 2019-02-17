@@ -1,4 +1,3 @@
-
 import Field from '../../../util/field/Field';
 import DefineMap from 'can-define/map/map';
 import DefineList from 'can-define/list/list';
@@ -47,37 +46,30 @@ export default Field.extend('SelectField', {
     defaultLabel: {type: 'string', default: 'Choose a value...'},
     /**
      * The array of options to display in the dropdown
-     * @type {Array<sp-select-field.SelectOption>}
+     * @type {sp-form/fields/sp-select-field/ViewModel~SelectOption[]}
      */
     options: {        
         Type: SelectOptionList,
         Default: SelectOptionList,  
-        get (options, set) {
-            if (this.object && typeof this.getOptions === 'function') {
-                const result = this.getOptions(this.object);
-                if (result.then) {
-                    result.then(((opts) => {
-                        set(new SelectOptionList(opts));
-                    }));
-                } else {
-                    return new SelectOptionList(result) || options;
-                }
+        get (list) {
+            if (this.optionsPromise) {
+                this.optionsPromise.then((options) => list.replace(options));
             }
-            return options;
+
+            return list;
         }  
     },
     /**
      * A promise that resolves to the array of options
-     * @type {Promise<Array>}
+     * @type {Promise<sp-form/fields/sp-select-field/ViewModel~SelectOption[]>}
      */
     optionsPromise: {
-        set (promise) {
-            if (promise) {
-                promise.then((options) => {
-                    this.options = options;
-                });
+        get () {
+            if (typeof this.getOptions === 'function') {
+                const data = this.object ? this.object.get() : {};
+                return Promise.resolve(this.getOptions(data));
             }
-            return promise;
+            return null;
         }
     },
     /**
@@ -93,8 +85,7 @@ export default Field.extend('SelectField', {
     /**
      * An optional function to return options from a form object...ie cascading dropdowns 
      * @param {Object} formObject the form object
-     * @param {Object} formObject the form object
-     * @returns {Array<SelectOption>} the filtered array of select options
+     * @returns {SelectOption[]|Promise<sp-form/fields/sp-select-field/ViewModel~SelectOption[]>} the filtered array of select options
      */
     getOptions: {}
 });

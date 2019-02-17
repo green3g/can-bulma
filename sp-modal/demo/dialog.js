@@ -16,14 +16,14 @@ export default Component.extend({
             label: 'Login',
             buttonClass: 'button is-primary',
             iconClass: 'fas fa-sign-in-alt',
-            onlclick(event, scope){
+            onclick(event, scope){
                 scope.active = false;
             }
         }],
         actions: [{
             buttonClass: 'button is-success',
             label: 'Say Hello!',
-            onlclick(){
+            onclick(){
                 const modal = new Modal({
                     content: `<p>Another Modal!</p>`,
                     viewModel: {

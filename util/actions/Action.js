@@ -19,7 +19,7 @@ export const Action = DefineMap.extend('Action', {
     /**
      * A click handler function to call when the button is clicked
      */
-    onlclick: {}
+    onclick: {}
 });
 
 export const ActionList = DefineList.extend('ActionList', {

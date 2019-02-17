@@ -37,11 +37,11 @@ const ViewModel = ModalViewModel.extend('ConfirmDialog', {
     actions: {
         default () {
             return [{
-                onlclick: this.accept,
+                onclick: this.accept,
                 label: this.acceptText,
                 buttonClass: 'button is-success'
             }, {
-                onlclick: this.reject,
+                onclick: this.reject,
                 label: this.rejectText,
                 buttonClass: 'button is-lite'
             }];
