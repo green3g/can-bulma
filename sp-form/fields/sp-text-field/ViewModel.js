@@ -1,4 +1,4 @@
-import Field from 'can-bulma/util/field/Field';
+import Field from '../../../util/field/Field';
 
 /**
  * A `<sp-text-field />` component's ViewModel

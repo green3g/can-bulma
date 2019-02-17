@@ -1,4 +1,4 @@
-import SelectField from 'can-bulma/sp-form/fields/sp-select-field/ViewModel';
+import SelectField from '../sp-select-field/ViewModel';
 import DefineList from 'can-define/list/list';
 
 

@@ -1,5 +1,5 @@
 import DefineMap from 'can-define/map/map';
-import FieldIteratorMap from 'can-bulma/util/field/base/FieldIteratorMap';
+import FieldIteratorMap from '../util/field/base/FieldIteratorMap';
 
 /**
  * Form View Model
