@@ -29,17 +29,19 @@ const ChildObject = DefineMap.extend('ChildDemoObject', {
         editTag: 'sp-select-field',
         defaultLabel: 'These values are loading asynchronously!',
         // async load options
-        optionsPromise: new Promise((resolve) => {
-            setTimeout(() => {
-                resolve([{
-                    value: 1,
-                    label: 'Option 1'
-                }, {
-                    value: 2,
-                    label: 'Option 2'
-                }]);
-            }, 5000);
-        })
+        getOptions(){
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve([{
+                        value: 1,
+                        label: 'Option 1'
+                    }, {
+                        value: 2,
+                        label: 'Option 2'
+                    }]);
+                }, 5000);
+            });
+        }
     },
     json_field_3: {
         type: 'number',
