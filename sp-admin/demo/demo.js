@@ -8,7 +8,7 @@ import editButton from './editButton.stache';
 const ExtendedTaskmap = TaskMap.extend({
     edit: {
         edit: false,
-        serialize: false 
+        serialize: false,
         displayComponent: editButton
     }
 });
