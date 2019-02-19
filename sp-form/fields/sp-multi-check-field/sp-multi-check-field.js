@@ -1,4 +1,4 @@
-import 'spectre-canjs/sp-form/fields/sp-check-field/sp-check-field';
+import 'can-bulma/sp-form/fields/sp-check-field/sp-check-field';
 import 'can-stache-converters';
 import Component from 'can-component';
 import ViewModel from './ViewModel';
@@ -7,7 +7,7 @@ import './sp-multi-check-field.less';
 
 /**
  * A field for handling multiple checkboxes
- * @module sp-multi-check-field
+ * @module sp-form/fields/sp-check-field
  * @example 
  * <sp-multi-check-field /> 
  */

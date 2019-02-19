@@ -2,25 +2,28 @@ var stealTools = require('steal-tools');
 var path = require('path');
 
 stealTools.build({
-    main: 'spectre-canjs/index',
+    main: 'can-bulma/demo/index',
     config: path.join(__dirname, 'package.json!npm'),
     bundle: [
-        'spectre-canjs/sp-accordion/sp-accordion',
-        'spectre-canjs/sp-dropdown/demo/dropdown',
-        'spectre-canjs/sp-filter-builder/demo/filter',
-        'spectre-canjs/sp-form/demo/full/full',
-        'spectre-canjs/sp-form/demo/basic/basic',
-        'spectre-canjs/sp-list-table/demo/listTable',
-        'spectre-canjs/sp-modal/demo/dialog',
-        'spectre-canjs/sp-tab-container/demo/nav',
-        'spectre-canjs/sp-paginate/demo/paginate',
-        'spectre-canjs/sp-property-table/demo/propertyTable',
-        'spectre-canjs/sp-toast-container/demo/toast'
+        'can-bulma/sp-admin/demo/demo',
+        'can-bulma/sp-accordion/sp-accordion',
+        'can-bulma/sp-dropdown/demo/dropdown',
+        'can-bulma/sp-filter-builder/demo/filter',
+        'can-bulma/sp-form/demo/full/full',
+        'can-bulma/sp-form/demo/basic/basic',
+        'can-bulma/sp-list-table/demo/listTable',
+        'can-bulma/sp-file-list/demo/files',
+        'can-bulma/sp-modal/demo/dialog',
+        'can-bulma/sp-tab-container/demo/nav',
+        'can-bulma/sp-paginate/demo/paginate',
+        'can-bulma/sp-property-table/demo/propertyTable',
+        'can-bulma/sp-alert-container/demo/alert',
+        'can-bulma/demo/home-page/home-page'
     ]
 }, {
     removeDevelopmentCode: false,
     bundleSteal: false,
     bundleAssets: true,
     sourceMaps: true,
-    dest: 'docs/spectre'
+    dest: 'docs/can-bulma'
 });

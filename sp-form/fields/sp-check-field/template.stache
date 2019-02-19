@@ -2,7 +2,7 @@
 <div class="field">
   <input class="is-checkradio {{#if(error)}}is-danger{{/if}}" 
     name="{{name}}" id="field-{{id}}" type="checkbox" el:checked:bind="value"
-    on:click="dispatchChange()">
+    on:change="dispatchChange()">
   <label for="field-{{id}}">{{#if(label)}}{{label}}{{/if}}</label>
   {{#if(error)}}<p class="help is-danger">{{error}}</p>{{/if}}
 </div>

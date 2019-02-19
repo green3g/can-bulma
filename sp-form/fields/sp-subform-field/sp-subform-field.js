@@ -7,7 +7,7 @@ import ViewModel from './ViewModel';
 /**
  * A fieldset to display a set of fields in a nested pattern
  * <iframe src="https://google.com" style="border: 1px solid #ccc; width:100%;resize:both;"></iframe>
- * @module sp-subform-field
+ * @module sp-form/fields/sp-subform-field
  * @example 
  * <sp-subform-field /> 
  */

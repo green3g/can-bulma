@@ -1,11 +1,12 @@
 # Dependency directory
 node_modules/
-!docs/spectre/node_modules/
+!docs/can-bulma/node_modules/
 
 #custom apps and modules
 custom/
 
 dist/
+docs/
 coverage/
 
 .directory

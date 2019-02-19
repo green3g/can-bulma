@@ -1,5 +1,5 @@
-import Modal from 'spectre-canjs/sp-modal/sp-modal';
-import 'spectre-canjs/sp-confirm/sp-confirm';
+import Modal from '../sp-modal';
+import '../../sp-confirm/sp-confirm';
 import Component from 'can-component';
 import view from './modal.stache';
 
@@ -13,16 +13,16 @@ export default Component.extend({
         modal4: false,
         confirm1: false,
         loginActions: [{
-            text: 'Login',
-            'class': 'primary',
-            icon: 'fas fa-sign-in-alt',
+            label: 'Login',
+            buttonClass: 'button is-primary',
+            iconClass: 'fas fa-sign-in-alt',
             onclick(event, scope){
                 scope.active = false;
             }
         }],
         actions: [{
-            'class': 'success',
-            text: 'Say Hello!',
+            buttonClass: 'button is-success',
+            label: 'Say Hello!',
             onclick(){
                 const modal = new Modal({
                     content: `<p>Another Modal!</p>`,

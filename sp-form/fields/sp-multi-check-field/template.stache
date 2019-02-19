@@ -1,9 +1,8 @@
 <fieldset class="mt-10">
     {{#if(label)}}<legend>{{label}}</legend>{{/if}}
     {{#for(option of options)}}
-      <sp-check-field value:bind="boolean-to-inList(option.value, selectedValues)" 
-        label:from="option.label" name:from="option.value"
-        on:value="onChange()" />
+      <sp-check-field value:bind="boolean-to-inList(option.value, this.value)" 
+        label:from="option.label" name:from="option.value" on:fieldchange="this.onChange()" />
     {{/for}}
   {{#if(error)}}<span class="form-input-hint">{{error}}</span>{{/if}}
 

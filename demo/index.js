@@ -7,6 +7,7 @@ import view from './index.stache';
 import '@fortawesome/fontawesome-free/css/all.css';
 import 'bulma/css/bulma.css';
 import 'bulma-checkradio/dist/css/bulma-checkradio.min.css'
+import './index.less';
 
 //!steal-remove-start
 import debug from 'can-debug';
@@ -25,7 +26,7 @@ export default Component.extend({
         routeData: {
             default(){
                 return {
-                    page: 'test'
+                    page: 'home'
                 };
             }
         },
@@ -34,12 +35,17 @@ export default Component.extend({
                 return pages;
             }
         },
+        demos: {
+            get(){
+                return this.pageData.filter(p => p.demo);
+            }
+        },
         pagePromise: {
             get(){
-                if(!this.pageData[this.routeData.page]){
+                const pageData = this.pageData.filter(p => p.route === this.routeData.page)[0];
+                if(!pageData){
                     return Promise.reject('This page could not be found.');
                 }
-                const pageData = this.pageData[this.routeData.page];
                 return steal.import(pageData.path).then(module => {
                     document.title = pageData.title || 'Demo';
                     return new module.default();

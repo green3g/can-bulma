@@ -1,19 +1,17 @@
 
-import Field from 'spectre-canjs/util/field/Field';
+import Field from '../../../util/field/Field';
 
 /**
  * A `<sp-check-field />` component's ViewModel
  * 
- * @class ViewModel
- * @extends Field
- * @memberof sp-check-field
+ * @module sp-form/fields/sp-check-field/ViewModel
+ * @extends util/field/Field
  */
 export default Field.extend('CheckboxField', {
-    /** @lends ViewModel.prototype */
+    /** @lends sp-form/fields/sp-check-field/ViewModel.prototype */
     /**
      * The current value of the checkbox field
      * @type {Boolean}
-     * @memberof sp-check-field.ViewModel.prototype
      */
     value: 'boolean',
     dispatchChange () {

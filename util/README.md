@@ -1,4 +1,4 @@
-# spectre-canjs Utilities
+# can-bulma Utilities
 
 ## Description
 Utilities for dealing with admin and fields

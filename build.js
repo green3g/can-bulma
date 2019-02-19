@@ -13,7 +13,7 @@ stealTools.export({
             ignore: false
         },
         '+global-js': {
-            modules: ['spectre-canjs/index'],
+            modules: ['can-bulma/index'],
             ignore: false
         },
         '+global-css': {}

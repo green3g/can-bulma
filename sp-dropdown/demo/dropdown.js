@@ -1,21 +1,22 @@
-import 'spectre-canjs/sp-dropdown/sp-dropdown';
-import stache from 'can-stache';
-import DefineMap from 'can-define/map/map';
+import 'can-bulma/sp-dropdown/sp-dropdown';
+import view from './dropdown.stache';
+import Component from 'can-component';
+import './dropdown.less';
 
-var render = stache.from('demo-html');
-
-var viewModel = new DefineMap({
-    pages: [{
-        label: 'List'
-    }, {
-        label: 'Create',
-        active: true
-    }, {
-        label: 'Other Options'
-    }],
-    primary: [{
-      text: 'Important!'
-    }]
+export default Component.extend({
+    tag: 'demo-dropdown',
+    viewModel: {
+        pages: [{
+            label: 'List'
+        }, {
+            label: 'Create',
+            active: true
+        }, {
+            label: 'Other Options'
+        }],
+        primary: [{
+          text: 'Important!'
+        }]
+    },
+    view
 });
-
-document.body.appendChild(render(viewModel));

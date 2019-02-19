@@ -1,14 +1,12 @@
 import DefineMap from 'can-define/map/map';
-import FieldIteratorMap from 'spectre-canjs/util/field/base/FieldIteratorMap';
+import FieldIteratorMap from '../util/field/base/FieldIteratorMap';
 
 /**
  * Form View Model
- * 
- * @class ViewModel
- * @memberof sp-form
+ * @module sp-form/ViewModel
  */
 const ViewModel = FieldIteratorMap.extend('FormWidget', {
-    /** @lends sp-form.ViewModel.prototype */
+    /** @lends sp-form/ViewModel.prototype */
     /**
     * A string referencing a field type that will exclude that field
     * from this classes fields. The default is `'edit'`.
@@ -76,7 +74,7 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
      * An object representing the current state of the values passed to the form.
      * If the fields have changed, this object will be updated when the submit
      * button is pressed and the validations have passed. To capture current
-     * state of the form, use [sp-form.ViewModel.dirtyObject].
+     * state of the form, use [sp-form/ViewModel.dirtyObject].
      * @type {DefineMap} 
      */
     object: {
@@ -85,11 +83,23 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
             if (!obj) {
                 return obj;
             }
-            const Constructor = obj.constructor ? obj.constructor : DefineMap;
-            this.dirtyObject = new Constructor(obj.get());
+            if (this.trackChanges) {
+                const Constructor = obj.constructor ? obj.constructor : DefineMap;
+                this.dirtyObject = new Constructor(obj.get());
+            } else {
+                this.dirtyObject = obj;
+            }
             return obj;
         }
     },
+    /**
+     * Whether or not changes should be stored in a "dirty" object.
+     * The original object will only be modified if all fields validate
+     * and the form is submitted.
+     * If this is false, then `dirtyObject` will be equal to `object`.
+     * @type {Boolean}
+     */
+    trackChanges: 'boolean',
     /**
      * An object set with current form values
      * @type {DefineMap} 
@@ -201,7 +211,9 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
             this.isSaving = true;
         }
 
-        this.object.assign(this.dirtyObject);
+        if (this.trackChanges) {
+            this.object.assign(this.dirtyObject);
+        }
         this.dispatch('submit', [this.object]);
         return false;
     },

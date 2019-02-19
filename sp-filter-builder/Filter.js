@@ -69,17 +69,15 @@ export const FilterOptions = [{
 
 /**
  * Creates a new filter
- * @class Filter
- * @memberof sp-filter-builder
+ * @module sp-filter-builder/Filter~Filter
  */
 export const Filter = DefineMap.extend('Filter', {
-    /** @lends sp-filter-builder.Filter.prototype */
+    /** @lends sp-filter-builder/Filter~Filter.prototype */
     /**
      * A value to filter on. Can be any primitive type. If the
      * [sp-filter-builder.Filter.props.field `field`] property
      * is set, the `field.type` property will be used to coerce the value.
      * @type {*}
-     * @memberof sp-filter-builder.Filter.prototype
      */
     value: {
         type (newVal) {
@@ -90,7 +88,6 @@ export const Filter = DefineMap.extend('Filter', {
     /**
      * The name of the field to filter on
      * @type {String}
-     * @memberof sp-filter-builder.Filter.prototype
      */
     name: {
         type: 'string',
@@ -104,7 +101,6 @@ export const Filter = DefineMap.extend('Filter', {
     /**
      * The operator to filter with. The default is `like`.
      * @type {String}
-     * @memberof sp-filter-builder.Filter.prototype
      */
     operator: {
         type: 'string',
@@ -122,7 +118,6 @@ export const Filter = DefineMap.extend('Filter', {
      * [sp-filter-builder.Filter.props.field `field`] property is set,
      * the `field.type` property will be used to filter the operator options.
      * @type {Object}
-     * @memberof sp-filter-builder.Filter.prototype
      */
     operatorField: {
         serialize: false,
@@ -145,7 +140,6 @@ export const Filter = DefineMap.extend('Filter', {
     /**
      * A property to show or hide this filter in the picker. The default is `true`
      * @type {Boolean}
-     * @memberof sp-filter-builder.Filter.prototype
      */
     visible: {
         type: 'boolean',
@@ -160,7 +154,6 @@ export const Filter = DefineMap.extend('Filter', {
      * be removable. In addition, the operator field will be fixed. The default
      * is `false`.
      * @type {Boolean}
-     * @memberof sp-filter-builder.Filter.prototype
      */
     pinned: {
         type: 'boolean',
@@ -172,7 +165,6 @@ export const Filter = DefineMap.extend('Filter', {
      * [sp-filter-builder.Filter.props.field `field`] property is set, this label
      * will match the `field.label`
      * @type {String}
-     * @memberof sp-filter-builder.Filter.prototype
      *
      */
     label: {
@@ -187,7 +179,6 @@ export const Filter = DefineMap.extend('Filter', {
      * If the [sp-filter-builder.Filter.props.field `field`] property is set, the
      * valueField will be a customized field based off of the set field.
      * @type {util/field/Field}
-     * @memberof sp-filter-builder.Filter.prototype
      */
     valueField: {
         serialize: false,
@@ -224,7 +215,6 @@ export const Filter = DefineMap.extend('Filter', {
      * text field. This allows the user to interract with a different
      * type of field, like a checkbox when setting filters.
      * @type {util/field/Field}
-     * @memberof sp-filter-builder.Filter.prototype
      */
     field: {
         Type: Field,
@@ -234,7 +224,6 @@ export const Filter = DefineMap.extend('Filter', {
      * A virtual property that creates a dummmy form object for use with the
      * field template
      * @type {Object}
-     * @memberof sp-filter-builder.Filter.prototype
      */
     object: {
         serialize: false,
@@ -258,8 +247,7 @@ export const Filter = DefineMap.extend('Filter', {
 
 /**
  * Creates a new filter list
- * @class FilterList
- * @memberof sp-filter-builder
+ * @module sp-filter-builder/Filter~FilterList
  *
  */
 export const FilterList = DefineList.extend('FilterList', {

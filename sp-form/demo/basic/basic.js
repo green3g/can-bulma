@@ -3,9 +3,9 @@ import DefineMap from 'can-define/map/map';
 import DefineList from 'can-define/list/list';
 import view from './basic.stache';
 import Component from 'can-component';
-import 'spectre-canjs/sp-form/sp-form';
-import 'spectre-canjs/sp-form/fields/sp-text-field/';
-import 'spectre-canjs/sp-list-table/sp-list-table';
+import 'can-bulma/sp-form/sp-form';
+import 'can-bulma/sp-form/fields/sp-text-field/';
+import 'can-bulma/sp-list-table/sp-list-table';
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 

@@ -7,53 +7,45 @@ export const img = new RegExp(/.*\.(?:jpg|jpeg|gif|png)/, 'i');
 /**
  * A type used throughout the sp-file-list component to represent
  * File types.
- * @class FileMap
- * @memberof sp-file-list
+ * @module sp-file-list/ViewModel~FileMap
  * @type {DefineMap}
- * @example `import {FileMap} from 'spectre-canjs/sp-file-list/ViewModel';
+ * @example `import {FileMap} from 'can-bulma/sp-file-list/ViewModel';
  */
 export const FileMap = DefineMap.extend('FileMap', {seal: false}, {
-    /** @lends sp-file-list.FileMap.prototype */
+    /** @lends sp-file-list/ViewModel~FileMap.prototype */
     /**
      * A reference to the File object
-     * @memberof sp-file-list.FileMap.prototype
      * @type {File}
      */
     file: '*',
     /**
      * A string to display for the file name
-     * @memberof sp-file-list.FileMap.prototype
      * @type {String}
      */
     id: 'string',
     /**
      * A string to use for the file url
-     * @memberof sp-file-list.FileMap.prototype
      * @type {String}
      */
     uri: 'string',
     /**
      * Whether or not the url is a global object uri
-     * @memberof sp-file-list.FileMap.prototype
      * @type {Boolean}
      */
     isObjectURL: 'boolean',
     /**
      * A (optional) upload progress bar percentage to display to the user
-     * @memberof sp-file-list.FileMap.prototype
      * @type {Number}
      */
     progress: 'number',
     /**
      * A user friendly error message to display if something happens 
      * while the file is being uploaded or added to the file list.
-     * @memberof sp-file-list.FileMap.prototype
      * @type {String}
      */
     error: 'string',
     /**
      * Tests a file objects `id` property for image type extension
-     * @memberof sp-file-list.FileMap.prototype
      * @return {Boolean} whether or not the `file.id` name is a file
      */
     isImage () {
@@ -63,10 +55,9 @@ export const FileMap = DefineMap.extend('FileMap', {seal: false}, {
 
 /**
  * A type used throughout the sp-file-list component to represent array of file maps
- * @class FileList
- * @memberof sp-file-list
+ * @module sp-file-list/ViewModel~FileList
  * @type {DefineList}
- * @example `import {FileList} from 'spectre-canjs/sp-file-list/ViewModel';
+ * @example `import {FileList} from 'can-bulma/sp-file-list/ViewModel';
  */
 export const FileList = DefineList.extend('FileList', {
     '#': FileMap
@@ -75,32 +66,36 @@ export const FileList = DefineList.extend('FileList', {
 /**
  * A `<sp-file-list />` component's ViewModel
  * 
- * @class ViewModel
- * @memberof sp-file-list
+ * @module sp-file-list/ViewModel
  */
 export default DefineMap.extend('SPFileList', {
-    /** @lends sp-file-list.ViewModel.prototype */
+    /** @lends sp-file-list/ViewModel.prototype */
+    /**
+     * The heading text to display
+     * @type {String}
+     */
+    title: {default: 'Files', type: 'string'},
     /**
      * A list of file objects
-     * @memberof sp-file-list.ViewModel.prototype
      * @type {FileList}
      */
-    files: FileList,
+    files: {Default: FileList, Type: FileList},
+    /**
+     * The current input value
+     */
+    inputValue: {},
     /**
      * Is currently dragging files over
-     * @memberof sp-file-list.ViewModel.prototype
      * @type {Boolean}
      */
     isDragOver: 'boolean',
     /**
      * Is mouse currently over the widget?
-     * @memberof sp-file-list.ViewModel.prototype
      * @type {Boolean}
      */
     isMouseOver: 'boolean',
     /**
      * Maximum value of progress to display loader
-     * @memberof sp-file-list.ViewModel.prototype
      * @type {Number}
      */
     maxProgressValue: {
@@ -109,7 +104,6 @@ export default DefineMap.extend('SPFileList', {
     },
     /**
      * The file input element
-     * @memberof sp-file-list.ViewModel.prototype
      * @type {Boolean}
      */
     el: '*',
@@ -148,6 +142,7 @@ export default DefineMap.extend('SPFileList', {
             this.files.push(file);
             this.dispatch('add', [file]);
         });
+        this.inputValue = null;
     },
     /**
      * Sets the `isDragOver` value to something else
@@ -166,14 +161,6 @@ export default DefineMap.extend('SPFileList', {
     mouseover (ev, isMouseOver) {
         ev.preventDefault();
         this.isMouseOver = isMouseOver;
-    },
-    /**
-     * Triggers a click event on the hidden input element
-     * @param {DomEvent} ev Event to prevent default on
-     */
-    uploadClick (ev) {
-        ev.preventDefault();
-        this.el.click();
     },
     /**
      * Determines whether or not the progress value bar should be shown

@@ -12,22 +12,20 @@ import DefineList from 'can-define/list/list';
  * instance, if we are designing an edit widget, an appropriate way to exclude
  * fields from the widget would be to use the key `edit: false` and set
  * `excludeFieldKey: 'edit'` in this class.
- * @class FieldIteratorMap
+ * @module util/field/base/FieldIteratorMap
  */
 export default DefineMap.extend({
-    /** @lends FieldIteratorMap.prototype */
+    /** @lends util/field/base/FieldIteratorMap.prototype */
     /**
-   * A string referencing a field property that will exclude that field
-   * from this classes fields.
-   * @type {String}
-   * @memberof FieldIteratorMap.prototype
-   */
+     * A string referencing a field property that will exclude that field
+     * from this classes fields.
+     * @type {String}
+     */
     excludeFieldKey: 'string',
     /**
-   * A getter for an array of fields
-   * @type {Array<Field>}
-   * @memberof FieldIteratorMap.prototype
-   */
+     * A getter for an array of fields
+     * @type {Array<Field>}
+     */
     fields: {
         Default: DefineList,
         Type: DefineList,
@@ -52,6 +50,25 @@ export default DefineMap.extend({
             return fields.filter((f) => {
                 return f[this.excludeFieldKey] !== false;
             });
+        }
+    },
+    /**
+     * This object's fields mapped to key:value pairs. The key will be 
+     * set to the field name, and the object will be the field.
+     * @type {Object}
+     */
+    fieldsMap: {
+        get () {
+            const fields = this.fields;
+            if (!fields) {
+                return {};
+            }
+            const map = {};
+            for (let i = 0; i < fields.length; i ++) {
+                map[fields[i].name] = fields[i];
+            }
+
+            return map;
         }
     }
 });

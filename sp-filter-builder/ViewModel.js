@@ -5,23 +5,19 @@ import {Filter, FilterList} from './Filter';
 /**
  * A `<sp-filter-builder />` component's ViewModel.
  * 
- * @class ViewModel
- * @memberof sp-filter-builder
+ * @module sp-filter-builder/ViewModel
  */
 const ViewModel = FieldIteratorMap.extend('FilterWidget', {
-    /** @lends sp-filter-builder.ViewModel.prototype */
+    /** @lends sp-filter-builder/ViewModel.prototype */
     /**
      * Disabled the add new form if true
      * @type {Boolean} 
-     * @memberof sp-filter-builder.ViewModel.prototype
-
      */
     disableCreate: 'htmlbool',
     /**
        * A string referencing a field type that will exclude that field
        * from this classes fields. The default is 'list'.
        * @type {String} 
-       * @memberof sp-filter-builder.ViewModel.prototype
        */
     excludeFieldKey: {
         default: 'filter'
@@ -29,7 +25,6 @@ const ViewModel = FieldIteratorMap.extend('FilterWidget', {
     /**
      * A list of filterObjects currently used in this widget
      * @type {Array<sp-filter-builder.Filter>} 
-     * @memberof sp-filter-builder.ViewModel.prototype
      */
     filters: {
         Type: FilterList,
@@ -38,7 +33,6 @@ const ViewModel = FieldIteratorMap.extend('FilterWidget', {
     /**
      * The field properties for the field name dropdown
      * @type {Object} 
-     * @memberof sp-filter-builder.ViewModel.prototype
      */
     nameField: {
         get () {
@@ -60,7 +54,6 @@ const ViewModel = FieldIteratorMap.extend('FilterWidget', {
     /**
      * An array of field options to display for the field selection dropdown.
      * @type {Array<sp-form/fields/sp-select-field.SelectOption>} 
-     * @memberof sp-filter-builder.ViewModel.prototype
      */
     fieldOptions: {
         get () {
@@ -78,7 +71,6 @@ const ViewModel = FieldIteratorMap.extend('FilterWidget', {
     /**
      * The selected field dropdown value
      * @type {String} 
-     * @memberof sp-filter-builder.ViewModel.prototype
      */
     fieldValue: {
         type: 'string',

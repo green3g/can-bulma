@@ -18,16 +18,14 @@
     <section class="modal-card-body">
         <content></content>
     </section>
-    {{#if(actions)}}
     <footer class="modal-card-foot">
         {{#for(action of actions)}}
-            <button class="button is-{{action.class}} {{#if(action.icon)}}has-icon{{/if}}" on:click="action.onclick(scope.event, scope.vm)">
-                {{#if(action.icon)}}<span class="icon is-small"><i class="{{action.icon}}"></i></span>{{/if}}
-                <span>{{action.text}}</span>
+            <button class="{{action.buttonClass}} {{#if(action.iconClass)}}has-icon{{/if}}" on:click="action.onclick(scope.event, scope.vm)">
+                {{#if(action.iconClass)}}<span class="icon is-small"><i class="{{action.iconClass}}"></i></span>{{/if}}
+                <span>{{action.label}}</span>
             </button>
         {{/for}}
     </footer>
-    {{/if}}
   </div>
 
   {{/if}}

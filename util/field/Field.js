@@ -6,28 +6,22 @@ import {getEditComponent} from './fieldComponents';
 let id = 0;
 
 /**
- * @typedef ValidationObject
- * @name ValidationObject
+ * @typedef util/field/Field.ValidationObject
  * @property {Object} object the form object that was set on the form
  * @property {Object} dirty the updated object currently set by the user in the form
  * @property {*} value the current field's value (dirty). Same as `dirty[field.name]` but provided for easy access
  */
 
 /**
- * @class Field
- * @description Constructs a new field. Used throughout spectre-canjs to 
+ * @module util/field/Field~Field
+ * Constructs a new field. Used throughout can-bulma to 
  * define displays of properties, aka fields. 
  */
-export const Field = DefineMap.extend('Field', {
-
-    // allow extra properties on this type
-    seal: false
-}, {
+export const Field = DefineMap.extend('Field', {seal: false}, {
     /** @lends Field.prototype */
     /**
      * A unique field id. Useful for using id elements in templates
      * @type {Number} 
-     * @memberof Field.prototype
      */
     id: {
         default () {
@@ -37,7 +31,6 @@ export const Field = DefineMap.extend('Field', {
     /**
      * The name of the type on the object, this field's name
      * @type {String} 
-     * @memberof Field.prototype
      */
     name: {
         type: 'string',
@@ -55,7 +48,6 @@ export const Field = DefineMap.extend('Field', {
      * A friendly name for the field used to display to the user
      * The default is to capitalize the name and remove underscores
      * @type {String}
-     * @memberof Field.prototype
      */
     label: {
         type: 'string'
@@ -65,7 +57,6 @@ export const Field = DefineMap.extend('Field', {
      * properties on this field. This value doesn't actually get set 
      * and will never return anything.
      * @type {Object}
-     * @memberof Field.prototype
      */
     properties: {
         set (props) {
@@ -76,19 +67,16 @@ export const Field = DefineMap.extend('Field', {
     /**
      * The field error string
      * @type {String}
-     * @memberof Field.prototype
      */
     error: 'string',
     /**
      * The form object. Passed to fields so they can use it in cascading dropdowns...etc 
      * @type {Object}
-     * @memberof Field.prototype
      */
     object: DefineMap,
     /**
      * The current field value
      * @type {Object}
-     * @memberof Field.prototype
      */
     value: {
         default: '',
@@ -103,7 +91,6 @@ export const Field = DefineMap.extend('Field', {
     /**
      * Includes this field in the list view in the data-admin
      * @type {Boolean} Field.prototype.list list
-     * @memberof Field.prototype
      */
     list: {
         type: 'boolean',
@@ -112,7 +99,6 @@ export const Field = DefineMap.extend('Field', {
     /**
      * Includes this field in the details view in the data-admin
      * @type {Boolean} Field.prototype.detail detail
-     * @memberof Field.prototype
      */
     detail: {
         type: 'boolean',
@@ -121,7 +107,6 @@ export const Field = DefineMap.extend('Field', {
     /**
      * Includes this field in the edit view in the data-admin
      * @type {Boolean} Field.prototype.edit edit
-     * @memberof Field.prototype
      */
     edit: {
         type: 'boolean',
@@ -130,7 +115,6 @@ export const Field = DefineMap.extend('Field', {
     /**
      * Includes this field in the filter widget's fields.
      * @type {Boolean} Field.prototype.filter filter
-     * @memberof Field.prototype
      */
     filter: {
         type: 'boolean',
@@ -139,7 +123,6 @@ export const Field = DefineMap.extend('Field', {
     /**
      * Includes this field in the sorting capability
      * @type {Boolean} Field.prototype.sort sort
-     * @memberof Field.prototype
      */
     sort: {
         type: 'boolean',
@@ -147,22 +130,19 @@ export const Field = DefineMap.extend('Field', {
     },
     /**
      * A boolean flag to display form field inline with others and hide labels
-     * @type {Boolean} Field.prototype.inline inline
-     * @memberof Field.prototype
+     * @type {Boolean} inline
      */
     inline: 'boolean',
     /**
      * Text to display when the field is empty (like a textbox). Doesn't apply to
      * some fields, like select or date fields.
      * @type {String} Field.prototype.placeholder placeholder
-     * @memberof Field.prototype
      */
     placeholder: 'string',
     /**
      * Adds css classes to the table cells and headings. Selectors should use
      * `th.classname` and `td.classname`
      * @type {String} Field.prototype.classes classes
-     * @memberof Field.prototype
      */
     classes: 'string',
 

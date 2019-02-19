@@ -1,17 +1,15 @@
 import DefineMap from 'can-define/map/map';
 
 /**
- * @class ViewModel
- * @memberof sp-paginate
+ * @module sp-paginate/ViewModel
  *
  * @description A `<sp-paginate />` component's ViewModel
  */
 const ViewModel = DefineMap.extend('PaginateWidget', {
-    /** @lends sp-paginate.ViewModel.prototype*/
+    /** @lends sp-paginate/ViewModel.prototype*/
     /**
      * The number of pages to show in the widget
      * @type {Number}
-     * @memberof sp-paginate.ViewModel.prototype
      */
     pages: {
         type: 'number',
@@ -20,13 +18,11 @@ const ViewModel = DefineMap.extend('PaginateWidget', {
     /**
      * Render a compact style page switcher with just a forward and back button.
      * @type {Boolean}
-     * @memberof sp-paginate.ViewModel.prototype
      */
     compact: 'boolean',
     /**
      * The active page index
      * @type {Number}
-     * @memberof sp-paginate.ViewModel.prototype
      */
     activePageIndex: {
         default: 0,
@@ -35,7 +31,6 @@ const ViewModel = DefineMap.extend('PaginateWidget', {
     /**
      * The number of pages to show on either side of the currently selected page. The default is 3. For example, if the selected page is 5, the visible pages should be 2,3,4,5,6,7,8.
      * @type {Number}
-     * @memberof sp-paginate.ViewModel.prototype
      */
     activeOffset: {
         default: 2,
@@ -44,7 +39,6 @@ const ViewModel = DefineMap.extend('PaginateWidget', {
     /**
      * The first page number.
      * @type {Number}
-     * @memberof sp-paginate.ViewModel.prototype
      */
     firstPage: {
         get () {
@@ -54,7 +48,6 @@ const ViewModel = DefineMap.extend('PaginateWidget', {
     /**
      * The first page number.
      * @type {Number}
-     * @memberof sp-paginate.ViewModel.prototype
      */
     lastPage: {
         get () {
@@ -64,7 +57,6 @@ const ViewModel = DefineMap.extend('PaginateWidget', {
     /**
      * 
      * @type {Boolean}
-     * @memberof sp-paginate.ViewModel.prototype
      */
     hasFirstMore: {
         get () {
@@ -74,7 +66,6 @@ const ViewModel = DefineMap.extend('PaginateWidget', {
     /**
      * 
      * @type {Boolean}
-     * @memberof sp-paginate.ViewModel.prototype
      */
     hasLastMore: {
         get () {
@@ -84,7 +75,6 @@ const ViewModel = DefineMap.extend('PaginateWidget', {
     /**
      * A virtual property used by the template to indicate whether or not there is a next page
      * @type {Boolean}
-     * @memberof sp-paginate.ViewModel.prototype
      */
     hasNext: {
         get () {
@@ -94,7 +84,6 @@ const ViewModel = DefineMap.extend('PaginateWidget', {
     /**
      * A virtual property used by the template to indicate whether or not there is a previous page
      * @type {Boolean}
-     * @memberof sp-paginate.ViewModel.prototype
      */
     hasPrevious: {
         get () {
@@ -104,9 +93,8 @@ const ViewModel = DefineMap.extend('PaginateWidget', {
     /**
      * The array of currently shown pages in the widget
      * @type {Array<Number>}
-     * @memberof sp-paginate.ViewModel.prototype
      */
-    visiblePages: {
+    innerPages: {
         get () {
             const active = this.activePageIndex;
             let min = active - this.activeOffset;
@@ -121,9 +109,8 @@ const ViewModel = DefineMap.extend('PaginateWidget', {
         }
     },
     /**
-     * The array of numbers 0 through number of pages. This is a helper for the visiblePages getter
+     * The array of numbers 0 through number of pages. This is a helper for the innerPages getter
      * @type {Array<Number>}
-     * @memberof sp-paginate.ViewModel.prototype
      */
     pageArray: {
         get () {
@@ -138,7 +125,6 @@ const ViewModel = DefineMap.extend('PaginateWidget', {
      * Hides the first button
      * @signature `<sp-paginate hide-first />`
      * @type {HTMLBoolean}
-     * @memberof sp-paginate.ViewModel.prototype
      */
     hideFirst: {
         type: 'htmlbool',
@@ -148,7 +134,6 @@ const ViewModel = DefineMap.extend('PaginateWidget', {
      * Hides the last button
      * @signature `<sp-paginate hide-last />`
      * @type {HTMLBoolean}
-     * @memberof sp-paginate.ViewModel.prototype
      */
     hideLast: {
         type: 'htmlbool',
@@ -158,7 +143,6 @@ const ViewModel = DefineMap.extend('PaginateWidget', {
      * Hides the previous button
      * @signature `<sp-paginate hide-previous />`
      * @type {HTMLBoolean}
-     * @memberof sp-paginate.ViewModel.prototype
      */
     hidePrevious: {
         type: 'htmlbool',
@@ -168,7 +152,6 @@ const ViewModel = DefineMap.extend('PaginateWidget', {
      * Hides the next button
      * @signature `<sp-paginate hide-next />`
      * @type {HTMLBoolean}
-     * @memberof sp-paginate.ViewModel.prototype
      */
     hideNext: {
         type: 'htmlbool',
@@ -178,7 +161,6 @@ const ViewModel = DefineMap.extend('PaginateWidget', {
      * Hides the list of pages
      * @signature `<sp-paginate hide-pages />`
      * @type {HTMLBoolean}
-     * @memberof sp-paginate.ViewModel.prototype
      */
     hidePages: {
         type: 'htmlbool',

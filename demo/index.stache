@@ -1,6 +1,6 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
+    <a class="navbar-item" href="https://bulma.io/">
       <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
     </a>
 
@@ -13,11 +13,11 @@
 
   <div id="navbarBasicExample" class="navbar-menu {{#if(showNav)}}is-active{{/if}}">
     <div class="navbar-start">
-      <a class="navbar-item">
+      <a class="navbar-item" href="{{routeUrl(page='home')}}">
         Home
       </a>
 
-      <a class="navbar-item">
+      <a class="navbar-item" href="../docs/">
         Documentation
       </a>
 
@@ -27,14 +27,14 @@
         </a>
 
         <div class="navbar-dropdown">
-            {{#for(page of pageData)}}
+            {{#for(page of demos)}}
             {{#if(page.divider)}}
               <hr class="navbar-divider">
               <div class="navbar-item">
                 {{page.title}}
               </div>
             {{else}}
-              <a class="navbar-item {{#if(routeCurrent(page=scope.key))}}is-active{{/if}}" href="{{routeUrl(page=scope.key}}">
+              <a class="navbar-item {{#if(routeCurrent(page=page.route))}}is-active{{/if}}" href="{{routeUrl(page=page.route}}">
                 {{page.title}}
               </a>
             {{/if}}

@@ -1,5 +1,6 @@
 <sp-tab-container>
-    <sp-tab-page label:from="'Tables'">
+    <sp-tab-page label:raw="Tables">
+        <p>This is the default tab container style.</p>
         <table class="table is-hoverable">
             <thead>
                 <tr>
@@ -31,7 +32,7 @@
             </tbody>
         </table>
     </sp-tab-page>
-    <sp-tab-page label:from="'Forms'">
+    <sp-tab-page label:raw="Forms">
         <div class="field">
             <label class="label">Name</label>
             <div class="control">
@@ -119,7 +120,7 @@
     </sp-tab-page>
 
     {{#if(../people.isResolved)}}
-    <sp-tab-page label:from="'User cards'">
+    <sp-tab-page label:raw="User cards">
         
         {{#for(person of ../people.value)}}
         <div class="card">
@@ -147,4 +148,26 @@
         {{/for}}
     </sp-tab-page>
     {{/if}}
+</sp-tab-container>
+
+<hr />
+
+<sp-tab-container classes:raw="is-boxed">
+    <sp-tab-page label:raw="Boxed Tab">
+        This is an example of a boxed style tab. <code>classes:raw="is-boxed"</code> to achieve this effect.
+    </sp-tab-page>
+    <sp-tab-page label:raw="Boxed Tab 2">
+        This is an example of a boxed style tab
+    </sp-tab-page>
+</sp-tab-container>
+
+<hr />
+
+<sp-tab-container classes:raw="is-toggle is-toggle-rounded">
+    <sp-tab-page label:raw="Rounded Tab">
+        This is an example of a rounded style tab. Use <code>classes:raw="is-toggle is-toggle-rounded"</code> to achieve this effect.
+    </sp-tab-page>
+    <sp-tab-page label:raw="Boxed Tab 2">
+        This is an example of a boxed style tab
+    </sp-tab-page>
 </sp-tab-container>

@@ -1,25 +1,21 @@
-
 import Field from '../../../util/field/Field';
 import DefineMap from 'can-define/map/map';
 import DefineList from 'can-define/list/list';
 
 /**
  * the select option type - used to display <option> tags values/labels
- * @class SelectOption
- * @memberof sp-select-field
+ * @module sp-form/fields/sp-select-field/ViewModel~SelectOption
  */
 export const SelectOption = DefineMap.extend('SelectOption', {
-    /** @lends sp-select-field.SelectOption.prototype */
+    /** @lends sp-form/fields/sp-select-field/ViewModel~SelectOption.prototype */
     /**
      * The value to set when option is selected
      * @type {Any} 
-     * @memberof sp-select-field.SelectOption.prototype
      */
     value: 'string',
     /**
      * The label to display to the user. If not provided, `value` is used
      * @type {String} 
-     * @memberof sp-select-field.SelectOption.prototype
      */
     label: {
         type: 'string',
@@ -39,52 +35,41 @@ export const SelectOptionList = DefineList.extend('SelectOptionList', {
 
 /**
  * A `<sp-select-field />` component's ViewModel
- * @class ViewModel
- * @memberof sp-select-field
+ * @module sp-form/fields/sp-select-field/ViewModel
  */
 export default Field.extend('SelectField', {
-    /** @lends sp-select-field.ViewModel.prototype */
+    /** @lends sp-form/fields/sp-select-field/ViewModel.prototype */
     /**
      * The default label when no items are selected
      * @type {String}
-     * @memberof sp-select-field.ViewModel.prototype
      */
     defaultLabel: {type: 'string', default: 'Choose a value...'},
     /**
      * The array of options to display in the dropdown
-     * @type {Array<sp-select-field.SelectOption>}
-     * @memberof sp-select-field.ViewModel.prototype
+     * @type {sp-form/fields/sp-select-field/ViewModel~SelectOption[]}
      */
     options: {        
         Type: SelectOptionList,
         Default: SelectOptionList,  
-        get (options, set) {
-            if (this.object && typeof this.getOptions === 'function') {
-                const result = this.getOptions(this.object);
-                if (result.then) {
-                    result.then(((opts) => {
-                        set(new SelectOptionList(opts));
-                    }));
-                } else {
-                    return new SelectOptionList(result) || options;
-                }
+        get (list) {
+            if (this.optionsPromise) {
+                this.optionsPromise.then((options) => list.replace(options));
             }
-            return options;
+
+            return list;
         }  
     },
     /**
      * A promise that resolves to the array of options
-     * @type {Promise<Array>}
-     * @memberof sp-select-field.ViewModel.prototype
+     * @type {Promise<sp-form/fields/sp-select-field/ViewModel~SelectOption[]>}
      */
     optionsPromise: {
-        set (promise) {
-            if (promise) {
-                promise.then((options) => {
-                    this.options = options;
-                });
+        get () {
+            if (typeof this.getOptions === 'function') {
+                const data = this.object ? this.object.get() : {};
+                return Promise.resolve(this.getOptions(data));
             }
-            return promise;
+            return null;
         }
     },
     /**
@@ -100,8 +85,7 @@ export default Field.extend('SelectField', {
     /**
      * An optional function to return options from a form object...ie cascading dropdowns 
      * @param {Object} formObject the form object
-     * @param {Object} formObject the form object
-     * @returns {Array<SelectOption>} the filtered array of select options
+     * @returns {SelectOption[]|Promise<sp-form/fields/sp-select-field/ViewModel~SelectOption[]>} the filtered array of select options
      */
     getOptions: {}
 });

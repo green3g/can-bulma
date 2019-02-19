@@ -16,7 +16,7 @@
 ===================
 
   * 0.31.1
-  * FIX: toast imports and demo
+  * FIX: alert imports and demo
   * changelog
 
 0.31.0 / 2017-07-03
@@ -61,7 +61,7 @@
   * FIX: removes test files for data-admin
   * FIX: removes other data-admin component test
   * FIX: remove data-admin tests, etc.
-  * CHG: move data-admin components to spectre-canjs-app
+  * CHG: move data-admin components to can-bulma-app
   * FIX: format comments
   * ENH: hide header tools on printouts
   * ENH: pass field name in form validation functions
@@ -119,7 +119,7 @@
   * ENH: convert template getters to defaulter values
   * TEST: viewmap tests
   * TEST: update test coverage
-  * Merge pull request [#52](https://github.com/roemhildtg/spectre-canjs/issues/52) from roemhildtg/field-super-class
+  * Merge pull request [#52](https://github.com/roemhildtg/can-bulma/issues/52) from roemhildtg/field-super-class
     Field super class
   * TEST: remove codeclimate
   * ENH: add codeclimate config
@@ -127,10 +127,10 @@
   * ENH: move field code into super class
     - reorganize utility classes
   * FIX: ignore files from codeclimate
-  * Merge branch 'master' of https://github.com/roemhildtg/spectre-canjs
+  * Merge branch 'master' of https://github.com/roemhildtg/can-bulma
   * FIX: consistency between viewModel and ViewModel in components
-  * Merge pull request [#51](https://github.com/roemhildtg/spectre-canjs/issues/51) from roemhildtg/modular-data-admin-[#20](https://github.com/roemhildtg/spectre-canjs/issues/20)
-    Modular data admin [#20](https://github.com/roemhildtg/spectre-canjs/issues/20)
+  * Merge pull request [#51](https://github.com/roemhildtg/can-bulma/issues/51) from roemhildtg/modular-data-admin-[#20](https://github.com/roemhildtg/can-bulma/issues/20)
+    Modular data admin [#20](https://github.com/roemhildtg/can-bulma/issues/20)
   * TEST: coverage working
   * FIX: filter values should be coerced to field type
   * TEST: add coverage to travis

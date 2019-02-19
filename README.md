@@ -1,23 +1,16 @@
-<!--
-@page spectre Home
-@group spectre.components Components
-@group spectre.util Utilities
--->
+# can-bulma
 
-
-# spectre-canjs
-
-[![Build Status](https://travis-ci.org/roemhildtg/spectre-canjs.svg?branch=master)](https://travis-ci.org/roemhildtg/spectre-canjs)
-[![NPM](https://nodei.co/npm/spectre-canjs.png?compact=true)](https://npmjs.org/package/spectre-canjs)
+[![Build Status](https://travis-ci.org/roemhildtg/can-bulma.svg?branch=master)](https://travis-ci.org/roemhildtg/can-bulma)
+[![NPM](https://nodei.co/npm/can-bulma.png?compact=true)](https://npmjs.org/package/can-bulma)
 
 A collection of data administration and management components to enable
-the rapid developement of client side web applications. Built on the Spectre CSS
+the rapid developement of client side web applications. Built on the Bulma.css
 framework crossed with CanJS to provide fast, beautiful, navigation,
 data management, and user interface web components.
 
 ## Documentation
 
-You can access the projects documentation at the [Github Pages URL](https://roemhildtg.github.io/spectre-canjs/docs/index.html)
+You can access the projects documentation at the [Github Pages URL](https://roemhildtg.github.io/can-bulma/docs/index.html)
 
 ## Quick Start
 

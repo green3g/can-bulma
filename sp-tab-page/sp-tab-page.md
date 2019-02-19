@@ -1,6 +1,6 @@
 <!--
 @module {can.Component} sp-tab-page <sp-tab-page />
-@memberof spectre-canjs.components
+@memberof can-bulma.components
 
 -->
 

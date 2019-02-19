@@ -2,6 +2,7 @@ import Field from '../Field';
 
 /**
  * Converts an array of strings or field json objects into Field objects
+ * @module util/field/parseFieldArray
  * @param  {Array<Field | String>} fields An array of either strings or JSON like objects representing Field object properties
  * @param  {Constructor} Type Type of field to create and return
  * @return {Array<Field>} The array of fields
