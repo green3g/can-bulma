@@ -57,7 +57,7 @@ const ChildObject = DefineMap.extend('ChildDemoObject', {
         },
         validate (props) {
             console.log(props.value);
-            return props.value ? '' : 'You must agree to these terms';
+            return !!props.value ? '' : 'You must agree to these terms';
         }
     }
 });
@@ -169,7 +169,7 @@ const DemoObject = DefineMap.extend('DemoObject', {
             value: 'Option 2'
         }],
         name: 'field7',
-        label: 'A checkbox',
+        label: 'A multi list checkbox',
         editTag: 'sp-multi-check-field',
         default: false
     },
