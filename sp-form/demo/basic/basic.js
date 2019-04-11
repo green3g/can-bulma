@@ -8,6 +8,9 @@ import 'can-bulma/sp-form/fields/sp-text-field/';
 import 'can-bulma/sp-list-table/sp-list-table';
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import date from './templates/date.stache';
+import debug from 'can-debug'
+debug();
 
 // validator function
 function required (props) {
@@ -29,14 +32,18 @@ const Task = DefineMap.extend('Task', {
     },
     dateCompleted: {
         onInsert (element) {
-            flatpickr(element);
+            flatpickr(element, {
+                defaultDate: new Date,
+                enableTime: true,
+            });
         },
         label: 'Date Completed',
         validate: required,
 
         // register $.datepicker on text element
         ui: 'datepicker',
-        type: 'date'
+        type: 'date',
+        displayComponent: date
     }
 });
 
@@ -77,5 +84,39 @@ export default Component.extend({
             this.persist();
         }
     },
-    view
+    view,
+    helpers: {
+        date(date){
+            if(!date){
+                return 'None';
+            }
+            // Make a fuzzy time
+            var delta = Math.round((+new Date - date) / 1000);
+
+            var minute = 60,
+                hour = minute * 60,
+                day = hour * 24,
+                week = day * 7;
+
+            var fuzzy;
+
+            if (delta < 30) {
+                fuzzy = 'just then.';
+            } else if (delta < minute) {
+                fuzzy = delta + ' seconds ago.';
+            } else if (delta < 2 * minute) {
+                fuzzy = 'a minute ago.'
+            } else if (delta < hour) {
+                fuzzy = Math.floor(delta / minute) + ' minutes ago.';
+            } else if (Math.floor(delta / hour) == 1) {
+                fuzzy = '1 hour ago.'
+            } else if (delta < day) {
+                fuzzy = Math.floor(delta / hour) + ' hours ago.';
+            } else if (delta < day * 2) {
+                fuzzy = 'yesterday';
+            }
+
+            return fuzzy;
+        }
+    }
 })

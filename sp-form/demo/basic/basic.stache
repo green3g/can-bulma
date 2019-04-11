@@ -4,7 +4,7 @@
     {{#if(tasks.length)}}
         <h5 class="title is-5">Current Tasks ({{tasks.hours}} Hours):</h5>
 
-        <sp-list-table objects:from="tasks" />
+        <sp-list-table objects:from="tasks" date:from="date" />
 
         <div class="btn-group btn-group-block">
             <button class="button is-primary" on:click="persist()">
