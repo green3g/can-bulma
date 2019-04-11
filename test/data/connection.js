@@ -1,6 +1,6 @@
 import DefineMap from 'can-define/map/map';
 import DefineList from 'can-define/list/list';
-import realtimeRestModel from 'can-super-model';
+import restModel from 'can-rest-model';
 
 // import fake ajax services
 import './fixtures';
@@ -17,7 +17,8 @@ export const TaskList = DefineList.extend({
 
 TaskMap.List = TaskList;
 
-const C = realtimeRestModel({
+const C = restModel({
+    name: 'Task',
     Map: TaskMap,
     url: '/tasks'
 });

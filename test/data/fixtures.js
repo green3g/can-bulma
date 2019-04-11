@@ -1,4 +1,4 @@
-import data from './tasks.json';
+import jsonData from './tasks.json';
 import fixture from 'can-fixture';
 import DefineList from 'can-define/list/list';
 
@@ -7,48 +7,36 @@ let index = 1000;
 // a mock ajax service
 fixture.delay = 200;
 fixture({
-    'GET /tasks' (params) {
+    'GET /tasks' ({data}) {
         // eslint-disable-next-line
-        console.log('Query REST Params: ',params);
-        const perPage = params.data.perPage || 10;
-        const page = params.data.page || 0;
-        const sortInfo = params.data.sort;
-        let totalItems = data.length;
-        let tempData = new DefineList(data);
+        console.log('fixtures: Query REST Params: ',data);
+        const start = parseInt(data.page.start, 10) || 0;
+        const end = parseInt(data.page.end, 10) || 10;
+        const sortInfo = data.sort;
+        let totalItems = length;
+        let tempData = new DefineList(jsonData);
 
         // filter it
-        if (params.data.filters && params.data.filters.length) {
-            // lets just handle one filter for testing
-            // eslint-disable-next-line
-            console.warn('only the first filter is going to be used!');
-            const f = params.data.filters[0];
-            const exclusions = [null, '', undefined];
-            if (exclusions.indexOf(f.value === -1)) {
-                switch (f.operator) {
-                case 'equals':
-                    tempData = tempData.filter((d) => {
-                    // eslint-disable-next-line
-                    return d[f.name] == f.value;
-                    });
-                    break;
-                default:
-                    if (f.operator !== 'like') {
-                        // eslint-disable-next-line
-                        console.warn(f.operator, 'operator not implemented in fixture, like will be used instead!');
+        if (data.filter) {
+            const filters = Object.keys(data.filter);
+            tempData = tempData.filter((d) => {
+                for (const filter of filters) {
+                    if (filter === '$or') {
+                        // NOT IMPLEMENTED
+                        console.warn('fixtures: $or is not yet implemented');
+                        return true;
                     }
-                    if (typeof f.value !== 'string') {
-                        // eslint-disable-next-line
-                        console.warn('ignoring filter on non-string value');
-                    } else {
-                        tempData = tempData.filter((d) => {
-                            return d[f.name].toUpperCase().indexOf(f.value.toUpperCase()) !== -1;
-                        });
+                    const searchValue = data.filter[filter].toUpperCase();
+                    const dataValue = (String(d[filter])).toUpperCase();
+                    if (dataValue.indexOf(searchValue) < 0) {
+                        return false;
                     }
                 }
-                // eslint-disable-next-line
-                console.warn('found ' + tempData.length + ' items after filtering');
-                totalItems = tempData.length;
-            }
+                return true;
+            });
+            // eslint-disable-next-line
+                console.warn('fixtures: found ' + tempData.length + ' items after filtering');
+            totalItems = tempData.length;
         }
 
 
@@ -61,7 +49,7 @@ fixture({
         }
 
         // pageinate it
-        tempData = tempData.slice(page * perPage, (page + 1) * perPage);
+        tempData = tempData.slice(start, end);
 
         // return the serialized version
         return {
@@ -74,11 +62,11 @@ fixture({
         const newObj = Object.assign({
             id: newId
         }, params.data);
-        data.push(newObj);
-        response(data[data.length - 1]);
+        jsonData.push(newObj);
+        response(jsonData[jsonData.length - 1]);
     },
     'GET /tasks/{id}' (params, response) {
-        const items = data.filter((item) => {
+        const items = jsonData.filter((item) => {
             // eslint-disable-next-line eqeqeq
             return item.id == params.data.id;
         });
@@ -89,7 +77,7 @@ fixture({
         return items[0];
     },
     'PUT /tasks/{id}' (params, response) {
-        let item = data.filter((i) => {
+        let item = jsonData.filter((i) => {
             // eslint-disable-next-line eqeqeq
             return i.id == params.data.id;
         });
@@ -98,16 +86,16 @@ fixture({
             return;
         }
         item = item[0];
-        const idx = data.indexOf(item);
+        const idx = jsonData.indexOf(item);
         if (idx !== -1) {
-            data[idx] = Object.assign(item, params.data);
-            response(data);
+            jsonData[idx] = Object.assign(item, params.data);
+            response(jsonData);
         } else {
             response(404, 'Not Found');
         }
     },
     'DELETE /tasks/{id}' (params, response) {
-        let item = data.filter((i) => {
+        let item = jsonData.filter((i) => {
             // eslint-disable-next-line eqeqeq
             return i.id == params.data.id;
         });
@@ -116,10 +104,10 @@ fixture({
             return;
         }
         item = item[0];
-        const idx = data.indexOf(item);
+        const idx = jsonData.indexOf(item);
         if (idx !== -1) {
-            data.splice(data.indexOf(item), 1);
-            response(data);
+            jsonData.splice(jsonData.indexOf(item), 1);
+            response(jsonData);
         } else {
             response(404, 'Not Found');
         }

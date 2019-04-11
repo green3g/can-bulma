@@ -1,7 +1,8 @@
+{{let filters = params.filter}}
 <div class="dropdown {{#if(active)}}is-active{{/if}}">
   <div class="dropdown-trigger">
     <button class="button" aria-haspopup="true" aria-controls="dropdown-menu" on:click="active = not(active)">
-      <span class="{{#if(params[field.name])}}has-text-weight-bold{{/if}}" title="{{params[field.name]}}">
+      <span class="{{#if(filters[field.name])}}has-text-weight-bold{{/if}}" title="{{filters[field.name]}}">
       {{field.label}}
       </span>
       <span class="icon is-small">
@@ -13,7 +14,7 @@
     <div class="dropdown-content">
       {{#for(option of field.options)}}
       <a class="dropdown-item" on:click="setFilter(option.value, scope.event)">
-        {{#is(params[field.name], option.value)}}<i class="float-left fas fa-check"></i>{{/is}} 
+        {{#is(filters[field.name], option.value)}}<i class="float-left fas fa-check"></i>{{/is}} 
         {{#if(option.label)}}{{option.label}}{{else}}{{option.value}}{{/if}}
       </a>
       {{/for}}
