@@ -1,7 +1,7 @@
-import 'can-bulma/sp-alert-container/sp-alert-container';
-import 'can-bulma/sp-alert/sp-alert';
-import 'can-bulma/sp-form/fields/sp-text-field/sp-text-field';
-import 'can-bulma/sp-form/fields/sp-select-field/sp-select-field';
+import '../sp-alert-container';
+import '../../sp-alert/sp-alert';
+import '../../sp-form/fields/sp-text-field/sp-text-field';
+import '../../sp-form/fields/sp-select-field/sp-select-field';
 import DefineMap from 'can-define/map/map';
 import view from './alert.stache';
 import Component from 'can-component';

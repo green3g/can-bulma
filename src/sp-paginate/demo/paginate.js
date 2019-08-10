@@ -1,4 +1,4 @@
-import 'can-bulma/sp-paginate/sp-paginate';
+import '../sp-paginate';
 import Component from 'can-component';
 
 const view =    `

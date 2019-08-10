@@ -1,13 +1,13 @@
 
-
+<p>Add filters to see their JSON representation here:</p>
 {{#if(filters.length)}}
-<h2 class="title is-h2">Current filters: </h2>
+<p>Current filters: </p>
 <div class="json">{{{stringify(filters)}}}</div>
+{{else}}
+<p>No filters yet! Add a filter to see demo.</p>
+{{/if}}
 <br />
 <hr />
-{{else}}
-<p>Choose a field to add a filter:</p>
-{{/if}}
 
 <sp-filter-builder fields:from="fields" filters:to="filters" />
 

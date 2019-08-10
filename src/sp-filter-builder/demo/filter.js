@@ -1,7 +1,7 @@
-import 'can-bulma/sp-filter-builder/sp-filter-builder';
+import '../sp-filter-builder';
 import jsonMarkup from 'json-pretty-html';
 import '../../sp-form/demo/full/full.less';
-import 'can-bulma/sp-form/fields/sp-check-field/sp-check-field';
+import '../../sp-form/fields/sp-check-field/sp-check-field';
 import view from './filter.stache';
 import Component from 'can-component';
 import './filter.less';

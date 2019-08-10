@@ -1,9 +1,9 @@
-import 'can-bulma/sp-form/sp-form';
-import 'can-bulma/sp-form/fields/sp-text-field/';
-import 'can-bulma/sp-form/fields/sp-select-field/';
-import 'can-bulma/sp-form/fields/sp-subform-field/';
-import 'can-bulma/sp-form/fields/sp-check-field/';
-import 'can-bulma/sp-form/fields/sp-multi-check-field/';
+import '../../sp-form';
+import '../../fields/sp-text-field/';
+import '../../fields/sp-select-field/';
+import '../../fields/sp-subform-field/';
+import '../../fields/sp-check-field/';
+import '../../fields/sp-multi-check-field/';
 import Component from 'can-component';
 // TODO implement file field
 // import 'specre-canjs/sp-form/fields/sp-file-field/sp-file-field';
@@ -12,8 +12,8 @@ import jsonMarkup from 'json-pretty-html';
 import './full.less';
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.css';
-import DefineMap from 'can-define/map/';
-import DefineList from 'can-define/list/';
+import DefineMap from 'can-define/map/map';
+import DefineList from 'can-define/list/list';
 
 // mock a server
 import './fixtures.js';

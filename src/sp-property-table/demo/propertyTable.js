@@ -1,4 +1,4 @@
-import 'can-bulma/sp-property-table/sp-property-table';
+import '../sp-property-table';
 import nameTemplate from './templates/name.stache';
 import date from './templates/date.stache';
 import food from './templates/food.stache';

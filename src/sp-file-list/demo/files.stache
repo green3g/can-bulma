@@ -1,1 +1,11 @@
+<h2 class="title is-h2">File upload demo</h2>
+<p>This demo shows how to use the 
+    <code>sp-file-list</code> component. 
+    Files are not actually uploaded or 
+    stored anywhere. Files are randomly given 
+    an upload speed and error for demonstration 
+    purposes.</p>
+
+<hr />
+
 <sp-file-list on:add="simulateUpload(scope.arguments)" />

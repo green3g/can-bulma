@@ -1,10 +1,16 @@
 
 <h3 class="title is-h3">Alert Demo</h3>
-<sp-alert-container id="sp-alert-container"></sp-alert-container>
 
-<sp-text-field label:raw="Detail" value:bind="body" />
-<sp-text-field label:raw="Timeout" value:bind="autoHide" />
+<div class="alerts-container">
+  <sp-alert-container id="sp-alert-container"></sp-alert-container>
+</div>
+
+<sp-text-field label:raw="Detail Text" value:bind="body" />
+<sp-text-field label:raw="Timeout (miliseconds)" value:bind="autoHide" />
 <sp-select-field label:raw="Severity" value:bind="severity" options:from="severityOptions" />
 <sp-select-field label:raw="Dismissable" value:bind="dismissable" options:from="dismissOptions" />
-<button class="button is-success" on:click="add(.)">
-  <span class="icon is-small"><i class="fas fa-arrow-circle-right"></i></span><span>Add</span></button>
+
+<hr />
+
+<p><button class="button is-success" on:click="add(.)">
+  <span class="icon is-small"><i class="fas fa-arrow-circle-right"></i></span><span>Add</span></button></p>

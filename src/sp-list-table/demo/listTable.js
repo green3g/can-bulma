@@ -1,4 +1,4 @@
-import 'can-bulma/sp-list-table/sp-list-table';
+import '../sp-list-table';
 import stache from 'can-stache';
 import DefineList from 'can-define/list/list';
 import actionTemplate from './templates/actionCell.stache';

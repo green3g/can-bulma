@@ -1,5 +1,5 @@
-import 'can-bulma/sp-tab-container/sp-tab-container';
-import 'can-bulma/sp-tab-page/sp-tab-page';
+import '../sp-tab-container';
+import '../../sp-tab-page/sp-tab-page';
 import ajax from 'axios';
 import view from './demo.stache';
 

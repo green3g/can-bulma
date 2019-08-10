@@ -3,13 +3,14 @@ import DefineMap from 'can-define/map/map';
 import DefineList from 'can-define/list/list';
 import view from './basic.stache';
 import Component from 'can-component';
-import 'can-bulma/sp-form/sp-form';
-import 'can-bulma/sp-form/fields/sp-text-field/';
-import 'can-bulma/sp-list-table/sp-list-table';
+import '../../sp-form';
+import '../../fields/sp-text-field/';
+import '../../../sp-list-table/sp-list-table';
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import date from './templates/date.stache';
 import debug from 'can-debug'
+import confirm from '../../../sp-confirm/util/confirm';
 debug();
 
 // validator function
@@ -32,10 +33,11 @@ const Task = DefineMap.extend('Task', {
     },
     dateCompleted: {
         onInsert (element) {
-            flatpickr(element, {
+            this.calendar = flatpickr(element, {
                 defaultDate: new Date,
                 enableTime: true,
             });
+            this.value = this.calendar.selectedDates[0];
         },
         label: 'Date Completed',
         validate: required,
@@ -77,7 +79,7 @@ export default Component.extend({
         },
         persist () {
             localStorage.tasks = JSON.stringify(this.tasks.serialize());
-            alert('Tasks Saved!');
+            confirm('Tasks Saved!')
         },
         clear () {
             this.tasks.replace([]);

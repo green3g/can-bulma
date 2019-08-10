@@ -1,4 +1,4 @@
-import 'can-bulma/sp-dropdown/sp-dropdown';
+import '../sp-dropdown';
 import view from './dropdown.stache';
 import Component from 'can-component';
 import './dropdown.less';
