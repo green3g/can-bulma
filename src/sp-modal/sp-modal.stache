@@ -1,0 +1,34 @@
+<div class="modal {{#if(active)}}is-active{{/if}}">
+    {{#if(backdrop)}}
+    <div class="modal-background"></div>
+    {{/if}}
+
+  {{#if(custom)}}
+  <div class="modal-content">
+      <content />
+  </div>
+
+  {{else}}
+  
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">{{title}}</p>
+      <button class="delete" aria-label="close" on:click="active = false"></button>
+    </header>
+    <section class="modal-card-body">
+        <content></content>
+    </section>
+    <footer class="modal-card-foot">
+        {{#for(action of actions)}}
+            <button class="{{action.buttonClass}} {{#if(action.iconClass)}}has-icon{{/if}}" on:click="action.onclick(scope.event, scope.vm)">
+                {{#if(action.iconClass)}}<span class="icon is-small"><i class="{{action.iconClass}}"></i></span>{{/if}}
+                <span>{{action.label}}</span>
+            </button>
+        {{/for}}
+    </footer>
+  </div>
+
+  {{/if}}
+
+  <button class="modal-close is-large" aria-label="close" on:click="active = false"></button>
+</div>

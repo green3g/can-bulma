@@ -1,0 +1,23 @@
+{{let filters = params.filter}}
+<div class="dropdown {{#if(active)}}is-active{{/if}}">
+  <div class="dropdown-trigger">
+    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu" on:click="active = not(active)">
+      <span class="{{#if(filters[field.name])}}has-text-weight-bold{{/if}}" title="{{filters[field.name]}}">
+      {{field.label}}
+      </span>
+      <span class="icon is-small">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+  </div>
+  <div class="dropdown-menu" id="dropdown-menu" role="menu">
+    <div class="dropdown-content">
+      {{#for(option of field.options)}}
+      <a class="dropdown-item" on:click="setFilter(option.value, scope.event)">
+        {{#is(filters[field.name], option.value)}}<i class="float-left fas fa-check"></i>{{/is}} 
+        {{#if(option.label)}}{{option.label}}{{else}}{{option.value}}{{/if}}
+      </a>
+      {{/for}}
+    </div>
+  </div>
+</div>

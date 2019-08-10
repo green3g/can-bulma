@@ -1,0 +1,36 @@
+<nav class="pagination" role="navigation" aria-label="pagination">
+  {{#if(compact)}}
+  <a class="pagination-previous" 
+    aria-label="Goto previous" 
+    on:click="gotoPrevious()"
+    {{#unless(hasPrevious}}disabled{{/unless}}><i class="fas fa-angle-double-left"></i></a>
+  <a class="pagination-next" 
+    aria-label="Goto next" 
+    on:click="gotoNext()"
+    {{#unless(hasNext}}disabled{{/unless}}><i class="fas fa-angle-double-right"></i></a>
+  {{else}}
+  <ul class="pagination-list">
+    <li>
+      <a class="pagination-link {{#if(isActive(firstPage)}}is-current{{/if}}" aria-label="Goto page {{firstPage}}" on:click="gotoFirst()">{{firstPage}}</a>
+    </li>
+    {{#if(hasFirstMore)}}
+    <li>
+      <span class="pagination-ellipsis">&hellip;</span>
+    </li>
+    {{/if}}
+    {{#for(page of innerPages)}}
+    <li>
+      <a class="pagination-link {{#if(isActive(page)}}is-current{{/if}}" aria-label="Goto page {{page}}" on:click="gotoPage(page)">{{page}}</a>
+    </li>
+    {{/for}}
+    {{#if(hasLastMore)}}
+    <li>
+      <span class="pagination-ellipsis">&hellip;</span>
+    </li>
+    {{/if}}
+    <li>
+      <a class="pagination-link {{#if(isActive(lastPage)}}is-current{{/if}}" aria-label="Goto page {{lastPage}}" on:click="gotoLast()">{{lastPage}}</a>
+    </li>
+  </ul>
+  {{/if}}
+</nav>
