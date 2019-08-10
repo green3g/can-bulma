@@ -58,6 +58,7 @@ export default {
             });
 
             // TODO implement feedback
+            // eslint-disable-next-line
             console.info('edit: Item saved');
             // swal({
             //     toast: true,
@@ -71,6 +72,7 @@ export default {
         }).catch((e) => {
             if (typeof e.message === 'string') {
                 // TODO implement feedback
+                // eslint-disable-next-line
                 console.warn('edit: Item error', e);
                 // swal({
                 //     type: 'error',
@@ -104,6 +106,7 @@ export default {
 
             this.isDeleting.then(() => {
                 // TODO implement feedback
+                // eslint-disable-next-line
                 console.info('edit: Item deleted');
                 // swal({
                 //     toast: true,
@@ -113,7 +116,7 @@ export default {
                 // });
             }).catch((e) => {
                 // TODO implement feedback
-
+                // eslint-disable-next-line
                 console.warn('edit: Item error', e);
                 // swal({
                 //     toast: true,

@@ -1,6 +1,6 @@
 import ViewModel from './ViewModel';
 import DefineMap from 'can-define/map/map';
-import {Connection} from '../test/data/connection';
+import Connection from '../test/data/connection';
 
 let vm;
 const objects = [{
@@ -33,7 +33,7 @@ test('_allSelected get()', () => {
     vm.objects.forEach((o) => {
         vm.toggleSelected(o);
     });
-    expect(vm._allSelected).toBeTruthy();
+    expect(vm.allSelected).toBeTruthy();
 });
 
 test('fields get()', () => {
@@ -83,12 +83,12 @@ test('toggleSelected(obj), isSelected(obj)', () => {
     expect(vm.isSelected(vm.objects[0])).toBeFalsy();
 });
 
-test('toggleSelectAll(), _allSelected', () => {
-    vm.toggleSelectAll();
+test('toggleSelectAll(), allSelected', () => {
+    vm.toggleSelectAll(true);
     vm.objects.forEach((obj) => {
         expect(vm.isSelected(obj)).toBeTruthy();
     });
-    expect(vm._allSelected).toBeTruthy();
+    expect(vm.allSelected).toBeTruthy();
 
     vm.toggleSelectAll();
     vm.objects.forEach((obj) => {

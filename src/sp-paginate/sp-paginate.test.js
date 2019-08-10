@@ -32,13 +32,13 @@ test('innerPages get()', () => {
     });
     const tests = [{
         index: 0,
-        expected: [2, 3]
+        expected: [2, 3, 4]
     }, {
         index: 5,
         expected: [3, 4, 5, 6, 7, 8, 9]
     }, {
         index: 9,
-        expected: [7, 8, 9, 10]
+        expected: [7, 8, 9]
     }];
 
     tests.forEach((test) => {

@@ -1,6 +1,5 @@
 import ViewModel from './ViewModel';
-
-import {Connection} from '../test/data/connection';
+import Connection from '../test/data/connection';
 
 let vm;
 

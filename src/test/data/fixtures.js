@@ -8,13 +8,15 @@ let index = 1000;
 fixture.delay = 200;
 fixture({
     'GET /tasks' ({data}) {
+        const page = data.page || {start: 0, end: 10};
         // eslint-disable-next-line
         console.log('fixtures: Query REST Params: ',data);
-        const start = parseInt(data.page.start, 10) || 0;
-        const end = parseInt(data.page.end, 10) || 10;
+        const start = parseInt(page.start, 10) || 0;
+        const end = parseInt(page.end, 10) || 10;
         const sortInfo = data.sort;
-        let totalItems = length;
         let tempData = new DefineList(jsonData);
+
+        let total = jsonData.length;
 
         // filter it
         if (data.filter) {
@@ -23,6 +25,7 @@ fixture({
                 for (const filter of filters) {
                     if (filter === '$or') {
                         // NOT IMPLEMENTED
+                        // eslint-disable-next-line
                         console.warn('fixtures: $or is not yet implemented');
                         return true;
                     }
@@ -34,9 +37,9 @@ fixture({
                 }
                 return true;
             });
+            total = tempData.length;
             // eslint-disable-next-line
                 console.warn('fixtures: found ' + tempData.length + ' items after filtering');
-            totalItems = tempData.length;
         }
 
 
@@ -54,7 +57,7 @@ fixture({
         // return the serialized version
         return {
             data: tempData.serialize(),
-            total: totalItems
+            total
         };
     },
     'POST /tasks' (params, response) {

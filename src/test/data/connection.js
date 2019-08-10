@@ -1,6 +1,7 @@
 import DefineMap from 'can-define/map/map';
 import DefineList from 'can-define/list/list';
-import restModel from 'can-rest-model';
+import restModel from '../../sp-admin/util/behaviors/base';
+import totalResourceCount from '../../sp-admin/util/behaviors/totalResourceCount';
 
 // import fake ajax services
 import './fixtures';
@@ -17,12 +18,11 @@ export const TaskList = DefineList.extend({
 
 TaskMap.List = TaskList;
 
-const C = restModel({
+export const Connection = restModel({
     name: 'Task',
     Map: TaskMap,
-    url: '/tasks'
+    url: '/tasks',
+    behaviors: [totalResourceCount]
 });
 
-C.metadata = {};
-
-export const Connection = C;
+export default Connection;

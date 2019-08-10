@@ -4,9 +4,17 @@ import Component from 'can-component';
 import view from './demo.stache';
 import '../../sp-admin/sp-admin';
 import editButton from './editButton.stache';
+import detailsButton from './detailsButton.stache';
 
 const ExtendedTaskmap = TaskMap.extend({
+    details: {
+        details: false,
+        edit: false,
+        serialize: false,
+        displayComponent: detailsButton
+    },
     edit: {
+        details: false,
         edit: false,
         serialize: false,
         displayComponent: editButton

@@ -57,18 +57,16 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
      * @type {Number} 
      */
     objectId: {
-        type: 'number',
-        set: function (id) {
-            this.promise = this.fetchObject(this.connection, id);
-            return id;
-        }
+        type: 'number'
     },
     /**
      * The pending promise if the object is being retrieved or null
      * @type {Promise}  
      */
     promise: {
-        default: null
+        get () {
+            return this.fetchObject(this.connection, this.objectId);
+        }
     },
     /**
      * An object representing the current state of the values passed to the form.
@@ -172,7 +170,7 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
      */
     fetchObject (con, id) {
         if (!con || !id) {
-            return null;
+            return Promise.reject('No id or connection passed');
         }
         var promise = con.get({
             id: id

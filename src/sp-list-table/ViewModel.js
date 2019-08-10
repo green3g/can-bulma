@@ -76,15 +76,7 @@ export default FieldIteratorMap.extend('ListTable', {seal: false}, {
      * @type {Array<Number>} 
      */
     selectedIds: {
-        get () {
-            const idProp = this.idProp;
-            return new DefineMap(
-                this.objects.reduce((data, obj) => { 
-                    data[obj[idProp]] = false; 
-                    return data;
-                }, {})
-            );
-        }
+        Default: DefineMap
     },
     /**
      * A helper prop for getting selected objects
@@ -189,7 +181,8 @@ export default FieldIteratorMap.extend('ListTable', {seal: false}, {
      * @return {Boolean}     Whether or not it is selected
      */
     isSelected (obj) {
-        return this.selectedIds[obj[this.idProp]] || false;
+        const id = obj[this.idProp];
+        return this.selectedIds[id] || false;
     },
     /**
      * A function that sorts the list. It is called with the scope of the
