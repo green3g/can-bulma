@@ -12,11 +12,6 @@ stealTools.export({
         '+cjs': {
             ignore: false
         },
-        '+global-js': {
-            modules: ['can-bulma/index'],
-            ignore: false
-        },
-        '+global-css': {}
     }
 }).catch(function (e) {
 
