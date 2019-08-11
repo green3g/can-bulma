@@ -170,46 +170,6 @@
               
                 
                 <li><a
-                  href='#utilfieldbasefielditeratormap'
-                  class=" toggle-sibling">
-                  util/field/base/FieldIteratorMap
-                  <span class='icon'>▸</span>
-                </a>
-                
-                <div class='toggle-target display-none'>
-                  
-                  
-                    <ul class='list-reset py1-ul pl1'>
-                      <li class='h5'><span>Instance members</span></li>
-                      
-                      <li><a
-                        href='#utilfieldbasefielditeratormapexcludefieldkey'
-                        class='regular pre-open'>
-                        #excludeFieldKey
-                      </a></li>
-                      
-                      <li><a
-                        href='#utilfieldbasefielditeratormapfields'
-                        class='regular pre-open'>
-                        #fields
-                      </a></li>
-                      
-                      <li><a
-                        href='#utilfieldbasefielditeratormapfieldsmap'
-                        class='regular pre-open'>
-                        #fieldsMap
-                      </a></li>
-                      
-                    </ul>
-                  
-                  
-                  
-                </div>
-                
-                </li>
-              
-                
-                <li><a
                   href='#sp-formfieldssp-text-field'
                   class="">
                   sp-form/fields/sp-text-field
@@ -1358,6 +1318,46 @@
                         href='#sp-filter-builderviewmodeladdfilter'
                         class='regular pre-open'>
                         #addFilter
+                      </a></li>
+                      
+                    </ul>
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#utilfieldbasefielditeratormap'
+                  class=" toggle-sibling">
+                  util/field/base/FieldIteratorMap
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  
+                    <ul class='list-reset py1-ul pl1'>
+                      <li class='h5'><span>Instance members</span></li>
+                      
+                      <li><a
+                        href='#utilfieldbasefielditeratormapexcludefieldkey'
+                        class='regular pre-open'>
+                        #excludeFieldKey
+                      </a></li>
+                      
+                      <li><a
+                        href='#utilfieldbasefielditeratormapfields'
+                        class='regular pre-open'>
+                        #fields
+                      </a></li>
+                      
+                      <li><a
+                        href='#utilfieldbasefielditeratormapfieldsmap'
+                        class='regular pre-open'>
+                        #fieldsMap
                       </a></li>
                       
                     </ul>
@@ -3289,224 +3289,6 @@ If the validation succeeds (returns no validation error) then a fieldchange even
 
       
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-      </div>
-    </div>
-  
-</div>
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='utilfieldbasefielditeratormap'>
-      util/field/base/FieldIteratorMap
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>A base class for widgets that need to iterate through a set or subset
-of fields.
-ViewModels inheriting this map should define a excludeFieldKey which
-is a field property that will exclude those fields from this class. For
-instance, if we are designing an edit widget, an appropriate way to exclude
-fields from the widget would be to use the key <code>edit: false</code> and set
-<code>excludeFieldKey: 'edit'</code> in this class.</p>
-
-    <div class='pre p1 fill-light mt0'>util/field/base/FieldIteratorMap</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
-    <div class="clearfix">
-  
-    <div class='border-bottom' id='utilfieldbasefielditeratormapexcludefieldkey'>
-      <div class="clearfix small pointer toggle-sibling">
-        <div class="py1 contain">
-            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>excludeFieldKey</span>
-        </div>
-      </div>
-      <div class="clearfix display-none toggle-target">
-        <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-
-  <p>A string referencing a field property that will exclude that field
-from this classes fields.</p>
-
-    <div class='pre p1 fill-light mt0'>excludeFieldKey</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-      </div>
-    </div>
-  
-    <div class='border-bottom' id='utilfieldbasefielditeratormapfields'>
-      <div class="clearfix small pointer toggle-sibling">
-        <div class="py1 contain">
-            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>fields</span>
-        </div>
-      </div>
-      <div class="clearfix display-none toggle-target">
-        <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-
-  <p>A getter for an array of fields</p>
-
-    <div class='pre p1 fill-light mt0'>fields</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="#field">Field</a>>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-      </div>
-    </div>
-  
-    <div class='border-bottom' id='utilfieldbasefielditeratormapfieldsmap'>
-      <div class="clearfix small pointer toggle-sibling">
-        <div class="py1 contain">
-            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>fieldsMap</span>
-        </div>
-      </div>
-      <div class="clearfix display-none toggle-target">
-        <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-
-  <p>This object's fields mapped to key:value pairs. The key will be
-set to the field name, and the object will be the field.</p>
-
-    <div class='pre p1 fill-light mt0'>fieldsMap</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
   
 
   
@@ -11466,6 +11248,224 @@ filters.</p>
 
       
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='utilfieldbasefielditeratormap'>
+      util/field/base/FieldIteratorMap
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>A base class for widgets that need to iterate through a set or subset
+of fields.
+ViewModels inheriting this map should define a excludeFieldKey which
+is a field property that will exclude those fields from this class. For
+instance, if we are designing an edit widget, an appropriate way to exclude
+fields from the widget would be to use the key <code>edit: false</code> and set
+<code>excludeFieldKey: 'edit'</code> in this class.</p>
+
+    <div class='pre p1 fill-light mt0'>util/field/base/FieldIteratorMap</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='utilfieldbasefielditeratormapexcludefieldkey'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>excludeFieldKey</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>A string referencing a field property that will exclude that field
+from this classes fields.</p>
+
+    <div class='pre p1 fill-light mt0'>excludeFieldKey</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='utilfieldbasefielditeratormapfields'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>fields</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>A getter for an array of fields</p>
+
+    <div class='pre p1 fill-light mt0'>fields</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="#field">Field</a>>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='utilfieldbasefielditeratormapfieldsmap'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>fieldsMap</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>This object's fields mapped to key:value pairs. The key will be
+set to the field name, and the object will be the field.</p>
+
+    <div class='pre p1 fill-light mt0'>fieldsMap</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
   
 
   
