@@ -1,6 +1,5 @@
 import DefineList from 'can-define/list/list';
 import debounce from '../util/debounce';
-import swal from 'sweetalert2';
 import Params from '../util/Params';
 
 export default {
@@ -52,13 +51,13 @@ export default {
                     console.log(err);
                 }
                 if (err.message) {
-                    swal({
-                        type: 'error',
-                        toast: true,
-                        timer: 5000,
-                        title: 'Error',
-                        text: err.message
-                    });
+                    // swal({
+                    //     type: 'error',
+                    //     toast: true,
+                    //     timer: 5000,
+                    //     title: 'Error',
+                    //     text: err.message
+                    // });
                 }
             });
 
