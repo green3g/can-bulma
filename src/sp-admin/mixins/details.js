@@ -1,5 +1,13 @@
 import debounce from '../util/debounce';
-// a details page view mixin
+
+/**
+ * 
+ * @module sp-admin/mixins/details
+ * A single page display for a detailed view of an item
+ * Model methods utilized:
+ *  - `get(id)` - returns one object
+ *  - `id(obj)` - returns the id of an object
+ */
 export default {
     detailsId: {},
     getItem: {},

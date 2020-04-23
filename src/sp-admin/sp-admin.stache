@@ -79,6 +79,7 @@
         on:details="showDetailsFromEvent(scope.arguments)"
         on:sort="setSort(scope.arguments)"
         sort:from="noop"
+        idProp:from="model.idField"
         selectedObjects:to="selected"></sp-list-table>
     </can-slot>
     {{else}}
@@ -115,7 +116,7 @@
 
 
 
-<sp-modal title:from="'{{#if(editObject.isNew()}}Add New{{else}}Edit{{/if}} {{title}}'" active:bind="editActive">
+<sp-modal title:from="'{{#unless(editObject[idProp]}}Add New{{else}}Edit{{/if}} {{title}}'" active:bind="editActive">
     {{#if(error)}}<sp-alert body:from="error" severity="error"></sp-alert>{{/if}}
     {{#if(editObject)}}
     <can-slot this:from="this" name="edit">

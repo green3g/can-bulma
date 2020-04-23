@@ -1,6 +1,15 @@
 // an editing mixin for the admin component
 import confirm from '../../sp-confirm/util/confirm';
 
+/**
+ * @module sp-admin/mixins/edit
+ * An editing mixin to provide creating, deleting, and editing of objects
+ * Uses model properties:
+ *  - `ObjectType` - A constructor for creating new objects
+ *  - `save(object)` - Save an updated object
+ *  - `destroy(object)` - Destroy/delete an object
+ * 
+ */
 export default {
     // internal
     editActive: {
@@ -12,12 +21,12 @@ export default {
     editId: {type: 'number'},
     editPromise: '*',
     isSaving: {},
-    editObject: '*',
+    editObject: {},
     isDeleting: {},
     addNew () {
         this.assign({
             editActive: true,
-            editObject: new this.model.Map()
+            editObject: new this.model.ObjectType()
         });
     },
     showEdit (object) {
@@ -47,7 +56,7 @@ export default {
     },
     save (object) {
         this.error = null;
-        return object.save().then((result) => {
+        return this.model.save(object).then((result) => {
             this.assign({
                 editObject: null,
                 saveCount: this.saveCount + 1,
@@ -57,9 +66,12 @@ export default {
                 editId: null
             });
 
+            if (process.env.NODE_ENV !== 'production') {
             // TODO implement feedback
             // eslint-disable-next-line
             console.info('edit: Item saved');
+                
+            }
             // swal({
             //     toast: true,
             //     timer: 2000,
@@ -94,7 +106,7 @@ export default {
             }
             const pending = [];
             selected.forEach((item) => {
-                pending.push(item.destroy());
+                pending.push(this.model.destroy(item));
             });
 
             if (selected.replace) {
