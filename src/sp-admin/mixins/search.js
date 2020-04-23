@@ -1,4 +1,4 @@
-import DefineMap from 'can-define/map/map';
+import DefineList from 'can-define/list/list';
 
 // search functionality for the admin component
 export default {
@@ -31,17 +31,24 @@ export default {
 
     // logic to add and restore search props
     search ([searchVal]) {
-        let filters = this.params.filter.$or ? this.params.filter.$or.get() : {};
+        let filters = this.params.filter.$or ? this.params.filter.$or.get() : [];
         if (searchVal) {
             if (!this._originalFilters) {
-                this._originalFilters = new DefineMap(filters);
+                this._originalFilters = new DefineList(filters);
             }
-            this.searchFields.forEach((field) => {
-                filters[field] = searchVal; 
+            filters = this.searchFields.map((field) => {
+                return {[field]: searchVal}; 
             });
         } else {
-            filters = this._originalFilters ? this._originalFilters.get() : {};
+            filters = this._originalFilters && this._originalFilters.length 
+                ? this._originalFilters.get() 
+                : null;
         }
-        this.params.filter.assign({$or: filters});
+
+        if (filters) {
+            this.params.filter.assign({$or: filters});
+        } else {
+            this.params.filter.assign({$or: undefined});
+        }
     }
 };
