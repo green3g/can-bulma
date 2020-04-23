@@ -1,12 +1,12 @@
-import FieldIteratorMap from '../util/field/base/FieldIteratorMap';
-import DefineMap from 'can-define/map/map';
 import DefineList from 'can-define/list/list';
+import DefineMap from 'can-define/map/map';
+import FieldIteratorMap from '../util/field/base/FieldIteratorMap';
 
 /**
  * A `<sp-list-table />` component's ViewModel.
  * 
- * @module sp-list-table/ViewModel
- * @extends util/field/base/FieldIteratorMap
+ * @class sp-list-table/ViewModel
+ * @see util/field/base/FieldIteratorMap
  */
 export default FieldIteratorMap.extend('ListTable', {seal: false}, {
     /** @lends sp-list-table/ViewModel.prototype */
@@ -160,9 +160,12 @@ export default FieldIteratorMap.extend('ListTable', {seal: false}, {
     },
     /**
      * Selects or unselects all of the objects in the table
-     * @param {Boolean} selected Whether or not to select all
+     * @param {any[]} args Array of event arguments
      */
-    toggleSelectAll (selected) {
+    toggleSelectAll (args) {
+
+        const checkbox = args[0];
+        const selected = checkbox.value;
 
         const updates = {};
         for (let i = 0; i < this.objects.length; i ++) {

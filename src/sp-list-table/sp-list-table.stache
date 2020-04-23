@@ -4,7 +4,7 @@
       <tr>
         {{#if(selectable)}}
         <th class="checkbox-heading">
-          <sp-check-field value:from="allSelected" on:fieldchange="toggleSelectAll(scope.event)"  />
+          <sp-check-field value:from="allSelected" on:fieldchange="toggleSelectAll(scope.arguments)"  />
         </th>
         {{/if}} 
         {{#for(field of fields)}}
@@ -25,7 +25,7 @@
       <tr {{domData('object', object)}} class="{{#if(isSelected(object))}}selected {{/if}}row-{{object[idProp]}}">
         {{#if(selectable)}}
         <td class="checkbox-cell">
-          <sp-check-field value:from="isSelected(object)" on:fieldchange="toggleSelected(object)" />
+          <sp-check-field value:bind="selectedIds[object[idProp]]" />
         </td>
         {{/if}} 
         {{#for(field of fields)}}
