@@ -18,10 +18,13 @@
             </div>
         </div>
         {{/if}}
-        {{#if(showPaginate)}}
-        <sp-paginate vm:activePageIndex:bind="pageIndex" vm:pages:from="totalPages"></sp-paginate>
-        {{/if}}
     </div>
+    
+    {{#if(showPaginate)}}
+    <div class="column">
+        <sp-paginate vm:activePageIndex:bind="pageIndex" vm:pages:from="totalPages"></sp-paginate>
+    </div>
+    {{/if}}
 
     <div class="column">
         {{#if(total)}}
