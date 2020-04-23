@@ -76,7 +76,7 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
      * @type {DefineMap} 
      */
     object: {
-        Type: DefineMap,
+        // Type: DefineMap,
         set (obj) {
             if (!obj) {
                 return obj;
@@ -102,7 +102,7 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
      * An object set with current form values
      * @type {DefineMap} 
      */
-    dirtyObject: DefineMap,
+    dirtyObject: {},
     /**
      * An object consisting of validation error strings
      * @example
@@ -210,7 +210,7 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
         }
 
         if (this.trackChanges) {
-            this.object.assign(this.dirtyObject);
+            this.object.assign(this.dirtyObject.get());
         }
         this.dispatch('submit', [this.object]);
         return false;
