@@ -2,11 +2,28 @@ import DefineList from 'can-define/list/list';
 import debounce from '../util/debounce';
 import Params from '../util/Params';
 
+/**
+ * @module sp-admin/mixins/list
+ * A list view mixin for sp-admin components
+ * Uses the following model properties:
+ *  - `name` - The name of the model ie `${name} List`, 
+ *  - `idField` - The ID field for the model
+ *  - `getList(params)` - A function returning a promise with an array of objects
+ */
 export default {
     // required!
     model: '*',
 
-    getList: {},
+    getList: {
+        get () {
+            if (process.env.NODE_ENV !== 'production') {
+                // eslint-disable-next-line
+                console.log('list: creating getList');
+            }
+            
+            return debounce(this.model, this.model.getList, 200);
+        }
+    },
 
     // options
     title: {
@@ -32,9 +49,6 @@ export default {
             this.get('requestCount');
             if (!this.model) {
                 return Promise.reject(new Error('No model was found'));
-            }
-            if (!this.getList) {
-                this.getList = debounce(this.model, this.model.getList, 200);
             }
             return this.getList(this.params ? this.params.serialize() : {});
         }
